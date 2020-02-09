@@ -1,0 +1,37 @@
+# Header
+menu:
+  About: /about
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: left
+widgets:
+- profile-box
+- recent_posts
+- category
+- archive
+- tag
+- search
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'yearly'
+show_count: false
+
+# Miscellaneous
+google_analytics:
+gauges_analytics:
+favicon: /images/favicon.ico
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

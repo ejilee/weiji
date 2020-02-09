@@ -1,0 +1,75 @@
+#profile-box
+  width: 100%
+  text-align: center
+  color: #333
+
+  .photo-box
+    width: 100%
+    height: 200px
+    max-width: 300px
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFF
+    overflow: hidden
+
+    #profile-image
+      width: auto
+      height: 150%
+      transform-origin: 50% 50%
+      transition: transform 300ms ease-in-out
+
+      &:hover
+        transform: scale(0.96)
+
+  #titleAnchor
+    text-decoration: none
+
+    #site-title
+      margin: 16px auto
+      font-size: 1.4em
+      font-weight: 400
+      color: #222
+
+      span.txtKr
+        font-family: 'Noto Serif KR', serif
+
+      span.txtEn
+        font-family: 'Roboto Slab', serif
+
+      &:hover
+          animation: SHIVER 200ms 1 ease-in
+
+      @keyframes SHIVER
+        0%   {transform: translateX(0px)}
+        20%   {transform: translateX(4px)}
+        40%   {transform: translateX(-3px)}
+        60%   {transform: translateX(2px)}
+        80%   {transform: translateX(-1px)}
+        100%   {transform: translateX(0px)}
+
+  #site-description
+    width: 80%
+    margin: 0 auto
+    font-family: 'Noto Sans KR', sans-serif
+    font-size: 1em
+    line-height: 1.6em
+    color: #444
+
+  #social-links
+    width: 80%
+    margin: 16px auto
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-start
+
+    .flex-right
+      flex: 1 0 auto
+      text-align: right
+
+      a.main-nav-link
+        @extend $block-caption
+        float: none
+        padding-right: 0
+        color: #333
+        line-height: 14px
