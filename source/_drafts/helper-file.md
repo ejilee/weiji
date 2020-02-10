@@ -1,5 +1,5 @@
 ---
-title: Template Draft 그러니까 내가 하고싶은 말은 말이야
+title: TEMPLATE DRAFT
 author: Yeji
 tags: [hexo, markdown, template]
 categories:

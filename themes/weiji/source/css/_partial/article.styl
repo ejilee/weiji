@@ -1,37 +1,48 @@
 .article
-  margin: 20px 0
+  margin: article-padding 0 60px
 
 .article-inner
   @extend $block
   overflow: hidden
 
 .article-meta
+  margin: article-padding
   clearfix()
 
-.article-date
-  @extend $block-caption
-  float: left
+  a
+    display: inline-block
+    height: font-size
+    margin: 0
+    color: color-accent
+    text-transform: uppercase
+    font-size: font-size
+    font-weight: 600
+    letter-spacing: 1px
+    text-decoration: none
+    opacity: 0.8
+    transition: opacity 0.2s
+    
+    &:hover
+      opacity: 1
+
+  a.article-date
+    color: color-default
+
+  a.article-category-link
+    margin-right: 10px
+
 
 .article-category
-  float: left
-  line-height: 1em
-  color: #ccc
-  text-shadow: 0 1px #fff
-  margin-left: 8px
-  &:before
-    content: "\2022"
-
-.article-category-link
-  @extend $block-caption
-  margin: 0 12px 1em
+  display: inline-block
+  margin-left: 10px
 
 .article-header
-  padding: article-padding article-padding 0
+  padding: 0 article-padding
 
 .article-toc
   position: fixed
-  right: 20px
-  top: 20px
+  right: article-padding
+  top: article-padding
   text-align: right
   background-color: #FFF
   width: 200px
