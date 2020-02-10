@@ -2,11 +2,16 @@
   width: 100%
   text-align: center
   color: #333
+  display: none
+
+  @media mq-normal
+    display: block
 
   .photo-box
     width: 100%
     height: 200px
-    max-width: 300px
+    max-width: 400px
+    margin: 0 auto
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +55,7 @@
 
   #site-description
     width: 80%
+    max-width: 400px
     margin: 0 auto
     font-family: 'Noto Sans KR', sans-serif
     font-size: 1em
@@ -58,18 +64,60 @@
 
   #social-links
     width: 80%
+    max-width: 400px
     margin: 16px auto
     display: flex
     flex-flow: row wrap
     justify-content: flex-start
 
-    .flex-right
+    li
+      color: #333
+      opacity: 0.7
+      text-decoration: none
+      text-shadow: 0 1px rgba(0, 0, 0, 0.2)
+      transition: opacity 0.2s
+      &:hover
+        opacity: 1
+
+    li a
+      height: font-size
+      margin: 0
+      color: #333
+      text-transform: uppercase
+      font-size: font-size
+      font-weight: 600
+      letter-spacing: 1px
+      text-decoration: none
+
+      a:hover
+        text-decoration: none
+      
+    li a.social-link
+      @extend $nav-link
+      color: color-accent
+      font-weight: 300
+      letter-spacing: 15px
+      font-family: font-icon
+      text-align: center
+      font-size: 1.2em
+      width: font-size
+      height: font-size
+      padding: 20px 15px
+      position: relative
+      cursor: pointer
+
+    li a#social-link-git
+      &:before
+        content: "\f113"
+
+    li a#social-link-email
+      &:before
+        content: "\f0e0"
+
+    li.flex-right
       flex: 1 0 auto
       text-align: right
+      align-self: center
 
-      a.main-nav-link
-        @extend $block-caption
-        float: none
-        padding-right: 0
-        color: #333
-        line-height: 14px
+      a
+        padding: 20px 0

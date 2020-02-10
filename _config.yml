@@ -5,8 +5,8 @@
 # Site
 title: Weiji
 title_kr: 왜이지
-subtitle: ""
-description: "안녕하세요, 프론트엔드 개발자 이예지입니다. 이곳은 제가 공부하는 내용이 기록되는 곳이며, 간혹 일상의 순간이나 소중한 것들이 박제되기도 합니다."
+subtitle: "a blog"
+description: "안녕하세요, 프론트엔드 개발자 이왜지입니다. 이곳은 제가 공부하는 내용이 기록되는 곳이며, 간간히 일상의 순간과 소중한 것들의 모습이 박제되기도 합니다."
 profile_img_credit: "photo by Biel Morro on Unsplash"
 profile_img_alt: "a hand holding a shell in water"
 keywords:
@@ -18,7 +18,7 @@ timezone: "Asia/Seoul"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://weiji.io
+url: https://weiji.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -103,4 +103,7 @@ theme: weiji
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ""
+  type: git
+  repo: https://github.com/ejilee/weiji
+  branch: gh-pages
+  message: "{{ now('YYYY-MM-DD HH:mm:ss') }}"

@@ -1,16 +1,26 @@
 #sidebar
+  overflow: hidden
+  margin-bottom: 80px
+
   @media mq-normal
     column(sidebar-column)
+    margin-bottom: 80px
 
 .widget-wrap
   width: 80%
+  padding: 0 0 20px 0
   margin: 20px auto
-  text-align: right
+  text-align: left
+  
+  @media mq-normal
+    text-align: right
+
+.widget-wrap:last-child
+  border-bottom: none
 
 .widget-title
   @extend $block-caption
-  text-align: right
-  font-weight: 400
+  color: color-accent
   margin-left: 0
 
 .widget
@@ -23,17 +33,35 @@
     ul, ol, dl
       margin-left: 15px
       list-style: disc
-
-  li.category-list-item
-    display: inline-block
-    padding: 4px 8px
-    background-color: color-sidebar-text
-    border-radius: 4px
-    margin: 0 0 6px 6px
-
-    a
-      color: color-background
-      font-weight: 600
+  
+  li
+    padding: 2px 0
+    letter-spacing: 1px
+    opacity: 0.7
+    transition: opacity 200ms
 
     &:hover
-      background-color: color-link
+      opacity: 1
+
+    a
+      color: #333
+      font-weight: 600
+      text-decoration: none
+
+    a:hover
+      text-decoration: none
+
+  li.category-list-item
+    text-transform: uppercase
+
+  li.archive-list-item
+    font-size: 1.6em
+
+  li.tag-list-item
+    display: inline-block
+    padding: 4px 8px
+    border-radius: 4px
+    margin: 0 0 6px 6px
+    border: 1px solid color-border = #ddd
+    background-color: rgba(255,255,255,0.6)
+    letter-spacing: 0
