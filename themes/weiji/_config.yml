@@ -10,7 +10,6 @@ fancybox: true
 # Sidebar
 sidebar: left
 widgets:
-- profile-box
 - recent_posts
 - category
 - archive

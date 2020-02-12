@@ -1,23 +1,20 @@
 <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
-      </h1>
-      <% if (theme.subtitle){ %>
-        <h2 id="subtitle-wrap">
-          <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
-        </h2>
+  <div class="photo-box">
+    <img id="profile-image" src="<%- url_for('/images') %>/profile.jpg" title="<%= config.profile_img_credit %>" alt="<%= config.profile_img_alt %>, <%= config.profile_img_credit %>">
+  </div>
+  <a href="<%- url_for() %>" id="titleAnchor">
+    <h1 id="site-title"><span class="txtEn"><%= config.title %></span> <span class="txtKr"><%= config.title_kr %> ?</span></h1>
+  </a>
+  <p id="site-description">
+    <%= config.description %>
+  </p>
+  <nav id="mini-links">
+    <a id="social-link-email" class="social-link" href="mailto:<%= config.email_addr %>" title="<%= __('email address') %>"></a>
+    <a id="social-link-git" class="social-link" href="<%= config.github_link %>" title="<%= __('github profile') %>"></a>
+    <div class="flex-right">
+      <% for (var i in theme.menu){ %>
+        <a class="page-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
       <% } %>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        <% for (var i in theme.menu){ %>
-          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
-        <% } %>
-      </nav>
-    </div>
-  </div>
+  </nav>
 </header>

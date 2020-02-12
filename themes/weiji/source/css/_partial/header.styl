@@ -1,172 +1,116 @@
 #header
-  height: banner-height
-  position: relative
-  border-bottom: 1px solid color-border
-  &:before, &:after
-    content: ""
-    position: absolute
-    left: 0
-    right: 0
-    height: 40px
-  &:before
-    top: 0
-    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
-  &:after
-    bottom: 0
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
-
-#header-outer
-  height: 100%
-  position: relative
-
-#header-inner
-  position: relative
-
-#banner
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background: url(banner-url) center #000
-  background-size: cover
-  z-index: -1
-
-#header-title
   text-align: center
-  height: logo-size
-  position: absolute
-  top: 50%
-  left: 0
-  margin-top: logo-size * -0.5
-
-$logo-text
-  text-decoration: none
-  color: #fff
-  font-weight: 300
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
-
-#logo
-  @extend $logo-text
-  font-size: logo-size
-  line-height: logo-size
-  letter-spacing: 2px
-
-#subtitle
-  @extend $logo-text
-  font-size: subtitle-size
-  line-height: subtitle-size
-  letter-spacing: 1px
-
-#subtitle-wrap
-  margin-top: subtitle-size
-
-#main-nav
-  float: left
-  margin-left: -15px
-
-$nav-link
-  float: left
   color: #333
-  opacity: 0.6
-  text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
-  transition: opacity 0.2s
-  display: block
-  padding: 20px 15px
-  &:hover
-    opacity: 1
 
-.nav-icon
-  @extend $nav-link
-  font-family: font-icon
-  text-align: center
-  font-size: 1.2em
-  width: font-size
-  height: font-size
-  padding: 20px 15px
-  position: relative
-  cursor: pointer
-
-.main-nav-link
-  @extend $nav-link
-  font-weight: 300
-  letter-spacing: 1px
-  @media mq-mobile
-    display: none
-
-#main-nav-toggle
-  display: none
-  &:before
-    content: "\f0c9"
-  @media mq-mobile
-    display: block
-
-#sub-nav
-  float: right
-  margin-right: -15px
-
-#nav-rss-link
-  &:before
-    content: "\f09e"
-
-#nav-git-link
-  &:before
-    content: "\f113"
-
-#nav-email-link
-  &:before
-    content: "\f0e0"
-
-#nav-search-btn
-  &:before
-    content: "\f002"
-
-#search-form-wrap
-  position: absolute
-  top: 15px
-  width: 150px
-  height: 30px
-  right: -150px
-  opacity: 0
-  transition: 0.2s ease-out
-  &.on
-    opacity: 1
-    right: -5px
-  @media mq-mobile
-    width: 100%
-    right: -100%
-
-.search-form
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
-  background: #fff
-  padding: 5px 15px
+.photo-box
+  width: inherit
+  height: 160px
+  margin: 0 auto
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid #FFF
+  overflow: hidden
   border-radius: 4px
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
 
-.search-form-input
-  border: none
-  background: none
-  color: color-default
-  width: 100%
-  font: 13px font-sans
-  outline: none
-  &::-webkit-search-results-decoration
-  &::-webkit-search-cancel-button
-    -webkit-appearance: none
+  @media mq-normal
+    height: 200px
 
-.search-form-submit
-  position: absolute
-  top: 50%
-  right: 10px
-  margin-top: -7px
-  font: 13px font-icon
-  border: none
-  background: none
-  color: #bbb
-  cursor: pointer
-  &:hover, &:focus
-    color: #777
+  #profile-image
+    height: auto
+    width: 200%
+    transform-origin: 50% 50%
+    transition: transform 300ms ease-in-out
+
+    &:hover
+      transform: scale(0.96)
+
+    @media mq-normal
+      height: 150%
+      width: auto
+
+#titleAnchor
+  text-decoration: none
+
+  #site-title
+    margin: 16px auto
+    font-size: 1.4em
+    font-weight: 400
+    color: #222
+
+    span.txtKr
+      font-family: 'Noto Serif KR', serif
+
+    span.txtEn
+      font-family: 'Roboto Slab', serif
+
+    &:hover
+        animation: SHIVER 200ms 1 ease-in
+
+    @keyframes SHIVER
+      0%   {transform: translateX(0px)}
+      20%   {transform: translateX(4px)}
+      40%   {transform: translateX(-3px)}
+      60%   {transform: translateX(2px)}
+      80%   {transform: translateX(-1px)}
+      100%   {transform: translateX(0px)}
+
+#site-description
+  width: 80%
+  margin: 0 auto
+  font-size: 0.8em
+  line-height: 1.6em
+  color: #444
+
+nav#mini-links
+  width: 80%
+  margin: 16px auto
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
+
+  a
+    height: font-size
+    margin: 0
+    color: #333
+    font-size: font-size
+    font-weight: 600
+    letter-spacing: 1px
+    text-decoration: none
+    text-transform: uppercase
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2)
+    text-align: center
+    cursor: pointer
+    opacity: 0.7
+    transition: opacity 0.2s
+    &:hover
+      opacity: 1
+
+    a:hover
+      text-decoration: none
+
+  a.social-link
+    width: font-size
+    padding: 20px 0
+    color: color-accent
+    font-family: font-icon
+    font-size: 1.2em
+    font-weight: 300
+    letter-spacing: 16px
+    margin-right: 20px
+
+  a#social-link-git
+    &:before
+      content: "\f113"
+
+  a#social-link-email
+    &:before
+      content: "\f0e0"
+
+  div.flex-right
+    flex: 1 0 auto
+    text-align: right
+    align-self: center
+
+    a.page-link
+      margin-left: 20px 
