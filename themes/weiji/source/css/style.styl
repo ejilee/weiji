@@ -34,7 +34,8 @@ body
   clearfix()
   max-width: (column-width + gutter-width) * columns + gutter-width
   margin: 0 auto
-  padding: 0 gutter-width
+  padding: 0
+  
 
 .inner
   column(columns)
@@ -68,12 +69,15 @@ body
 
 #sectionGrid
   display: grid;
-  margin: 20px
-  grid-gap: 20px 20px
+  margin: 10px
   justify-items: stretch
   aling-items: stretch
   grid-template-columns: 24% 76%
   grid-template-rows: auto 1fr
+
+  @media mq-normal
+    grid-gap: 20px 20px
+    margin: 20px
 
   #header
     grid-column: 1 / span 2

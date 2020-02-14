@@ -6,14 +6,14 @@
 title: Weiji
 title_kr: 왜이지
 subtitle: "a blog"
-description: "안녕하세요, 프론트엔드 개발자 이왜지입니다. 이곳은 제가 공부하는 내용이 기록되는 곳이며, 간간히 일상의 모습들이 박제되기도 합니다."
+description: "안녕하세요, 프론트엔드 개발자 이왜지입니다. 여기에 제가 공부하는 내용을 기록합니다."
 profile_img_credit: "photo by Biel Morro on Unsplash"
 profile_img_alt: "a hand holding a shell in water"
 keywords:
 author: Yeji Lee
 github_link: https://github.com/ejilee
 email_addr: whyejilee@gmail.com
-language: en
+language: ko
 timezone: "Asia/Seoul"
 
 # URL
