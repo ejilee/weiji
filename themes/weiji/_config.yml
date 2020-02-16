@@ -24,7 +24,7 @@ index_widgets:
 
 # widget behavior
 archive_type: 'yearly'
-show_count: false
+show_count: 
 
 # Miscellaneous
 google_analytics:

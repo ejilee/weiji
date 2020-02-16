@@ -52,7 +52,6 @@ Combined emphasis with **asterisks and _underscores_**.
 Strikethrough uses two tildes. ~~Scratch this.~~
 
 
-
 # LISTS
 
 {% codeblock lang:markdown %}
@@ -94,7 +93,6 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 
 # LINKS
-
 {% codeblock lang:markdown %}
 [I'm an inline-style link](https://www.google.com)
 
@@ -162,7 +160,7 @@ Reference-style:
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
 
-# LINKS
+# `~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/
 
 {% codeblock lang:markdown %}
 

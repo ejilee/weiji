@@ -40,29 +40,26 @@
 
 .article-header
   padding: 0 article-padding
-
-.article-toc
-  position: fixed
-  right: article-padding
-  top: article-padding
-  text-align: right
-  background-color: #FFF
-  width: 200px
-  opacity:0.5
-  @media mq-mobile
-    display: none
-  @media mq-tablet
-    display: none
-
+  margin-bottom: article-padding
+  
 .article-title
   text-decoration: none
   font-size: 2em
   font-weight: bold
-  color: color-default
+  color: color-accent
   line-height: line-height-title
-  transition: color 0.2s
-  a&:hover
-    color: color-link
+  margin-left: 0
+  transition: margin-left 0.2s
+  cursor: pointer
+
+  &:hover
+    margin-left: 10px
+
+  &:before
+    content: "/ "
+
+  &:after
+    content: " /"
 
 .article-entry
   @extend $base-style
@@ -80,9 +77,8 @@
   a
     color: color-link
     text-decoration: underline
-    opacity: 0.7
     &:hover
-      opacity: 1
+      text-decoration: none
   ul, ol, dl
     margin-top: line-height
     margin-bottom: line-height
@@ -105,10 +101,11 @@
     border-bottom: 1px solid color-border
     padding: 10px 0
   blockquote
-    font-family: font-serif
-    font-size: 1.4em
-    margin: line-height 20px
-    text-align: center
+    font-size: 1.2em
+    color: color-grey
+    border-left: 5px solid color-accent
+    margin: 0
+    padding-left: article-padding
     footer
       font-size: font-size
       margin: line-height 0
@@ -382,3 +379,41 @@ $article-gallery-ctrl
   &:before
     content: "\f054"
     right: 15px*/
+
+
+#article-toc
+  position: sticky
+  top: 0
+  width: 100%
+  padding: gutter-width 0
+  text-align: left
+
+  h2
+    @extend $block-caption
+    color: color-accent
+
+  li
+    padding-bottom: 8px
+    letter-spacing: 1px
+    padding-left: font-size
+
+    ol.toc-child
+      margin-top: 6px
+
+    a
+      color: #333
+      font-weight: 600
+      text-decoration: none
+      opacity: 0.7
+      transition: opacity 200ms
+
+    a:hover
+      text-decoration: none
+      opacity: 1
+
+  li.active a
+    opacity: 1
+
+  li.active
+    border-left: 3px solid color-accent
+    margin-left: -3px

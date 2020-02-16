@@ -1,5 +1,7 @@
-
-<nav id="article-toc">
-    <h2>Table of Contents</h2>
-    <%- toc(post.content) %>
-</nav>
+<% if (toc(post.content) !== ""){ %>
+    <nav id="article-toc">
+            <h2><%- post.title %></h2>
+            <%- toc(post.content, {list_number: false, min_depth: 1, max_depth: 3}) %>
+            <%- js('js/tocscrollspy') %>
+    </nav>
+<% } %>
