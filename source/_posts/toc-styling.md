@@ -61,7 +61,7 @@ Hexo의 Helper 중에 [`toc()`](https://hexo.io/ko/docs/helpers#toc)이라는 �
 
 # CSS
 
-![스탕일링 없는 목차 스크린샷](./screenshot1.png "스탕일링 없는 목차 스크린샷")
+{% asset_img "screenshot1.png" "스타일링 없는 목차 스크린샷" %}
 
 기존에 블로그 전반 레이아웃으로 사용하고있는 grid에 저희의 목차를 탑승시킵니다. 별도의 `toc.styl` 파일을 만들지 않고 기존 `style.styl`와 `article.styl`을 수정했습니다.
 
@@ -118,7 +118,8 @@ html
     margin-left: -3px
 ```
 
-![스탕일링이 추가된 목차 스크린샷](./screenshot4.png "스탕일링이 추가된 목차 스크린샷")
+
+{% asset_img "screenshot4.png" "스타일링 추가된 목차 스크린샷" %}
 
 자, 이제 스크립트를 추가할 준비가 된 것 같습니다.
 
@@ -167,6 +168,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 블로그 글을 읽고 계시면 왼쪽에 보이겠지만, 이런 모양이 되었습니다 :
 
-![스타일과 기능이 완성된 목차 스크린샷](./screenshot5.png "스타일과 기능이 완성된 목차 스크린샷")
+{% asset_img "screenshot5.png" "스타일과 기능이 완성된 목차 스크린샷" %}
 
 앞으로 헥소 글을 섹션으로 나눠서 작업하는 방법을 알아내서 Bramus님처럼 내용까지 트레킹 할 수 있는 버전으로 업그레이드 할 수 있으면 좋을 것 같습니다. 당장은 만족.
