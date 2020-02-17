@@ -73,7 +73,7 @@
     font-weight: bold
   h1, h2, h3, h4, h5, h6
     line-height: line-height-title
-    margin: line-height-title 0
+    margin: 2em 0 line-height-title
   a
     color: color-link
     text-decoration: underline
@@ -392,8 +392,14 @@ $article-gallery-ctrl
     @extend $block-caption
     color: color-accent
 
+    &:before
+      content: "/ "
+
+    &:after
+      content: " /"
+
   li
-    padding-bottom: 8px
+    padding: 6px 0
     letter-spacing: 1px
     padding-left: font-size
 
