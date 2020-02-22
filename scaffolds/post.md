@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-author: "Yeji"
+author: "Weiji"
 tags: []
 categories:
   - [Uncategorized]

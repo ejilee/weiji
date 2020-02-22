@@ -384,42 +384,32 @@ $article-gallery-ctrl
 #article-toc
   position: sticky
   top: 0
-  width: 100%
-  padding: gutter-width 0
-  text-align: left
+  padding-top: 24px
 
   h2
     @extend $block-caption
     color: color-accent
-
-    &:before
-      content: "/ "
-
-    &:after
-      content: " /"
+    margin-bottom: 24px
 
   li
-    padding: 6px 0
     letter-spacing: 1px
-    padding-left: font-size
 
     ol.toc-child
-      margin-top: 6px
+      margin-left : 16px
 
     a
+      display:block
+      padding: 8px 0 8px 16px
       color: #333
       font-weight: 600
       text-decoration: none
-      opacity: 0.7
+      opacity: 0.8
       transition: opacity 200ms
 
     a:hover
-      text-decoration: none
       opacity: 1
 
-  li.active a
+  li.active > a
     opacity: 1
-
-  li.active
-    border-left: 3px solid color-accent
-    margin-left: -3px
+    border-left: 4px solid color-accent
+    margin-left: -4px
