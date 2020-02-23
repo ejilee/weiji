@@ -33,9 +33,7 @@ date: 2020-02-23 12:29:06
 
 기본적인 공전 주기와 자전 주기 조절기능은 잘 구현된다. Styled component를 사용해서 컴포넌트에 던진 프롭으로 바로 css transform 속성에 반영하니까 코드도 그렇게 많지 않았다.
 
-(여기서 확인 - Tidally Locked)[https://tidallylocked.com/]
-
-(리포는 여기)[https://github.com/ejilee/Tidally-Locked]
+[여기서 확인 - Tidally Locked](https://tidallylocked.com/) / [코드는 여기](https://github.com/ejilee/Tidally-Locked)
 
 
 ## 추가로 구현하고픈
