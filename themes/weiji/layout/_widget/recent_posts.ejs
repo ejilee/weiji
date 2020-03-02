@@ -3,7 +3,7 @@
     <h2 class="widget-title"><%= __('recent_posts') %></h2>
     <div class="widget">
       <ul class="recent-list">
-        <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
+        <% site.posts.sort('date', -1).limit(10).each(function(post){ %>
           <li class="recent-list-item">
             <a class="recent-list-link" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
           </li>
