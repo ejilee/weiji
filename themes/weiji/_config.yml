@@ -1,6 +1,6 @@
 # Header
 menu:
-  About: /about
+    About: /about
 rss: /atom.xml
 
 # Content
@@ -10,11 +10,11 @@ fancybox: true
 # Sidebar
 sidebar: left
 widgets:
-- recent_posts
-- search
-- category
-- tag
-- archive
+    - recent_posts
+    - search
+    - category
+    - tag
+    - archive
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
@@ -23,11 +23,11 @@ index_widgets:
 # - archive
 
 # widget behavior
-archive_type: 'yearly'
-show_count: 
+archive_type: "yearly"
+show_count:
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-156457593-1
 gauges_analytics:
 favicon: /images/favicon.ico
 twitter:
