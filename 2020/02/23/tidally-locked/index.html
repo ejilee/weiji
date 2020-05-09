@@ -27,10 +27,10 @@ ga('send', 'pageview');
 <meta property="og:site_name" content="Weiji">
 <meta property="og:description" content="조석 고정? 조석 고정(潮汐固定, Tidal locking)은 어떤 천체가 자신보다 질량이 큰 천체를 공전 및 자전할 때 공전주기와 자전주기가 일치하는 경우를 의미한다. 이 경우 천체의 한쪽 반구는 영원히 자기보다 큰 천체를 그 반대방향은 영원히 상대 천체를 등지게 된다. – 위키피디아 ‘조석 고정’  지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.png">
-<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.png">
+<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.jpg">
+<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss2.png">
 <meta property="article:published_time" content="2020-02-23T03:29:06.000Z">
-<meta property="article:modified_time" content="2020-03-02T06:07:00.760Z">
+<meta property="article:modified_time" content="2020-05-09T07:12:02.765Z">
 <meta property="article:author" content="Yeji Lee">
 <meta property="article:tag" content="react">
 <meta property="article:tag" content="styled components">
@@ -38,7 +38,7 @@ ga('send', 'pageview');
 <meta property="article:tag" content="tidally locked">
 <meta property="article:tag" content="조석 고정">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.png">
+<meta name="twitter:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
   
@@ -185,10 +185,10 @@ ga('send', 'pageview');
 <p>지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하다.</p>
 <p>예전에 천문학 수업 과제로 이 개념을 플레시 애니메이션으로 만들어서 제출했던 적이 있었다. 당시 굉장히 기본적인 기능만 있었고, 예쁘지도 않고, 플레시(…) 였지만 개념을 익히는데는 도움이 됐던 것 같다. 그때의 플레시 파일은 지금 열리지도 않는다. 리액트로 기능 추가! 스타일 추가! 해서 다시 만들어보았다. 누군가의 천문학 수업에 좋은 학습자료가 되었으면…?</p>
 <h2 id="10년-전-플레시-애니메이션"><a href="#10년-전-플레시-애니메이션" class="headerlink" title="10년 전 플레시 애니메이션"></a>10년 전 플레시 애니메이션</h2><p>거의 10년전에 만들었던 플레시 애니메이션의 겨우 발굴한 스샷 :</p>
-<img src="/2020/02/23/tidally-locked/ss1.png" class="" title="tidal locking visualizer flash animation">
+<img src="/2020/02/23/tidally-locked/ss1.jpg" class="" title="tidal locking visualizer flash animation">
 
 <p>당시 나름 액션 스크립트로 요리조리 삼각법 써서 했던 것 같은데… 요즘 css가 워낙 똑똑해서 삼각법 따위는 필요 없어졌다! 동작하는 부분들은 사실 만드는데 얼마 걸리지도 않았지만, 세세한 ui 부분이나 추가적인 기능들이 욕심이 나는 게 있어서 손을 좀 봐야할 것 같다.</p>
-<h2 id="10년-후-다시만든-리액트-앱"><a href="#10년-후-다시만든-리액트-앱" class="headerlink" title="10년 후 다시만든 리액트 앱"></a>10년 후 다시만든 리액트 앱</h2><img src="/2020/02/23/tidally-locked/ss1.png" class="" title="조석 고정 시뮬레이터 작업 전 모습">
+<h2 id="10년-후-다시만든-리액트-앱"><a href="#10년-후-다시만든-리액트-앱" class="headerlink" title="10년 후 다시만든 리액트 앱"></a>10년 후 다시만든 리액트 앱</h2><img src="/2020/02/23/tidally-locked/ss2.png" class="" title="조석 고정 시뮬레이터 작업 전 모습">
 
 <p>기본적인 공전 주기와 자전 주기 조절기능은 잘 구현된다. Styled component를 사용해서 컴포넌트에 던진 프롭으로 바로 css transform 속성에 반영하니까 코드도 그렇게 많지 않았다.</p>
 <p><a href="https://tidallylocked.com/" target="_blank" rel="noopener">여기서 확인 - Tidally Locked</a> / <a href="https://github.com/ejilee/Tidally-Locked" target="_blank" rel="noopener">코드는 여기</a></p>
@@ -219,9 +219,9 @@ ga('send', 'pageview');
 <li>sunDir (햇빛 방향, sun direction)</li>
 </ul>
 <p>이렇게 다섯개이고, 이런식으로 4개의 스컴포 사이에서 다음처럼 사용되고 있다 :</p>
-<figure class="highlight html"><figcaption><span>Moon.js 의 프롭 사용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span> <span class="attr">orbPer</span>=<span class="string">&#123;orbPer&#125;</span> <span class="attr">orbRad</span>=<span class="string">&#123;orbRad&#125;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span> <span class="attr">rotPer</span>=<span class="string">&#123;rotPer&#125;</span> <span class="attr">mooSiz</span>=<span class="string">&#123;mooSiz&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> <span class="attr">mooSiz</span>=<span class="string">&#123;mooSiz&#125;</span> <span class="attr">sunDir</span>=<span class="string">&#123;sunDir&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>Moon.js 의 프롭 사용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span> <span class="attr">orbPer</span>=<span class="string">"&#123;orbPer&#125;"</span> <span class="attr">orbRad</span>=<span class="string">"&#123;orbRad&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span> <span class="attr">rotPer</span>=<span class="string">"&#123;rotPer&#125;"</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span> <span class="attr">sunDir</span>=<span class="string">"&#123;sunDir&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용한다. MoonBody는  자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정이다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절한다.</p>
+<p>정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용한다. MoonBody는 자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정이다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절한다.</p>
 <h1 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h1><p>처음에 쉽게 생각하다 에니메이션 부분에서 잠깐 함정에 빠졌었다. 단순히 ‘컨테이너 사각형을 orbPer 값을 사용해서 회전시키고, 동그라미 컴포넌트를 rotPer 값을 사용해서 회전시키면 되는 거 아님??’ 이라고 생각했었는데, 결과가 이상했다. 이건 예시로 봐야 더 명확할 듯.</p>
 <h2 id="그냥-회전"><a href="#그냥-회전" class="headerlink" title="그냥 회전"></a>그냥 회전</h2><p>애초에 간단하게 생각했던 것 처럼 우선 HTML/CSS를 사용하는 예시를 만들어서 컨테이너 사각형을 회전시켜보자.</p>
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="whyejilee" data-slug-hash="PoqbXxX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TidallyLockedDemo1">
@@ -239,9 +239,10 @@ ga('send', 'pageview');
 <p>공전 에니메이션에 적용되는 transform 속성에 추가로 translate와 rotate을 한 번씩 더 채인 시키는 것이다.</p>
 <p>우선 지금 MoonBody 의 CSS 속성에서 <code>transform: translate(100px);</code> 을 없애주어야 한다. StyledMoon 정중앙에 다시 위치하게 하고, StyledMoon 컨테이너 자체를 이동시켜줄 것이다.</p>
 <p>그래서 아래 같았던 키프레임을</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">    0% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);&#125;</span><br><span class="line">    100% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>아래처럼 고쳐주었다.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">    0% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);&#125;</span><br><span class="line">    100% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>처음에 했던 것처럼 회전은 똑같이 0 에서 -360도 실행한다. 하지만 각 프레임에서 조금 회전 할 때마다 100px우측으로 이동하고 또 이번에는 -360도가 아닌 360도 방향으로 다시 움직인다. 그러니까 1도 회전 단위로 생각해보면, 우선 시계 반대 방향으로 1도 회전한다. 그리고 회전된 상태에서 우측으로 100px 이동한다. (그러면 중앙에 있던 MoonBody 요소도 우측으로 이동한다, 위에서 transform 값 없애준 이유) 그 후 다시 시계 방향으로 1도 회전한다. 그러면 공전은 하지만, StyledMoon 요소가 earth 요소 주위를 공전하는 모양이 나오지만, 화면에 비해서는 회전하지 않는, 자전하지 않는 모습이 표현된다.</p>
 <p>다음처럼!</p>
@@ -258,7 +259,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ck7cp00oz000004vg2ewudnsq" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ck9zafaiy0005wwvgg5pvhdls" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
