@@ -23,7 +23,7 @@ date: 2020-02-23 12:29:06
 
 거의 10년전에 만들었던 플레시 애니메이션의 겨우 발굴한 스샷 :
 
-{% asset_img "ss1.png" "tidal locking visualizer flash animation" %}
+{% asset_img "ss1.jpg" "tidal locking visualizer flash animation" %}
 
 당시 나름 액션 스크립트로 요리조리 삼각법 써서 했던 것 같은데... 요즘 css가 워낙 똑똑해서 삼각법 따위는 필요 없어졌다! 동작하는 부분들은 사실 만드는데 얼마 걸리지도 않았지만, 세세한 ui 부분이나 추가적인 기능들이 욕심이 나는 게 있어서 손을 좀 봐야할 것 같다.
 
