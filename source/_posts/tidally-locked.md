@@ -1,7 +1,7 @@
 ---
 title: 조석 고정 시뮬레이터 I
 author: Weiji
-tags: [ react, styled components, tidal locking, tidally locked, 조석 고정 ]
+tags: [react, styled components, tidal locking, tidally locked, 조석 고정]
 categories:
   - [React]
 date: 2020-02-23 12:29:06
@@ -13,7 +13,7 @@ date: 2020-02-23 12:29:06
 >
 > -- <cite>[위키피디아 '조석 고정'][1]</cite>
 
-[1]:https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%84%9D_%EA%B3%A0%EC%A0%95
+[1]: https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%84%9D_%EA%B3%A0%EC%A0%95
 
 지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하다.
 
@@ -29,12 +29,11 @@ date: 2020-02-23 12:29:06
 
 ## 10년 후 다시만든 리액트 앱
 
-{% asset_img "ss1.png" "조석 고정 시뮬레이터 작업 전 모습" %}
+{% asset_img "ss2.png" "조석 고정 시뮬레이터 작업 전 모습" %}
 
 기본적인 공전 주기와 자전 주기 조절기능은 잘 구현된다. Styled component를 사용해서 컴포넌트에 던진 프롭으로 바로 css transform 속성에 반영하니까 코드도 그렇게 많지 않았다.
 
 [여기서 확인 - Tidally Locked](https://tidallylocked.com/) / [코드는 여기](https://github.com/ejilee/Tidally-Locked)
-
 
 ## 추가로 구현하고픈
 
@@ -74,6 +73,7 @@ date: 2020-02-23 12:29:06
 ## Props
 
 지금 Moon.js 컴포넌트에게 던져지는 프롭은 :
+
 - rotPer (자전주기, rotational period)
 - orbPer (공전주기, orbital period)
 - orbRad (공전 반경, orbit radius)
@@ -83,15 +83,15 @@ date: 2020-02-23 12:29:06
 이렇게 다섯개이고, 이런식으로 4개의 스컴포 사이에서 다음처럼 사용되고 있다 :
 
 ```html Moon.js 의 프롭 사용
-<StyledMoon orbPer={orbPer} orbRad={orbRad}>
-  <MoonBody rotPer={rotPer} mooSiz={mooSiz}>
+<StyledMoon orbPer="{orbPer}" orbRad="{orbRad}">
+  <MoonBody rotPer="{rotPer}" mooSiz="{mooSiz}">
     <MoonFace></MoonFace>
   </MoonBody>
-  <MoonLight mooSiz={mooSiz} sunDir={sunDir} />
+  <MoonLight mooSiz="{mooSiz}" sunDir="{sunDir}" />
 </StyledMoon>
 ```
 
-정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용한다. MoonBody는  자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정이다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절한다.
+정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용한다. MoonBody는 자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정이다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절한다.
 
 # Animation
 
@@ -130,16 +130,25 @@ date: 2020-02-23 12:29:06
 
 ```css
 @keyframes MOON-REVOLUTION {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(-360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 ```
+
 아래처럼 고쳐주었다.
 
 ```css
 @keyframes MOON-REVOLUTION {
-    0% { transform: rotate(0deg) translate(100px) rotate(0deg);}
-    100% { transform: rotate(-360deg) translate(100px) rotate(360deg);}
+  0% {
+    transform: rotate(0deg) translate(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translate(100px) rotate(360deg);
+  }
 }
 ```
 
