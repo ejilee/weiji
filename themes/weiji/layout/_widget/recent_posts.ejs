@@ -1,14 +1,16 @@
 <% if (site.posts.length){ %>
-  <div class="widget-wrap">
-    <h2 class="widget-title"><%= __('recent_posts') %></h2>
-    <div class="widget">
-      <ul class="recent-list">
-        <% site.posts.sort('date', -1).limit(10).each(function(post){ %>
-          <li class="recent-list-item">
-            <a class="recent-list-link" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
-          </li>
-        <% }) %>
-      </ul>
-    </div>
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      <% site.posts.sort('date', -1).limit(10).each(function(post){ %>
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="<%- url_for(post.path) %>"
+          ><%= post.title || '(no title)' %></a
+        >
+      </li>
+      <% }) %>
+    </ul>
   </div>
+</div>
 <% } %>
