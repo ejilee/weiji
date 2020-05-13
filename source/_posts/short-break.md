@@ -1,9 +1,9 @@
 ---
 title: 회상, 혼자서 공부하기
 author: Weiji
-tags: []
+tags: [React, Server Side Rendering, Webpack, Babel]
 categories:
-  - - Uncategorized
+  - [React]
 date: 2020-05-13 20:03:04
 ---
 
@@ -12,7 +12,7 @@ date: 2020-05-13 20:03:04
 지난 3개월 동안 튜토리얼 헬 속에서 배운 것들 :
 
 - Material UI
-- server side rendering : why & how with sample react app
+- server side rendering : why & how
 - webpack & babel
 - starting a react project from scratch (without CRA)
 - SSR with React Router

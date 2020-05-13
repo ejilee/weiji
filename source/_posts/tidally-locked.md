@@ -1,7 +1,7 @@
 ---
 title: 조석 고정 시뮬레이터 I
 author: Weiji
-tags: [react, styled components, tidal locking, tidally locked, 조석 고정]
+tags: [React, styled components, tidal locking, tidally locked, 조석 고정]
 categories:
   - [React]
 date: 2020-02-23 12:29:06
