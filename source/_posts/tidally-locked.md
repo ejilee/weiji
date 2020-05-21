@@ -1,5 +1,5 @@
 ---
-title: 조석 고정 시뮬레이터 I
+title: 조석 고정 시뮬레이터 I - 구동
 author: Weiji
 tags: [React, styled components, tidal locking, tidally locked, 조석 고정]
 categories:

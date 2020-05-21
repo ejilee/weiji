@@ -4,6 +4,7 @@ author: Weiji
 tags: [React, Server Side Rendering, Webpack, Babel]
 categories:
   - [React]
+  - [Uncategorized]
 date: 2020-05-13 20:03:04
 ---
 
