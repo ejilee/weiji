@@ -724,10 +724,10 @@ nav#mini-links div.flex-right a.page-link {
 }
 .article-title {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 2.4em;
   font-weight: bold;
   color: #001f77;
-  line-height: 1.1em;
+  line-height: 1.6em;
   margin-left: 0;
   -webkit-transition: margin-left 0.2s;
   -moz-transition: margin-left 0.2s;
@@ -1665,8 +1665,8 @@ pre .javascript .function {
   letter-spacing: 0;
 }
 .widget li.recent-list-item {
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-size: 1em;
+  line-height: 1.6em;
   margin-bottom: 0.4em;
 }
 .widget li.recent-list-item:after {
