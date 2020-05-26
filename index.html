@@ -195,7 +195,7 @@ ga('send', 'pageview');
     <div class="article-inner">
       
         <div class="article-meta">
-          <time datetime="2020-05-26T12:58:47.000Z" itemprop="datePublished">2020-05-26</time>
+          <time datetime="2020-05-26T03:58:47.000Z" itemprop="datePublished">2020-05-26</time>
 
           
   <div class="article-category">
@@ -219,10 +219,18 @@ ga('send', 'pageview');
         
           <p>방금 작업하면서 좀 얍삽한(?) 해결책을 쓰게되어 글로 남겨봅니다.</p>
 <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>계획대로 지난 주말까지 UI 구현은 다했는데, 작업 중 하나의 글리치가 발생했었습니다. UI 패널에 숫자 잇풋 박스 버튼 이것저것, 그리고 레인지 인풋 네개가 추가되었는데… 만들어논 레인지 (슬라이더) 인풋을 테스트 해보았을때, 첫 몇번은 바로바로 인풋 값이 에니메이션으로 반영이 되다가 꼭 몇번 이상 인풋을 사용하다보면 버벅거리며 에니메이션이 변형이 안 되었다가 또 다시 되었다가 하면서 렌더된 모습이 이상하게 바뀌는 문제가 발생했습니다. 스샷으로 보시죠…</p>
-<p><img src="http://r12f-cdn.azureedge.net/r12f-assets/post_assets/2020-05-26-tidally-locked-three/2020/05/26/tidally-locked-three/ss_glitch_1.png" alt="조석 고정 시뮬레이터 UI 글리치 화면 1" title="처음엔 잘 되다가"></p>
-<p><img src="http://r12f-cdn.azureedge.net/r12f-assets/post_assets/2020-05-26-tidally-locked-three/2020/05/26/tidally-locked-three/ss_glitch_2.png" alt="조석 고정 시뮬레이터 UI 글리치 화면 2" title="샥"></p>
-<p><img src="http://r12f-cdn.azureedge.net/r12f-assets/post_assets/2020-05-26-tidally-locked-three/2020/05/26/tidally-locked-three/ss_glitch_3.png" alt="조석 고정 시뮬레이터 UI 글리치 화면 3" title="샥"></p>
-<p><img src="http://r12f-cdn.azureedge.net/r12f-assets/post_assets/2020-05-26-tidally-locked-three/2020/05/26/tidally-locked-three/ss_glitch_4.png" alt="조석 고정 시뮬레이터 UI 글리치 화면 4" title="악"></p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_1.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 1">
+
+<p>처음에는 잘 되다가…</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_2.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 2">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_3.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 3">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_4.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 4">
+
+<p>앗</p>
 <p>…이렇게 말이죠. 예측 가능한 숫자에서 그러는 것도 아니고 그냥 몇번 인풋을 만지다 보면 이렇게 되는데, 저 모습은 마치 moon 컴포넌트가 사용하는 MOON-REVOLUTION 키프레임에 바뀐 공전 반경 프롭이 제대로 안 먹힌 모습입니다. 또 직접적으로 개발자 도구에서 공전 반경 상태값을 바꾸면 제대로 반영이 됩니다.</p>
 <h1 id="분석"><a href="#분석" class="headerlink" title="분석"></a>분석</h1><p>초반에 작업해 놓은 moon 컴포넌트는 첫번쨰 관련 블로그 글에 설명했듯이 ‘자전 주기’, ‘공전 주기’, ‘공전 반경’ 등의 상태를 프롭으로 받아와서 스타일드 컴포넌트에게 넘겨줍니다. 스타일드 컴포넌트 내부에서도 MOON-REVOLUTION 과 MOON-ROTATION이라는 키프레임을 정의해 놓고 moon 컴포넌트가 사용하게끔 작성했는데, 키프레인 안에서도 공전 반경 프롭을 사용합니다. 이렇게요 (공전 에니메이션 관련 코드 외에는 생략되었습니다) :</p>
 <figure class="highlight javascript"><figcaption><span>Moon.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> StyledMoon = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  position: absolute;</span></span><br><span class="line"><span class="string">  z-index: 200;</span></span><br><span class="line"><span class="string">  width: 100%;</span></span><br><span class="line"><span class="string">  height: 100%;</span></span><br><span class="line"><span class="string">  transform-origin: 50% 50%;</span></span><br><span class="line"><span class="string">  animation-name: MOON-REVOLUTION;</span></span><br><span class="line"><span class="string">  animation-duration: <span class="subst">$&#123;(props) =&gt; props.orbPer + <span class="string">"s"</span> || <span class="string">"0s"</span>&#125;</span>;</span></span><br><span class="line"><span class="string">  animation-iteration-count: infinite;</span></span><br><span class="line"><span class="string">  animation-timing-function: linear;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  @keyframes MOON-REVOLUTION &#123;</span></span><br><span class="line"><span class="string">    0% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(0deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(0deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    100% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(-360deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(360deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Moon = <span class="function">(<span class="params">&#123; orbPer, orbRad &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;StyledMoon orbRad=&#123;orbRad&#125; orbPer=&#123;orbPer&#125;&gt;</span><br><span class="line">      &lt;div className=<span class="string">"moon__self"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__lockline"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__face"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__body"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div className="moon__shade" /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/StyledMoon&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Moon;</span></span><br></pre></td></tr></table></figure>
@@ -242,7 +250,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckanhydgs0009ccvg9b62bmko" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckaniawm500069svg0a026c60" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -309,7 +317,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/20/tidally-locked-two/" data-id="ckanhydgd0005ccvg4okhbs3b" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/20/tidally-locked-two/" data-id="ckaniawm700079svgahpi5mrb" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -385,7 +393,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/13/short-break/" data-id="ckanhydg90003ccvgdgnm8cuz" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/13/short-break/" data-id="ckaniawm200049svg8f513hi9" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li></ul>
@@ -511,7 +519,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckanhydgk0006ccvg4umcfdxu" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckaniawn5001l9svgaj4pftz9" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -661,7 +669,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckanhydj8001xccvgditn01x2" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckaniawn7001n9svgd9c115sm" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li></ul>
@@ -713,7 +721,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/14/firstpost/" data-id="ckanhydg40001ccvgbyraflre" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/14/firstpost/" data-id="ckaniawls00009svg1m28hcs8" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
