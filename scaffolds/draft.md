@@ -1,7 +1,6 @@
 ---
 title: {{ title }}
-tags:
-author: "Yeji"
+author: Yeji
 tags: []
 categories:
   - [Uncategorized]
