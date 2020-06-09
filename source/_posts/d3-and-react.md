@@ -1,7 +1,7 @@
 ---
 title: D3.js 와 React 를 접목시키는 법
 author: Yeji
-tags: [D3.js, React, DOM]
+tags: [D3, React, DOM]
 categories:
   - [React]
   - [D3]
