@@ -13,11 +13,5 @@ date: 2020-02-09 17:25:13
 
 ![ ](./index/handBunny.jpg " ")
 
-Hi, my name is Yeji Lee, and I'm a frontend developer.
-I majored in fine arts, and I've always enjoyed making all sorts of things.
-I want to use web technology to build things that are useful for people and beneficial for the world.
-
-Based in Seoul, South Korea.
-
 whyejilee@gmail.com
 https://github.com/ejilee
