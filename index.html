@@ -230,10 +230,10 @@ ga('send', 'pageview');
       <div class="article-entry" itemprop="articleBody">
         
           <p>어제의 블로그 포스트 이후로 고민을 좀 했습니다. 이 참에 D3를 배워볼까? D3.js - 오랫동안 배우고 싶었는데, 늘 적당한 사유가 없어서 미루던 라이브러리. 결국 자기전에 잠깐 깨작깨작 해보고… ‘음, 역시나 좀 더 배우고싶은데?’ 라는 생각이 들어서 어제 포스트 끝자락에 잠깐 맨션 했던 글을 여기에 다시한번 정리해 봅니다.</p>
-<h1 id="문제-DOM-조작은-누가-하나"><a href="#문제-DOM-조작은-누가-하나" class="headerlink" title="문제 : DOM 조작은 누가 하나?"></a>문제 : DOM 조작은 누가 하나?</h1><p>저도 D3+React 프로젝트들을 보며 궁금했던게…. React를 사용할 때, 특정 DOM이 생성되냐 마냐는 내가 정해주는 상태 값 등을 기반으로 React가 버추얼 DOM 이랑 비교해가면서 자체적으로 DOM을 만들고 없애고 하는 것이라, 오히려 그 과정에서 내가 직접 DOM을 조작하면 React 로직과 충돌하기 때문에 직접적인 DOM 조작은 ‘하지 말아야 할 일’ 이라고 알고 있었단 말입니다. React의 ‘선언형’ 성격과도 맞지 않고요.</p>
+<h1 id="문제-DOM-조작은-누가-하나"><a href="#문제-DOM-조작은-누가-하나" class="headerlink" title="문제 : DOM 조작은 누가 하나?"></a>문제 : DOM 조작은 누가 하나?</h1><p>저도 D3+React 프로젝트들을 보며 궁금했던게…. React를 사용할 때, 특정 DOM 요소가 생성되냐 마냐는 내가 정해주는 상태 값 등을 기반으로 React가 버추얼 DOM 이랑 비교해가면서 자체적으로 DOM을 조작 하는 것이라, 오히려 그 과정에서 내가 직접 DOM을 조작하면 React 로직과 충돌하기 때문에 직접적인 DOM 조작은 ‘하지 말아야 할 일’ 이라고 알고 있었단 말입니다. React의 ‘선언형’ 성격과 맞지 않기도 하고.</p>
 <p>그런데 D3 코드를 슬쩍 보면 마치 jQuery 처럼 DOM 요소를 선택하고 attr 속성을 조작하고 이런 게 보이죠. 그럼, 내가 본 저 간지나는 D3+React 프로젝트들은 React 안에 어떤 방식으로 D3를 담고있는걸까? 라는 의문이 듭니다. D3가 DOM 조작을 하는 것에 대해서 React는 가만히 있는 걸까? React 내 DOM 조작에 대해서 ref라는 걸 배운 거 같은데 이걸 쓰면 되나?</p>
 <p><a href="https://www.smashingmagazine.com/2018/02/react-D3-ecosystem/" target="_blank" rel="noopener">Bringing Together React, D3, And Their Ecosystem</a></p>
-<p>위 글을 3분의 1정도 내리면 ‘React And D3.Js’ 라는 해딩 밑으로 React - D3 접목 방법 4 가지가 정리되어 있습니다. 각 방법의 쟁점은 DOM 조작 권한이 D3에게 치우치느냐, React에게 치우치느냐입니다. 저는 각 방법의 예시는 제공하지고 않고 장/단점 요약만 해보겠습니다. 예시 원하시는 분은 본문으로 고고~</p>
+<p>위 글을 3분의 1정도 내리면 ‘React And D3.Js’ 라는 해딩 밑으로 React - D3 접목 방법 4 가지가 정리되어 있습니다. 각 방법의 쟁점은 DOM 조작 권한이 D3에게 치우치느냐, React에게 치우치느냐입니다. 저는 각 방법의 예시는 제공하지 않고 장/단점 요약만 해보겠습니다.</p>
 <h2 id="방법-1-React-안에-D3-js-그대로-담기"><a href="#방법-1-React-안에-D3-js-그대로-담기" class="headerlink" title="방법 1 - React 안에 D3.js 그대로 담기"></a>방법 1 - React 안에 D3.js 그대로 담기</h2><p>D3에게 최대한 많은 DOM 조작 권한을 주는 방법입니다. 랜더 매서드 안에 ref가 달린 텅 빈 svg 요소를 넣어놓고, componentDidUpdate 라이프사이클 매서드에서 D3 코드를 바닐라 자바스크립트에서 마냥 마음껏 쓰는 방법입니다. shouldComponentUpdate 라이프사이클 매서드에서 무조건 return false를 써 놓아서 React에 인해서 컴포넌트가 업데이트되는 것을 방지합니다.</p>
 <h3 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h3><ul>
 <li>대부분의 경우 작동함</li>
@@ -286,9 +286,9 @@ ga('send', 'pageview');
 <p><a href="https://www.youtube.com/watch?v=Awnz8x8kcE8" target="_blank" rel="noopener">Data visualisation chat about D3.js, P5.js, JavaScript, Python with kosamari, sxywu and shiffman</a></p>
 <p>위 영상에서 35~36분 10초 사이에 셜리씨가 D3 진입 장벽에 대해서 얘기하는 부분이 있습니다. 정리하자면…</p>
 <ul>
-<li>D3 진입 장벽이 높은 이유는 초반에 enter/update/exit 에 대해서 배우는 것 때문</li>
+<li>D3 진입 장벽이 높은 이유는 초반에 enter/update/exit 패턴에 대해서 배우는 것 때문</li>
 <li>React 를 사용하면 enter/update/exit 안 쓰고 D3로 계산하는 법만 알면 됨, 이 같은 DOM 조작 기능이 React에 이미 내장되어있기 때문에</li>
-<li>React 를 알면 D3 진입이 오히려 쉬울 수도 있음</li>
+<li>떄문에 React 를 알면 D3 진입이 오히려 쉬울 수도 있음</li>
 </ul>
 <p>그냥 배우는 것만을 목적으로 하면 또 튜토리얼 헬에 빠질 수도 있을 것 같아서. 실질적인 목적을 하나 세우고 공부를 시작하려고 합니다. 목적은 이번 주말까지 텃밭도우미에 있는 CropYear 컴포넌트를 svg와 D3 계산으로 다시 만드는 것.</p>
 
@@ -296,7 +296,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/06/09/d3-and-react/" data-id="ckb7j8hpe0000hgvg2i0c2kqx" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/06/09/d3-and-react/" data-id="ckb8qbfky000070vgawci9e0t" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
@@ -341,9 +341,8 @@ ga('send', 'pageview');
       
       <div class="article-entry" itemprop="articleBody">
         
-          <h1 id="목적"><a href="#목적" class="headerlink" title="목적"></a>목적</h1><p>조석 고정 시뮬레이터가 일단락 사용 가능한 상태가 되어 다음 프로젝트를 시작합니다. 저는 매년 봄이면 소수의 작물을 씨앗으로 파종해서 텃밭에 정식하고 수확까지 지켜보며 타이밍의 중요함을 느낍니다. 그리고 매년 조금씩 지식이 쌓여서 ‘아 올해는 이거는 좀 더 일찍 파종해야지, 요 작물은 정식하는 기간을 좀 길게 잡고 바깥에 적응시켜야지’ 등의 감이 생기는데, 이건 키우는 지역마다 적당한 파종/정식 기간도 다르고 또 같은 지역에서도 매년 최상 온도와 최저 온도도 다르고, 또 키우는 작물/종자 마다 조금씩 달라서 오로지 씨앗 봉투 뒷면에 있는 설명을 온전히 따르는 것보다 일단 나에게 갖춰진 환경에서 한 해 키워보는 것이 가장 큰 가이드가 됩니다.</p>
-<p>올해도 심은 개 몇 종류 안 되는데도 불구하고 (3-4 종류?) 파종, 정식, 꽃이 맺힌 날, 열매가 달린 날, 비료 준 날 등을 전부 한 곳에 기록하기가 여간 귀찮은게 아닙니다. (핸드폰으로 사진만 찍어놓고 정리를 안 함) 그래서 매년 키우는 작물의 기록을 바탕으로 나만의 텃밭 데이터베이스를 만들수 있으면 좋겠다고 생각했고, 이 데이터를 토대로 한 작물의 일년 주기의 라이프사이클을 시각적으로 한 번에 보여줄 수 있는 텃밭 달력을 만들고자 합니다.</p>
-<h1 id="스텍"><a href="#스텍" class="headerlink" title="스텍"></a>스텍</h1><p>일단 프론트 단은 리액트, 당분간 데이터는 Contentful에서 제공하는 무료버전 headless CMS을 사용하려고 합니다. (headless CMS 써보고 싶었기에) 나중에 가서 mongoDB로 옮길까도 싶습니다. (리액트 교재 뒷부분에 몽고기반 튜토리얼이 나오기에) 또 저번에 배워놓고 제대로 써먹지 못한 Material UI 위주로 인터페이스 요소들을 만들려고 합니다. 핵심 컴포넌트인 각 작물의 일년단위 타임라인은 styled-component 차트인데…</p>
+          <h1 id="목적"><a href="#목적" class="headerlink" title="목적"></a>목적</h1><p>조석 고정 시뮬레이터가 일단락 사용 가능한 상태가 되어 다음 프로젝트를 시작합니다. 저는 매년 봄이면 소수의 작물을 씨앗으로 파종해서 텃밭에 정식하고 수확까지 지켜보며 타이밍의 중요함을 느낍니다. 그리고 매년 조금씩 지식이 쌓여서 ‘아 올해는 이거는 좀 더 일찍 파종해야지, 요 작물은 정식하는 기간을 좀 길게 잡고 바깥에 적응시켜야지’ 등의 감이 생기는데, 이건 키우는 지역마다 적당한 파종/정식 기간도 다르고 또 같은 지역에서도 매년 최상 온도와 최저 온도도 다르고, 또 키우는 작물/종자 마다 조금씩 달라서 오로지 씨앗 봉투 뒷면에 있는 설명을 온전히 따르는 것보다 일단 나에게 갖춰진 환경에서 한 해 키워보는 것이 가장 큰 가이드가 됩니다. 그래서 매년 키우는 작물의 기록을 바탕으로 나만의 텃밭 데이터베이스를 만들수 있으면 좋겠다고 생각했고, 이 데이터를 토대로 한 작물의 일년 주기의 라이프사이클을 시각적으로 한 번에 보여줄 수 있는 텃밭 달력을 만들고자 합니다.</p>
+<h1 id="스텍"><a href="#스텍" class="headerlink" title="스텍"></a>스텍</h1><p>일단 프론트 단은 리액트, 당분간 데이터는 로컬로 쓰다가 나중에 가서 mongoDB로 옮길까도 싶습니다. (리액트 교재 뒷부분에 몽고기반 튜토리얼이 나오기에) 또 저번에 배워놓고 제대로 써먹지 못한 Material UI 위주로 인터페이스 요소들을 만들려고 합니다. 핵심 컴포넌트인 각 작물의 일년단위 타임라인은 styled-component 만들어 놓은 차트인데…</p>
 <h1 id="초안"><a href="#초안" class="headerlink" title="초안"></a>초안</h1><p>사실 저번달에 일단락 틀만 만들어 놓았던게 있습니다.</p>
 <img src="/2020/06/08/garden-planner-i/gp_ss_1.png" class="" title="텃밭 달력 초안 화면 1">
 
@@ -362,17 +361,16 @@ ga('send', 'pageview');
 <li>실제 수확 날짜</li>
 <li>그 밖에 일년생/다년생 여부, 노지월동 가능 여부, 성장 형태, 양지/음지, 키우는 팁…<br>…등의 정보를 담고 있습니다.</li>
 </ul>
-<h1 id="고민"><a href="#고민" class="headerlink" title="고민"></a>고민</h1><p>Crop 컴포넌트 내부에 있는 CropYear라는 컴포넌트가 각 작물의 데이터에서 날짜 배열/날짜를 받아와서 4주 x 12달 반복문 안에서 해당 주를 어떤 색으로 칠하고 실제 파종/정식/수확 날짜 기록이 있으면 동그란 스티커 형태로 마커를 랜더할 지를 정하는데…</p>
-<p>…이렇게 하면 안될 것 같다는 생각이 자꾸 들어서 지금 고민중입니다. 예를 들어… 권장 파종기간이랑 권장 정식 기간이 겹치면…? 겹치는 부분이 따로 보이지 않고 뒤에 계산된 것만 보이게 되고… 또 일년에 두번 이상 파종해서 키울수있는 단기간 작물같은 건… 수확을 한 번에 안 하고 여러 날짜로 나누어서 하면… 등의 다양한 경우수가 자꾸 생각나서… 48주 반복문으로 각 div 의 스타일을 정해주는 것 보다 아예 canvas를 도입해볼까 하는 고민이 됩니다.</p>
+<h1 id="고민"><a href="#고민" class="headerlink" title="고민"></a>고민</h1><p>Crop 컴포넌트 내부에 있는 CropYear라는 컴포넌트가 각 작물의 데이터에서 날짜 배열/날짜를 받아와서 4주 x 12달 반복문 안에서 해당 div를 어떤 색으로 칠하고 실제 파종/정식/수확 날짜 기록이 있으면 동그란 스티커 형태로 마커를 랜더할 지를 정하는데…</p>
+<p>…이렇게 하면 안될 것 같다는 생각이 자꾸 들어서 지금 고민중입니다. 예를 들어… 권장 파종기간이랑 권장 정식 기간이 겹치면…? 겹치는 부분이 따로 보이지 않고 뒤에 계산된 것만 보이게 되고… 또 일년에 두번 이상 파종해서 키울수있는 단기간 작물같은 건… 수확을 한 번에 안 하고 여러 날짜로 나누어서 하면… 등의 다양한 경우수가 자꾸 생각나서… 48주 반복문으로 각 div 의 스타일을 정해주는 것 보다 아예 canvas나 svg를 도입해볼까 하는 고민이 됩니다.</p>
 <p>아니면 이 참에 d3 배워볼까… 근데 d3로 DOM 조종 하려면 리액트에서 어떻게 해야하지.. 음.. ref 써야하나보네, 이거 또 튜토리얼 지옥에 빠지는 거 아닌까 몰라…</p>
-<p><a href="https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/" target="_blank" rel="noopener">이 글에</a> 리액트와 d3 접목시키는 법 4가지가 요약되어있습니다. 그런데 이걸 다 읽으니 자꾸 예전에 어디서 본 조언이 생각나고… 사이드 프로젝트에 새 기술 3개 이상 쓰지 말기. .. 였나? 여하튼 너무 욕심을 부리면 진도 나가기가 힘들다는 말. 완전. 나한테 하는 말. 지금 headless cms랑 material ui 써보고 싶어서 프로젝트 만든 것도 살짝 있는데… d3는 다음 프로젝트로 미뤄야하나 싶기도 하고.</p>
-<p>정작 좀 더 규모있는 프로젝트를 계획하려다보니 고민할 부분이 많습니다. 일단 내일 CropYear 컴포넌트를 canvas를 사용해서 다시 써보는 것도 좋은 생각인 것 같습니다.</p>
+<p><a href="https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/" target="_blank" rel="noopener">이 글에</a> 리액트와 d3 접목시키는 법 4가지가 요약되어있습니다. 그런데 이걸 다 읽으니 자꾸 예전에 어디서 본 조언이 생각나고… 사이드 프로젝트에 새 기술 3개 이상 쓰지 말기. .. 였나? 여하튼 너무 욕심을 부리면 진도 나가기가 힘들다는 말. 완전. 나한테 하는 말. d3는 다음 프로젝트로 미뤄야하나 싶기도 하고. 총총.</p>
 
         
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/06/08/garden-planner-i/" data-id="ckb7j8hpy0003hgvgdvj7gbmz" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/06/08/garden-planner-i/" data-id="ckb8qbfl9000770vg3hagc8vd" class="article-share-link">Share</a>
           
           
         </footer>
@@ -448,7 +446,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckb7j8hq70006hgvg1z4r7qck" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckb8qbflb000870vge8kj2xje" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -515,7 +513,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/20/tidally-locked-two/" data-id="ckb7j8hqa0009hgvgfjiugiyq" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/20/tidally-locked-two/" data-id="ckb8qbfld000b70vg48xsggtb" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -591,7 +589,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/05/13/short-break/" data-id="ckb7j8hq10005hgvgg18mfkka" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/05/13/short-break/" data-id="ckb8qbfl8000570vght832o4s" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li></ul>
@@ -717,7 +715,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckb7j8hqc000ahgvg6z411g9t" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckb8qbfle000c70vg5ftz5g8t" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
@@ -867,7 +865,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckb7j8hqg000ehgvg2pgj0sc1" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckb8qbflg000f70vgcveng3c4" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li></ul>
@@ -919,7 +917,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/02/14/firstpost/" data-id="ckb7j8hps0001hgvgc0fzf7pm" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/02/14/firstpost/" data-id="ckb8qbfl4000270vga2ma8x60" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>

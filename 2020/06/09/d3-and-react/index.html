@@ -28,7 +28,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="어제의 블로그 포스트 이후로 고민을 좀 했습니다. 이 참에 D3를 배워볼까? D3.js - 오랫동안 배우고 싶었는데, 늘 적당한 사유가 없어서 미루던 라이브러리. 결국 자기전에 잠깐 깨작깨작 해보고… ‘음, 역시나 좀 더 배우고싶은데?’ 라는 생각이 들어서 어제 포스트 끝자락에 잠깐 맨션 했던 글을 여기에 다시한번 정리해 봅니다. 문제 : DOM 조작은 누">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-06-09T02:15:47.000Z">
-<meta property="article:modified_time" content="2020-06-09T06:17:00.279Z">
+<meta property="article:modified_time" content="2020-06-10T02:22:26.153Z">
 <meta property="article:author" content="Yeji Lee">
 <meta property="article:tag" content="D3">
 <meta property="article:tag" content="React">
@@ -231,10 +231,10 @@ ga('send', 'pageview');
       <div class="article-entry" itemprop="articleBody">
         
           <p>어제의 블로그 포스트 이후로 고민을 좀 했습니다. 이 참에 D3를 배워볼까? D3.js - 오랫동안 배우고 싶었는데, 늘 적당한 사유가 없어서 미루던 라이브러리. 결국 자기전에 잠깐 깨작깨작 해보고… ‘음, 역시나 좀 더 배우고싶은데?’ 라는 생각이 들어서 어제 포스트 끝자락에 잠깐 맨션 했던 글을 여기에 다시한번 정리해 봅니다.</p>
-<h1 id="문제-DOM-조작은-누가-하나"><a href="#문제-DOM-조작은-누가-하나" class="headerlink" title="문제 : DOM 조작은 누가 하나?"></a>문제 : DOM 조작은 누가 하나?</h1><p>저도 D3+React 프로젝트들을 보며 궁금했던게…. React를 사용할 때, 특정 DOM이 생성되냐 마냐는 내가 정해주는 상태 값 등을 기반으로 React가 버추얼 DOM 이랑 비교해가면서 자체적으로 DOM을 만들고 없애고 하는 것이라, 오히려 그 과정에서 내가 직접 DOM을 조작하면 React 로직과 충돌하기 때문에 직접적인 DOM 조작은 ‘하지 말아야 할 일’ 이라고 알고 있었단 말입니다. React의 ‘선언형’ 성격과도 맞지 않고요.</p>
+<h1 id="문제-DOM-조작은-누가-하나"><a href="#문제-DOM-조작은-누가-하나" class="headerlink" title="문제 : DOM 조작은 누가 하나?"></a>문제 : DOM 조작은 누가 하나?</h1><p>저도 D3+React 프로젝트들을 보며 궁금했던게…. React를 사용할 때, 특정 DOM 요소가 생성되냐 마냐는 내가 정해주는 상태 값 등을 기반으로 React가 버추얼 DOM 이랑 비교해가면서 자체적으로 DOM을 조작 하는 것이라, 오히려 그 과정에서 내가 직접 DOM을 조작하면 React 로직과 충돌하기 때문에 직접적인 DOM 조작은 ‘하지 말아야 할 일’ 이라고 알고 있었단 말입니다. React의 ‘선언형’ 성격과 맞지 않기도 하고.</p>
 <p>그런데 D3 코드를 슬쩍 보면 마치 jQuery 처럼 DOM 요소를 선택하고 attr 속성을 조작하고 이런 게 보이죠. 그럼, 내가 본 저 간지나는 D3+React 프로젝트들은 React 안에 어떤 방식으로 D3를 담고있는걸까? 라는 의문이 듭니다. D3가 DOM 조작을 하는 것에 대해서 React는 가만히 있는 걸까? React 내 DOM 조작에 대해서 ref라는 걸 배운 거 같은데 이걸 쓰면 되나?</p>
 <p><a href="https://www.smashingmagazine.com/2018/02/react-D3-ecosystem/" target="_blank" rel="noopener">Bringing Together React, D3, And Their Ecosystem</a></p>
-<p>위 글을 3분의 1정도 내리면 ‘React And D3.Js’ 라는 해딩 밑으로 React - D3 접목 방법 4 가지가 정리되어 있습니다. 각 방법의 쟁점은 DOM 조작 권한이 D3에게 치우치느냐, React에게 치우치느냐입니다. 저는 각 방법의 예시는 제공하지고 않고 장/단점 요약만 해보겠습니다. 예시 원하시는 분은 본문으로 고고~</p>
+<p>위 글을 3분의 1정도 내리면 ‘React And D3.Js’ 라는 해딩 밑으로 React - D3 접목 방법 4 가지가 정리되어 있습니다. 각 방법의 쟁점은 DOM 조작 권한이 D3에게 치우치느냐, React에게 치우치느냐입니다. 저는 각 방법의 예시는 제공하지 않고 장/단점 요약만 해보겠습니다.</p>
 <h2 id="방법-1-React-안에-D3-js-그대로-담기"><a href="#방법-1-React-안에-D3-js-그대로-담기" class="headerlink" title="방법 1 - React 안에 D3.js 그대로 담기"></a>방법 1 - React 안에 D3.js 그대로 담기</h2><p>D3에게 최대한 많은 DOM 조작 권한을 주는 방법입니다. 랜더 매서드 안에 ref가 달린 텅 빈 svg 요소를 넣어놓고, componentDidUpdate 라이프사이클 매서드에서 D3 코드를 바닐라 자바스크립트에서 마냥 마음껏 쓰는 방법입니다. shouldComponentUpdate 라이프사이클 매서드에서 무조건 return false를 써 놓아서 React에 인해서 컴포넌트가 업데이트되는 것을 방지합니다.</p>
 <h3 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h3><ul>
 <li>대부분의 경우 작동함</li>
@@ -287,9 +287,9 @@ ga('send', 'pageview');
 <p><a href="https://www.youtube.com/watch?v=Awnz8x8kcE8" target="_blank" rel="noopener">Data visualisation chat about D3.js, P5.js, JavaScript, Python with kosamari, sxywu and shiffman</a></p>
 <p>위 영상에서 35~36분 10초 사이에 셜리씨가 D3 진입 장벽에 대해서 얘기하는 부분이 있습니다. 정리하자면…</p>
 <ul>
-<li>D3 진입 장벽이 높은 이유는 초반에 enter/update/exit 에 대해서 배우는 것 때문</li>
+<li>D3 진입 장벽이 높은 이유는 초반에 enter/update/exit 패턴에 대해서 배우는 것 때문</li>
 <li>React 를 사용하면 enter/update/exit 안 쓰고 D3로 계산하는 법만 알면 됨, 이 같은 DOM 조작 기능이 React에 이미 내장되어있기 때문에</li>
-<li>React 를 알면 D3 진입이 오히려 쉬울 수도 있음</li>
+<li>떄문에 React 를 알면 D3 진입이 오히려 쉬울 수도 있음</li>
 </ul>
 <p>그냥 배우는 것만을 목적으로 하면 또 튜토리얼 헬에 빠질 수도 있을 것 같아서. 실질적인 목적을 하나 세우고 공부를 시작하려고 합니다. 목적은 이번 주말까지 텃밭도우미에 있는 CropYear 컴포넌트를 svg와 D3 계산으로 다시 만드는 것.</p>
 
@@ -297,7 +297,7 @@ ga('send', 'pageview');
       </div>
       
         <footer class="article-footer">
-          <a data-url="https://weiji.io/2020/06/09/d3-and-react/" data-id="ckb7j8hpe0000hgvg2i0c2kqx" class="article-share-link">Share</a>
+          <a data-url="https://weiji.io/2020/06/09/d3-and-react/" data-id="ckb8qbfky000070vgawci9e0t" class="article-share-link">Share</a>
           
           
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
