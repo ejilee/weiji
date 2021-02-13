@@ -44,10 +44,9 @@
   
 .article-title
   text-decoration: none
-  font-size: 2.4em
+  font-size: 2rem
   font-weight: bold
   color: color-accent
-  line-height: 1.6em
   margin-left: 0
   transition: margin-left 0.2s
   cursor: pointer
@@ -66,14 +65,14 @@
   clearfix()
   color: color-default
   padding: 0 article-padding
+  font-size: 0.9rem
   p, table
     line-height: line-height
     margin: line-height 0
   h1, h2, h3, h4, h5, h6
     font-weight: bold
   h1, h2, h3, h4, h5, h6
-    line-height: line-height-title
-    margin: 2em 0 line-height-title
+    margin: 1.6rem 0 1.4rem
   a
     color: color-link
     text-decoration: underline
@@ -96,12 +95,12 @@
   th
     font-weight: bold
     border-bottom: 3px solid color-border
-    padding-bottom: 0.5em
+    padding-bottom: 0.5rem
   td
     border-bottom: 1px solid color-border
     padding: 10px 0
   blockquote
-    font-size: 1.2em
+    font-size: 1.2rem
     color: color-grey
     border-left: 5px solid color-accent
     margin: 0
@@ -113,22 +112,22 @@
       cite
         &:before
           content: "—"
-          padding: 0 0.5em
+          padding: 0 0.5rem
   .pullquote
     text-align: left
     width: 45%
     margin: 0
     &.left
-      margin-left: 0.5em
-      margin-right: 1em
+      margin-left: 0.5rem
+      margin-right: 1rem
     &.right
-      margin-right: 0.5em
-      margin-left: 1em
+      margin-right: 0.5rem
+      margin-left: 1rem
   .caption
     color: color-grey
     display: block
-    font-size: 0.9em
-    margin-top: 0.5em
+    font-size: 0.9rem
+    margin-top: 0.5rem
     position: relative
     text-align: center
   // http://webdesignerwall.com/tutorials/css-elastic-videos
@@ -147,7 +146,7 @@
 
 .article-more-link a
   display: inline-block
-  line-height: 1em
+  line-height: 1rem
   padding: 6px 15px
   border-radius: 15px
   background: color-background
@@ -162,7 +161,7 @@
 
 .article-footer
   clearfix()
-  font-size: 0.85em
+  font-size: 0.85rem
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height
@@ -239,15 +238,15 @@
   text-transform: uppercase
   letter-spacing: 2px
   color: color-border
-  line-height: 1em
+  line-height: 1rem
   font-weight: bold
   #article-nav-newer &
     margin-right: -2px
 
 .article-nav-title
-  font-size: 0.85em
+  font-size: 0.85rem
   line-height: line-height
-  margin-top: 0.5em
+  margin-top: 0.5rem
 
 .article-share-box
   position: absolute
@@ -287,7 +286,7 @@ $article-share-link
   color: #999
   text-shadow: 0 1px #fff
   &:before
-    font-size: 20px
+    font-size: 1.4rem
     font-family: font-icon
     absolute-center(@font-size)
     text-align: center
@@ -360,7 +359,7 @@ $article-gallery-ctrl
   &:hover
     opacity: 0.8
   &:before
-    font-size: 30px
+    font-size: 2rem
     font-family: font-icon
     position: absolute
     top: 50%
@@ -385,6 +384,7 @@ $article-gallery-ctrl
   position: sticky
   top: 0
   padding-top: 24px
+  font-size: 0.9rem
 
   h2
     @extend $block-caption
