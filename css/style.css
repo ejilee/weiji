@@ -119,6 +119,7 @@ button::-moz-focus-inner {
 }
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 html,
 body,
@@ -127,8 +128,11 @@ body,
 }
 body {
   background: #eee;
-  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 1rem -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-text-size-adjust: 100%;
+}
+a {
+  color: #001f77;
 }
 .outer {
   max-width: 1220px;
@@ -245,9 +249,9 @@ body {
   font-family: 'Roboto Slab', serif;
   text-decoration: none;
   letter-spacing: 2px;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   margin-left: 5px;
-  line-height: 1em;
+  line-height: 1rem;
   font-weight: 600;
 }
 .article-inner,
@@ -260,27 +264,27 @@ body {
 }
 .article-entry h1,
 .widget h1 {
-  font-size: 2em;
+  font-size: 1.8rem;
 }
 .article-entry h2,
 .widget h2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .article-entry h3,
 .widget h3 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
 }
 .article-entry h4,
 .widget h4 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 .article-entry h5,
 .widget h5 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .article-entry h6,
 .widget h6 {
-  font-size: 1em;
+  font-size: 1rem;
   color: #666;
 }
 .article-entry hr,
@@ -301,22 +305,22 @@ body {
 .widget sup,
 .article-entry sub,
 .widget sub {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 .article-entry sup,
 .widget sup {
-  top: -0.5em;
+  top: -0.5rem;
 }
 .article-entry sub,
 .widget sub {
-  bottom: -0.2em;
+  bottom: -0.2rem;
 }
 .article-entry small,
 .widget small {
-  font-size: 0.85em;
+  font-size: 0.85rem;
 }
 .article-entry acronym,
 .widget acronym,
@@ -331,7 +335,7 @@ body {
 .article-entry dl,
 .widget dl {
   margin: 0 20px;
-  line-height: 1.6em;
+  line-height: 1.6rem;
 }
 .article-entry ul ul,
 .widget ul ul,
@@ -420,7 +424,7 @@ body {
 }
 #titleAnchor #site-title {
   margin: 16px auto;
-  font-size: 1.4em;
+  font-size: 1.4rem;
   font-weight: 400;
   color: #222;
 }
@@ -591,8 +595,8 @@ body {
 #site-description {
   width: 80%;
   margin: 0 auto;
-  font-size: 0.9em;
-  line-height: 1.6em;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
   color: #444;
 }
 nav#mini-links {
@@ -618,10 +622,10 @@ nav#mini-links {
   justify-content: flex-start;
 }
 nav#mini-links a {
-  height: 14px;
+  height: 1rem;
   margin: 0;
   color: #333;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-decoration: none;
@@ -642,11 +646,11 @@ nav#mini-links a a:hover {
   text-decoration: none;
 }
 nav#mini-links a.social-link {
-  width: 14px;
+  width: 1rem;
   padding: 20px 0;
   color: #001f77;
   font-family: FontAwesome;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 16px;
   margin-right: 20px;
@@ -691,11 +695,11 @@ nav#mini-links div.flex-right a.page-link {
 }
 .article-meta a {
   display: inline-block;
-  height: 14px;
+  height: 1rem;
   margin: 0;
   color: #001f77;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-decoration: none;
@@ -710,7 +714,7 @@ nav#mini-links div.flex-right a.page-link {
   margin-right: 10px;
 }
 .article-meta time {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -724,10 +728,9 @@ nav#mini-links div.flex-right a.page-link {
 }
 .article-title {
   text-decoration: none;
-  font-size: 2.4em;
+  font-size: 2rem;
   font-weight: bold;
   color: #001f77;
-  line-height: 1.6em;
   margin-left: 0;
   -webkit-transition: margin-left 0.2s;
   -moz-transition: margin-left 0.2s;
@@ -747,6 +750,7 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry {
   color: #333;
   padding: 0 20px;
+  font-size: 0.9rem;
 }
 .article-entry:before,
 .article-entry:after {
@@ -758,8 +762,8 @@ nav#mini-links div.flex-right a.page-link {
 }
 .article-entry p,
 .article-entry table {
-  line-height: 1.6em;
-  margin: 1.6em 0;
+  line-height: 1.6rem;
+  margin: 1.6rem 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -775,8 +779,7 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry h4,
 .article-entry h5,
 .article-entry h6 {
-  line-height: 1.1em;
-  margin: 2em 0 1.1em;
+  margin: 1.6rem 0 1.4rem;
 }
 .article-entry a {
   color: #001f77;
@@ -788,8 +791,8 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin-top: 1.6em;
-  margin-bottom: 1.6em;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 .article-entry img,
 .article-entry video {
@@ -809,27 +812,27 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry th {
   font-weight: bold;
   border-bottom: 3px solid #ddd;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
 }
 .article-entry td {
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #666;
   border-left: 5px solid #001f77;
   margin: 0;
   padding-left: 20px;
 }
 .article-entry blockquote footer {
-  font-size: 14px;
-  margin: 1.6em 0;
+  font-size: 1rem;
+  margin: 1.6rem 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 }
 .article-entry .pullquote {
   text-align: left;
@@ -837,18 +840,18 @@ nav#mini-links div.flex-right a.page-link {
   margin: 0;
 }
 .article-entry .pullquote.left {
-  margin-left: 0.5em;
-  margin-right: 1em;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
 }
 .article-entry .pullquote.right {
-  margin-right: 0.5em;
-  margin-left: 1em;
+  margin-right: 0.5rem;
+  margin-left: 1rem;
 }
 .article-entry .caption {
   color: #666;
   display: block;
-  font-size: 0.9em;
-  margin-top: 0.5em;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
   position: relative;
   text-align: center;
 }
@@ -870,7 +873,7 @@ nav#mini-links div.flex-right a.page-link {
 }
 .article-more-link a {
   display: inline-block;
-  line-height: 1em;
+  line-height: 1rem;
   padding: 6px 15px;
   border-radius: 15px;
   background: #eee;
@@ -885,10 +888,10 @@ nav#mini-links div.flex-right a.page-link {
   text-shadow: 0 1px #00195f;
 }
 .article-footer {
-  font-size: 0.85em;
-  line-height: 1.6em;
+  font-size: 0.85rem;
+  line-height: 1.6rem;
   border-top: 1px solid #ddd;
-  padding-top: 1.6em;
+  padding-top: 1.6rem;
   margin: 0 20px 20px;
 }
 .article-footer:before,
@@ -999,16 +1002,16 @@ nav#mini-links div.flex-right a.page-link {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #ddd;
-  line-height: 1em;
+  line-height: 1rem;
   font-weight: bold;
 }
 #article-nav-newer .article-nav-caption {
   margin-right: -2px;
 }
 .article-nav-title {
-  font-size: 0.85em;
-  line-height: 1.6em;
-  margin-top: 0.5em;
+  font-size: 0.85rem;
+  line-height: 1.6rem;
+  margin-top: 0.5rem;
 }
 .article-share-box {
   position: absolute;
@@ -1066,15 +1069,15 @@ nav#mini-links div.flex-right a.page-link {
 .article-share-facebook:before,
 .article-share-pinterest:before,
 .article-share-google:before {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-family: FontAwesome;
-  width: 20px;
-  height: 20px;
+  width: 1.4rem;
+  height: 1.4rem;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -10px;
-  margin-left: -10px;
+  margin-top: -0.7rem;
+  margin-left: -0.7rem;
   text-align: center;
 }
 .article-share-twitter:hover,
@@ -1139,6 +1142,7 @@ nav#mini-links div.flex-right a.page-link {
   position: sticky;
   top: 0;
   padding-top: 24px;
+  font-size: 0.9rem;
 }
 #article-toc h2 {
   color: #001f77;
@@ -1194,7 +1198,7 @@ nav#mini-links div.flex-right a.page-link {
   clear: both;
 }
 .archive-year-wrap {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 .archives {
   -webkit-column-gap: 10px;
@@ -1233,20 +1237,19 @@ nav#mini-links div.flex-right a.page-link {
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   transition: color 0.2s;
-  line-height: 1.6em;
 }
 .archive-article-title:hover {
   color: #001f77;
 }
 .archive-article-footer {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 .archive-article-date {
   color: #666;
   text-decoration: none;
-  font-size: 0.85em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
+  font-size: 0.85rem;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
   display: block;
 }
 #page-nav {
@@ -1311,8 +1314,8 @@ nav#mini-links div.flex-right a.page-link {
   text-align: right;
 }
 #footer-info {
-  line-height: 1.6em;
-  font-size: 0.85em;
+  line-height: 1.6rem;
+  font-size: 0.85rem;
 }
 .article-entry pre,
 .article-entry .highlight {
@@ -1324,12 +1327,12 @@ nav#mini-links div.flex-right a.page-link {
   border-width: 1px 0;
   overflow: auto;
   color: #ccc;
-  line-height: 22.400000000000002px;
+  line-height: 1.6rem;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
   color: #666;
-  font-size: 0.85em;
+  font-size: 0.85rem;
 }
 .article-entry pre,
 .article-entry code {
@@ -1338,7 +1341,7 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry code {
   background: #eee;
   text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  padding: 0 0.3rem;
 }
 .article-entry pre code {
   background: none;
@@ -1359,10 +1362,10 @@ nav#mini-links div.flex-right a.page-link {
   padding: 0;
 }
 .article-entry .highlight figcaption {
-  font-size: 0.85em;
+  font-size: 0.85rem;
   color: #999;
-  line-height: 1em;
-  margin-bottom: 1em;
+  line-height: 1rem;
+  margin-bottom: 1rem;
 }
 .article-entry .highlight figcaption:before,
 .article-entry .highlight figcaption:after {
@@ -1380,7 +1383,7 @@ nav#mini-links div.flex-right a.page-link {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 22.400000000000002px;
+  height: 1.6rem;
 }
 .article-entry .highlight .line.marked {
   background: #515151;
@@ -1418,10 +1421,10 @@ nav#mini-links div.flex-right a.page-link {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 0.85rem -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   text-shadow: 0 0;
   padding: 0;
-  margin-top: 1em;
+  margin-top: 1rem;
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
@@ -1513,7 +1516,7 @@ pre .javascript .function {
 #nav-search-btn {
   color: #001f77;
   font-family: FontAwesome;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 300;
   margin: 12px;
   text-decoration: none;
@@ -1592,6 +1595,7 @@ pre .javascript .function {
   padding: 0 0 20px 0;
   margin: 20px auto;
   text-align: left;
+  font-size: 0.9rem;
 }
 .widget-wrap:first-child {
   text-align: right;
@@ -1653,7 +1657,7 @@ pre .javascript .function {
   letter-spacing: 0;
 }
 .widget li.archive-list-item {
-  font-size: 1.6em;
+  font-size: 1.2rem;
 }
 .widget li.tag-list-item {
   display: inline-block;
@@ -1665,18 +1669,18 @@ pre .javascript .function {
   letter-spacing: 0;
 }
 .widget li.recent-list-item {
-  font-size: 1em;
-  line-height: 1.6em;
-  margin-bottom: 0.4em;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  margin-bottom: 0.4rem;
 }
 .widget li.recent-list-item:after {
   content: '•';
-  margin-left: 0.2em;
+  margin-left: 0.2rem;
 }
 .widget {
-  line-height: 1.6em;
+  line-height: 1.6rem;
   word-wrap: break-word;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 .widget ul,
 .widget ol {
@@ -1702,7 +1706,7 @@ pre .javascript .function {
 .archive-list-count {
   padding-left: 5px;
   color: #666;
-  font-size: 0.85em;
+  font-size: 0.85rem;
 }
 .category-list-count:before,
 .tag-list-count:before,
