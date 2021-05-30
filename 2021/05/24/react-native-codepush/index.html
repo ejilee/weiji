@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-156457593-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>React Native 앱, 더 손쉽게 관리하기 - CodePush | Weiji ? 왜이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="앱을 배포하는 과정은 번거롭다. 얼마전에 이미 배포된 앱을 재배포하지 않고 수정할 수 있느냐의 질문이 들어왔었는데… (이미 앱을 설치한 사용자의 화면에 뭔가 새로운 것을 보여주는 일) 불가하다고 대답할 수 밖에 없었다. 당장 수정해야 되는 정보는 백엔드에서 고치기로 하고, 차후 비슷한 상황을 대비해 CodePush를 도입하기로 했다. (잠깐, 만약 당신의">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 앱, 더 손쉽게 관리하기 - CodePush">
+<meta property="og:url" content="https://weiji.io/2021/05/24/react-native-codepush/index.html">
+<meta property="og:site_name" content="Weiji">
+<meta property="og:description" content="앱을 배포하는 과정은 번거롭다. 얼마전에 이미 배포된 앱을 재배포하지 않고 수정할 수 있느냐의 질문이 들어왔었는데… (이미 앱을 설치한 사용자의 화면에 뭔가 새로운 것을 보여주는 일) 불가하다고 대답할 수 밖에 없었다. 당장 수정해야 되는 정보는 백엔드에서 고치기로 하고, 차후 비슷한 상황을 대비해 CodePush를 도입하기로 했다. (잠깐, 만약 당신의">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_1.png">
+<meta property="og:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_2.png">
+<meta property="og:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_3.png">
+<meta property="og:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_2.png">
+<meta property="og:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_4.png">
+<meta property="article:published_time" content="2021-05-24T02:37:46.000Z">
+<meta property="article:modified_time" content="2021-05-30T08:29:46.690Z">
+<meta property="article:author" content="Yeji Lee">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Deployment">
+<meta property="article:tag" content="CodePush">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiji.io/2021/05/24/react-native-codepush/rn_codepush_ios_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR|Roboto+Slab&display=swap&subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div id="sectionGrid">
+          <header id="header">
+  <div class="photo-box">
+    <img
+      id="profile-image"
+      src="/images/profile.jpg"
+      title="photo by Biel Morro on Unsplash"
+      alt="a hand holding a shell in water, photo by Biel Morro on Unsplash"
+    />
+  </div>
+  <a href="/" id="titleAnchor">
+    <h1 id="site-title">
+      <span class="txtEn">Weiji</span>
+      <span class="txtKr">왜이지</span>
+    </h1>
+  </a>
+  <p id="site-description">
+    안녕하세요, 프론트엔드 개발자 이예지입니다. 여기에 저의 공부를 기록합니다.
+  </p>
+  <nav id="mini-links">
+    <a
+      id="social-link-email"
+      class="social-link"
+      href="mailto:whyejilee@gmail.com"
+      title="email address"
+    ></a>
+    <a
+      id="social-link-git"
+      class="social-link"
+      href="https://github.com/ejilee"
+      title="github profile"
+    ></a>
+    <div class="flex-right">
+      
+      <a class="page-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+</header>
+
+          
+            <aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/05/24/react-native-codepush/"
+          >React Native 앱, 더 손쉽게 관리하기 - CodePush</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/02/13/react-native-deployment/"
+          >React Native 앱을 배포하기 전 간과한 것들</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/09/d3-and-react/"
+          >D3.js 와 React 를 접목시키는 법</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/08/garden-planner-i/"
+          >새로운 프로젝트를 계획하면서</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/26/tidally-locked-three/"
+          >조석 고정 시뮬레이터 III - 글리치</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/20/tidally-locked-two/"
+          >조석 고정 시뮬레이터 II - 디자인</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/13/short-break/"
+          >회상, 혼자서 공부하기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/23/tidally-locked/"
+          >조석 고정 시뮬레이터 I - 구동</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/15/toc-styling/"
+          >TOC 목차 만들기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/14/firstpost/"
+          >첫 포스트</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+    <div class="widget-wrap">
+  <h2 class="widget-title">Search</h2>
+  <div class="widget">
+    <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://weiji.io"></form>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget">
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3/">D3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Archive</h2>
+  <div class="widget">
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+  </div>
+</div>
+
+
+  
+
+</aside>
+          
+          <section id="main">
+  
+  <article id="post-react-native-codepush" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2021-05-24T02:37:46.000Z" itemprop="datePublished">2021-05-24</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      React Native 앱, 더 손쉽게 관리하기 - CodePush
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>앱을 배포하는 과정은 번거롭다. 얼마전에 이미 배포된 앱을 재배포하지 않고 수정할 수 있느냐의 질문이 들어왔었는데… (이미 앱을 설치한 사용자의 화면에 뭔가 새로운 것을 보여주는 일) 불가하다고 대답할 수 밖에 없었다. 당장 수정해야 되는 정보는 백엔드에서 고치기로 하고, 차후 비슷한 상황을 대비해 CodePush를 도입하기로 했다.</p>
+<p>(<em>잠깐, 만약 당신의 앱이 Expo와 Over the Air 업데이트를 사용하고 있다면, CodePush가 필요없다. Expo가 CodePush 와 유사한 기능을 제공한다.</em>)</p>
+<h2 id="CodePush-란"><a href="#CodePush-란" class="headerlink" title="CodePush 란?"></a>CodePush 란?</h2><p>CodePush는 마이크로소프트의 AppCenter 서비스의 일부로 Cordova와 React Native 앱의 업데이트를 App Store나 Play Store를 거치지 않고 바로 사용자 기계에 설치된 앱에 푸시할 수 있도록 도와준다. 업데이트할 수 있는 부분은 JS, HTML, CSS, 이미지 에셋 정도이다. 그러니까 왠만한 인터페이스 수정은 가능하나 <strong>SDK를 업데이트하거나 Native 코드를 다루는 패키지를 추가하거나 하게된다면 기존의 방법으로 다시 빌드해서 재배포해야한다.</strong></p>
+<p>공홈 문서를 읽어보자 : <a href="https://docs.microsoft.com/ko-kr/appcenter/distribution/codepush/" target="_blank" rel="noopener">CodePush 소개</a> 그렇다면 이제부터 CodePush 를 도입하는 방법을 단계별로 소개한다.</p>
+<h2 id="AppCenter-CLI-설정"><a href="#AppCenter-CLI-설정" class="headerlink" title="AppCenter CLI 설정"></a>AppCenter CLI 설정</h2><p>AppCenter를 사용하기 위해서 일단 터미널을 켜고 CLI를 설치하고 앱을 등록해보자.</p>
+<ol>
+<li><p>CLI 설치<br><code>npm i -g appcenter-cli</code></p>
+</li>
+<li><p>로그인<br><code>appcenter login</code><br>(브라우저가 열리고 이메일 입력, 돌려주는 토큰을 다시 터미널에 입력하는 과정을 밟으면 로그인이 된다)</p>
+</li>
+<li><p>로그인 된 사용자를 확인하려면 다음 명령을 사용한다.<br><code>appcenter profile list</code></p>
+</li>
+<li><p>앱센터에 나의 앱 등록<br><code>appcenter apps create -d myapp-aos -o android -p react-native</code><br><code>appcenter apps create -d myapp-ios -o ios -p react-native</code><br>-d 옵션에 앱의 이름을 입력한다. 등록하는 앱의 이름은 자유나, 이렇게 ios, android 두 개를 구분해서 등록하도록 한다. (이름은 나중에 수정 가능) -o (os) 옵션에는 해당 os의 이름을, 그리고 -p (platform) 옵션에는 react-native을 사용한다.</p>
+</li>
+<li><p>이제 다음 명령으로 등록 된 앱을 조회할 수 있다.<br><code>appcenter apps list</code></p>
+</li>
+<li><p>등록 된 앱에 각 Staging 과 Production 배포 단계 추가<br><code>appcenter codepush deployment add -a username/myapp-aos Staging</code><br><code>appcenter codepush deployment add -a username/myapp-aos Production</code><br><code>appcenter codepush deployment add -a username/myapp-ios Staging</code><br><code>appcenter codepush deployment add -a username/myapp-ios Production</code><br>Staging 과 Production 배포 단계도 원하는 이름으로 작명하고 더 추가할 수 있다. 그래도 이 두개는 기본적으로 사용하니 일단 이렇게 사용해보기를 추천.</p>
+</li>
+<li><p>이제 다음 명령으로 배포 상태를 확인할 수 있다.<br><code>appcenter codepush deployment list -a username/myapp-aos</code><br><code>appcenter codepush deployment list -a username/myapp-ios</code><br>아직은 아무것도 없지만 이제 배포를 할 준비가 다 완료되었다.</p>
+</li>
+<li><p>마지막으로 각 앱의 배포 키를 확인하자.<br><code>appcenter codepush deployment list -a username/myapp-aos - k</code><br><code>appcenter codepush deployment list -a username/myapp-ios - k</code><br>여기서 -k 플래그를 사용해서 각 앱의 Staging 과 Production 키를 확인할 수 있다. 이 키는 이제부터 클라이언트 SDK 를 설정할 때 필요하니 잘 저장해두거나 해당 명령을 기억해두자.</p>
+</li>
+<li><p>추가 팁 - App Center CLI 의 <code>set-current</code> 명령을 사용하면 매번 <code>-a</code> 플래그를 사용하는 수고를 덜 수 있다.<br><code>appcenter apps set-current username/myapp-aos</code><br>위 명령을 실행하면 이전에 <code>deployment list</code> 명령을 쓸 때 <code>-a</code> 플래그를 생략하고 실행할 수 있다. 하나의 앱에 여러가지 작업을 하려고 할 때 유용하다. 물론 ios 앱으로 바꿔서 조회하려면 다시<br><code>appcenter apps set-current username/myapp-ios</code><br>를 써서 지금 관리하고자 하는 앱을 바꿔주면 된다.</p>
+</li>
+</ol>
+<p>이 밖에 추가 CLI 사용법을 원한다면 <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli" target="_blank" rel="noopener">공식 문서</a>를 확인해보자.</p>
+<h2 id="React-Native-클라이언트-SDK-설정"><a href="#React-Native-클라이언트-SDK-설정" class="headerlink" title="React Native 클라이언트 SDK 설정"></a>React Native 클라이언트 SDK 설정</h2><p>이제 App Center는 준비되었고, 앱을 설정할 차례다.</p>
+<ol>
+<li><p>우선 프로젝트 폴더에서 패키지 설치한다.<br><code>npm install --save react-native-code-push</code></p>
+</li>
+<li><p>앱의 루트 컴포넌트를 감싼다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> codePush <span class="keyword">from</span> <span class="string">'react-native-code-push'</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> codePush(App)</span><br></pre></td></tr></table></figure>
+
+<p>위 방법은 가장 React Native 코드베이스에 CodePush를 도입하는 방법 중 가장 간단한 방법으로 이 밖에도 다양한 방법이 있으며 업데이트 확인 주기, 설치 방법 (즉시, 팝업, 이벤트 등) 등의 옵션을 설정할 수 있다.</p>
+</li>
+</ol>
+<p>조금 더 정교한 컨트롤을 원한다면 <a href="https://github.com/microsoft/react-native-code-push#getting-started" target="_blank" rel="noopener">패키지 문서</a> 를 확인해보자. 이제부터 iOS 와 Android 설정을 완료하면 배포할 수 있다!</p>
+<p>(<em>혹시 사용하는 React Native 의 버전이 0.60 이하라면 밑에 설명은 무시하고 공홈의 버전별 설명을 참고하기를 바란다. <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/rn-get-started" target="_blank" rel="noopener">SDK 설정 문서</a></em>)</p>
+<h3 id="iOS-설정"><a href="#iOS-설정" class="headerlink" title="iOS 설정"></a>iOS 설정</h3><ol>
+<li><p>프로젝트 폴더에서 CocoaPods dependency 설치를 위해 다음 명령을 :<br><code>cd ios &amp;&amp; pod install &amp;&amp; cd ..</code></p>
+</li>
+<li><p>IDE 를 열어서… ios/myapp/Info.plist 파일에 다음 값을 추가해준다 :</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>CodePushDeploymentKey<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>$&#123;CODEPUSH_KEY&#125;<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ios/myapp/AppDelegate.m 파일에 import 문을 하나 추가하고 <code>return [[NSBundle mainBundle]...</code> 부분을 <code>return [CodePush bundleURL];</code> 로 바꿔준다 :</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">#<span class="keyword">import</span> &lt;CodePush/CodePush.h&gt;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> [<span class="type">CodePush</span> bundleURL];</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Xcode 를 열어서… Project &gt; Info &gt; Configurations 에서 + 를 클릭하여 ‘Duplicate Release Configuration’을 선택하고 새로 복사된 배포 설정의 이름을 ‘Staging’이라고 수정한다.</p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_1.png" class="" title="xcode에서 새로운 배포 설정을 만들어주는 모습">
+</li>
+<li><p>Project &gt; Build Settings 에서 + 를 클릭하여 ‘Add User-Defined Setting’을 선택하고 ‘MULTI_DEPLOYMENT_CONFIG’ 라는 이름을 준다. Release 와 Staging 에 각 다음 값을 준다 :<br>Release : <code>$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</code><br>Staging : <code>$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)</code></p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_2.png" class="" title="xcode에서 새로운 사용자 설정 값을 추가해주는 모습">
+
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_3.png" class="" title="xcode에서 새로운 사용자 설정 값을 수정하는 모습">
+</li>
+<li><p>다시 Project &gt; Build Settings 에서 + 를 클릭하여 ‘Add User-Defined Settings’을 선택하고 ‘CODEPUSH_KEY’ 라는 이름을 준다. Release 와 Staging 값에 각 <code>appcenter codepush deployment list -a username/myapp-ios - k</code> 명령어로 확인했던 배포 키를 입력한다.</p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_2.png" class="" title="xcode에서 새로운 사용자 설정 값을 추가해주는 모습">
+
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_4.png" class="" title="xcode에서 새로운 사용자 설정 값을 수정하는 모습">
+</li>
+<li><p>기존 빌드를 지워주고 (Xcode 에서 Cmd+shft+K) Debug, Staging, Release 모두 다시 잘 빌드되는지 확인한다.</p>
+</li>
+</ol>
+<h3 id="Android-설정"><a href="#Android-설정" class="headerlink" title="Android 설정"></a>Android 설정</h3><ol>
+<li><p>IDE 를 열어서… android/gradle.properties 파일에 다음 값을 추가해준다. <code>???</code> 가 있는 부분엔 각 <code>appcenter codepush deployment list -a username/myapp-aos - k</code> 로 확인했던 빌드 별 배포키를 입력한다. :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_DEBUG=</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_STAGING=???</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_PRODUCTION=???</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/settings.gradle 파일에 다음 두 줄을 추가한다 :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">include</span> <span class="string">':app'</span>, <span class="string">':react-native-code-push'</span></span><br><span class="line"><span class="keyword">project</span>(<span class="string">':react-native-code-push'</span>).projectDir = <span class="keyword">new</span> <span class="keyword">File</span>(rootProject.projectDir, <span class="string">'../node_modules/react-native-code-push/android/app'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/app/src/main/java/com/myapp/MainApplication.java 파일에 import 문을 하나 추가하고, <code>new ReactNativeHost(this) { ... }</code> 블럭 안에 다음 코드를 추가한다 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> com.microsoft.codepush.react.CodePush;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">new</span> ReactNativeHost(<span class="keyword">this</span>) &#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">protected</span> String <span class="title">getJSBundleFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> CodePush.getJSBundleFile();</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">import</span> com.microsoft.codepush.react.CodePush;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/app/build.gradle 파일에 다음 줄을 추가하고 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">apply from: <span class="string">"../../node_modules/react-native/react.gradle"</span></span><br><span class="line">apply from: <span class="string">"../../node_modules/react-native-code-push/android/codepush.gradle"</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>(android/app/build.gradle) <code>buildTypes { ... }</code> 블럭 안에 각 빌드 마다 <code>resValue</code> 라는 값을 추가한다. (releaseStaging은 아래처럼 새로 추가해준다) :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">   debug &#123;</span><br><span class="line">      ...</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_DEBUG</span><br><span class="line">   &#125;</span><br><span class="line">   release &#123;</span><br><span class="line">      ...</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_PRODUCTION</span><br><span class="line">   &#125;</span><br><span class="line">   releaseStaging &#123;</span><br><span class="line">      initWith release</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_STAGING</span><br><span class="line">      matchingFallbacks = [<span class="string">'release'</span>]</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(android/app/build.gradle) 에 <code>if(enableHermes) { ... }</code> 블락이 있다면 아래도 내용도 추가해줘야 한다 :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (enableHermes) &#123;</span><br><span class="line"> ...</span><br><span class="line"> releaseStagingImplementation files(hermesPath + <span class="string">"hermes-release.aar"</span>)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>휴! 안드로이드 역시 기존 빌드를 지워주고 (<code>cd android &amp;&amp; ./gradlew clean</code>) debug, releaseStaging, release 모드 잘 빌드되는지 확인하자. (<code>./gradlew bundleReleaseStaging</code>…)</p>
+</li>
+</ol>
+<h2 id="배포"><a href="#배포" class="headerlink" title="배포"></a>배포</h2><p>모두 잘 빌드되고 애뮬레이터든 기기에서든 돌려보고 확인했다면 앞으로 코드푸시를 활용할 일만 남았다. 혹시 위 내용을 따라했는데 빌드 에러가 난다거나 뭐가 안 된다면 다시한번 공홈을 뒤져보거나 구글 검색을 해보자. 나도 공홈 내용만 고대로 따라했다가 안드로이드에서 staging apk가 실행되지 않는 오류를 겪었는데, 디버깅을 하며 검색한 후 다음 <a href="https://stackoverflow.com/questions/56734877/getting-library-libjsc-so-not-found-after-upgrading-react-native-to-0-60-rc2/60341009#60341009" target="_blank" rel="noopener">스택오버플로우</a> 글을 통해 위에 Android 설정 마지막 단계에 맨션된 Hermes 관련 코드를 추가해야 된다는 걸 배웠다.</p>
+<p>처음에 AppCenter에 앱을 등록하고 배포를 설정 할 때 Staging 과 Production, 두 개의 빌드 단계를 추가했었다. 이는 다음 같은 CodePush 배포 플로우를 활용하기 위함이다. :</p>
+<ol>
+<li>Debug 모드에서 개발, 변경 사항 수정</li>
+<li>Staging 빌드로 우선 배포</li>
+<li>Staging 빌드가 설치된 기기에서 내부 테스팅</li>
+<li>Staging 테스팅 완료 후 Staging 배포 내용을 Production (release) 로 promote (승급) 시킴</li>
+<li>배포 완료 (Production 빌드가 설치된 기기에서 또 테스팅)</li>
+</ol>
+<p>CodePush 로 업데이트 할 수 있는 영역이 제한되어있기 때문에 이렇게 실 사용자에게 푸시하기 전에 버그를 캐치할 수 있는 배포 과정은 필수적으로 도입해야 할 것 같다. 일단 코드가 잘 푸시되는지 확인하기 위해서… (ios로 테스트 해보겠음) Xcode ‘Edit Scheme…’ 설정에서 Build Configuration 을 새로 만든 ‘Staging’으로 변경한 후 기존에 디버깅하던 기기에 있는 앱을 지우고 다시 설치하거나 새로운 기기/애뮬레이터에 Staging 빌드를 설치한다. 해당 빌드가 잘 작동하는지 확인한다.</p>
+<ol>
+<li><p>그럼 테스트를 해보기 위해 이전에 설치한 Staging 빌드에 없는 수정을 코드에 반영해본다. (첫 화면 글씨를 수정한다던가 등등..) AppCenter CLI 를 통해서 배포해보자.</p>
+</li>
+<li><p>ios Staging 빌드를 테스팅한다고 하면 다음 명령을 통해 배포할 수 있다.<br><code>appcenter codepush release-react -a username/myapp-ios -d Staging</code><br><code>release-react</code> 말고도 <code>release</code> 라는 명령을 사용할 수 있는데, 조금 더 플렉시블 하지만 <code>release-react</code> 명령어는 번들링도 같이 해주기 때문에 더 편하다.</p>
+</li>
+<li><p>그렇다면 1번 단계 전에 Staging 빌드를 설치했던 기기에서 앱을 켜본다. 이 상태에서 다음 CLI 를 사용하면 :<br><code>appcenter codepush deployment list -a username/myapp-ios</code><br>처음 CLI 설치 단계에서 없던 새로운 배포 내용이 Staging 빌드 옆에 보이고 설치 내역에 1개의 Pending 이 보인다. 방금 앱을 연 기기에서 업데이트를 받는 중이라는 뜻. 앱을 껐다 다시 켜보자. 변경 사항이 잘 반영되었다면 코드 푸시 성공! 다시 list CLI 를 사용해서 조회해보면 이제 installed 개수가 1로 변경되었을 것이다.</p>
+</li>
+<li><p>이런 식으로 Staging 빌드로 변경 내용들을 검토하고 실제 앱스토어를 통해서 배포된 앱에 변경 내용을 반영할 지, 아니면 수정을 더 하거나 배포하지 않을지를 정하면 된다. 실제 배포 버전에 반영할 준비가 되었다면 마지막으로 Staging 빌드에 푸시를 한 번 하고 다음 명령어를 사용한다 :<br><code>appcenter codepush promote -a username/myapp-ios -s Staging -d Production</code><br>-s (source) 파라미터에 지정해준 빌드를 -d (destination) 파라미터로 지정해준 빌드로 승급시킨다.</p>
+</li>
+<li><p>실전에선 이미 앱스토어를 통해서 배포된 앱을 설치한 사용자의 기기로 테스트를 해보면 되겠지만 일단은 Staging 빌드를 테스트했던 것과 마찬가지로 기기에 기존에 깔려있던 앱의 빌드를 지우고 Release 빌드 Configuration 을 설치한 기기에서 마지막으로 테스트를 해보고 변경 내용이 잘 나오는지 확인한다. 다시한번 list CLI 를 사용하면 이제는 Production 배포 내역에도 새로운 설치가 추가된 것이 보일 것이다.</p>
+</li>
+</ol>
+<p>…이렇게 설명을 위해서 최대한 간소화한 예시를 설명했는데, <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#app-management" target="_blank" rel="noopener">공식 문서</a>를 참고하면 배포할 때 퍼센티지 rollout, target binary version 등을 설정할 수도 있고, 배포 내역을 rollback 하거나 배포 기록을 지우는 등 더 다양한 명령어가 자세하게 설명되어있다.</p>
+<p>CodePush 에 대한 설명은 이쯤 마무리한다. 글을 쓰는 도중 Firebase Remote Config라는 것도 도입하게 되었는데, CodePush 보다는 조금더 간단한 key,value pair를 클라우드에 저장해두고 앱의 배포없이 업데이트 할 수 있게끔 해주는 도구이다. 해당 프로젝트에 Firebase를 이미 사용하고 있어서 손쉽게 설정 할 수 있었다. CodePush에 비하면 훨씬 더 간단하니 (특히 이미 @react-native-firebase/app을 쓰고있다면…) 단순한 솔루션이 필요하다면 고려해보자.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2021/05/24/react-native-codepush/" data-id="ckpaxe4wt0008d2oq76fu9bco" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+      
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/13/react-native-deployment/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Native 앱을 배포하기 전 간과한 것들</div>
+    </a>
+  
+</nav>
+
+    
+  </article>
+
+  
+
+</section>
+
+
+  
+    <nav id="article-toc">
+            <h2>React Native 앱, 더 손쉽게 관리하기 - CodePush</h2>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CodePush-란"><span class="toc-text">CodePush 란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AppCenter-CLI-설정"><span class="toc-text">AppCenter CLI 설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Native-클라이언트-SDK-설정"><span class="toc-text">React Native 클라이언트 SDK 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS-설정"><span class="toc-text">iOS 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-설정"><span class="toc-text">Android 설정</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#배포"><span class="toc-text">배포</span></a></li></ol>
+            
+<script src="/js/tocscrollspy.js"></script>
+
+    </nav>
+
+
+        </div>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Yeji Lee
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

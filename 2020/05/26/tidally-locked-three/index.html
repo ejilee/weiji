@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-156457593-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>조석 고정 시뮬레이터 III - 글리치 | Weiji ? 왜이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="방금 작업하면서 좀 얍삽한(?) 해결책을 쓰게되어 글로 남겨봅니다. 문제계획대로 지난 주말까지 UI 구현은 다했는데, 작업 중 하나의 글리치가 발생했었습니다. UI 패널에 숫자 잇풋 박스 버튼 이것저것, 그리고 레인지 인풋 네개가 추가되었는데… 만들어논 레인지 (슬라이더) 인풋을 테스트 해보았을때, 첫 몇번은 바로바로 인풋 값이 에니메이션으로 반영이 되다가">
+<meta property="og:type" content="article">
+<meta property="og:title" content="조석 고정 시뮬레이터 III - 글리치">
+<meta property="og:url" content="https://weiji.io/2020/05/26/tidally-locked-three/index.html">
+<meta property="og:site_name" content="Weiji">
+<meta property="og:description" content="방금 작업하면서 좀 얍삽한(?) 해결책을 쓰게되어 글로 남겨봅니다. 문제계획대로 지난 주말까지 UI 구현은 다했는데, 작업 중 하나의 글리치가 발생했었습니다. UI 패널에 숫자 잇풋 박스 버튼 이것저것, 그리고 레인지 인풋 네개가 추가되었는데… 만들어논 레인지 (슬라이더) 인풋을 테스트 해보았을때, 첫 몇번은 바로바로 인풋 값이 에니메이션으로 반영이 되다가">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://weiji.io/2020/05/26/tidally-locked-three/ss_glitch_1.png">
+<meta property="og:image" content="https://weiji.io/2020/05/26/tidally-locked-three/ss_glitch_2.png">
+<meta property="og:image" content="https://weiji.io/2020/05/26/tidally-locked-three/ss_glitch_3.png">
+<meta property="og:image" content="https://weiji.io/2020/05/26/tidally-locked-three/ss_glitch_4.png">
+<meta property="article:published_time" content="2020-05-26T03:58:47.000Z">
+<meta property="article:modified_time" content="2021-05-24T02:33:34.237Z">
+<meta property="article:author" content="Yeji Lee">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="styled components">
+<meta property="article:tag" content="tidal locking">
+<meta property="article:tag" content="tidally locked">
+<meta property="article:tag" content="조석 고정">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiji.io/2020/05/26/tidally-locked-three/ss_glitch_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR|Roboto+Slab&display=swap&subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div id="sectionGrid">
+          <header id="header">
+  <div class="photo-box">
+    <img
+      id="profile-image"
+      src="/images/profile.jpg"
+      title="photo by Biel Morro on Unsplash"
+      alt="a hand holding a shell in water, photo by Biel Morro on Unsplash"
+    />
+  </div>
+  <a href="/" id="titleAnchor">
+    <h1 id="site-title">
+      <span class="txtEn">Weiji</span>
+      <span class="txtKr">왜이지</span>
+    </h1>
+  </a>
+  <p id="site-description">
+    안녕하세요, 프론트엔드 개발자 이예지입니다. 여기에 저의 공부를 기록합니다.
+  </p>
+  <nav id="mini-links">
+    <a
+      id="social-link-email"
+      class="social-link"
+      href="mailto:whyejilee@gmail.com"
+      title="email address"
+    ></a>
+    <a
+      id="social-link-git"
+      class="social-link"
+      href="https://github.com/ejilee"
+      title="github profile"
+    ></a>
+    <div class="flex-right">
+      
+      <a class="page-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+</header>
+
+          
+            <aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/05/24/react-native-codepush/"
+          >React Native 앱, 더 손쉽게 관리하기 - CodePush</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/02/13/react-native-deployment/"
+          >React Native 앱을 배포하기 전 간과한 것들</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/09/d3-and-react/"
+          >D3.js 와 React 를 접목시키는 법</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/08/garden-planner-i/"
+          >새로운 프로젝트를 계획하면서</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/26/tidally-locked-three/"
+          >조석 고정 시뮬레이터 III - 글리치</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/20/tidally-locked-two/"
+          >조석 고정 시뮬레이터 II - 디자인</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/13/short-break/"
+          >회상, 혼자서 공부하기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/23/tidally-locked/"
+          >조석 고정 시뮬레이터 I - 구동</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/15/toc-styling/"
+          >TOC 목차 만들기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/14/firstpost/"
+          >첫 포스트</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+    <div class="widget-wrap">
+  <h2 class="widget-title">Search</h2>
+  <div class="widget">
+    <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://weiji.io"></form>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget">
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3/">D3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Archive</h2>
+  <div class="widget">
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+  </div>
+</div>
+
+
+  
+
+</aside>
+          
+          <section id="main">
+  
+  <article id="posts-tidally-locked-three" class="article article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-05-26T03:58:47.000Z" itemprop="datePublished">2020-05-26</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      조석 고정 시뮬레이터 III - 글리치
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>방금 작업하면서 좀 얍삽한(?) 해결책을 쓰게되어 글로 남겨봅니다.</p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>계획대로 지난 주말까지 UI 구현은 다했는데, 작업 중 하나의 글리치가 발생했었습니다. UI 패널에 숫자 잇풋 박스 버튼 이것저것, 그리고 레인지 인풋 네개가 추가되었는데… 만들어논 레인지 (슬라이더) 인풋을 테스트 해보았을때, 첫 몇번은 바로바로 인풋 값이 에니메이션으로 반영이 되다가 꼭 몇번 이상 인풋을 사용하다보면 버벅거리며 에니메이션이 변형이 안 되었다가 또 다시 되었다가 하면서 렌더된 모습이 이상하게 바뀌는 문제가 발생했습니다. 스샷으로 보시죠…</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_1.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 1">
+
+<p>처음에는 잘 되다가…</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_2.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 2">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_3.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 3">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_4.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 4">
+
+<p>앗</p>
+<p>…이렇게 말이죠. 예측 가능한 숫자에서 그러는 것도 아니고 그냥 몇번 인풋을 만지다 보면 이렇게 되는데, 저 모습은 마치 moon 컴포넌트가 사용하는 MOON-REVOLUTION 키프레임에 바뀐 공전 반경 프롭이 제대로 안 먹힌 모습입니다. 또 직접적으로 개발자 도구에서 공전 반경 상태값을 바꾸면 제대로 반영이 됩니다.</p>
+<h1 id="분석"><a href="#분석" class="headerlink" title="분석"></a>분석</h1><p>초반에 작업해 놓은 moon 컴포넌트는 첫번쨰 관련 블로그 글에 설명했듯이 ‘자전 주기’, ‘공전 주기’, ‘공전 반경’ 등의 상태를 프롭으로 받아와서 스타일드 컴포넌트에게 넘겨줍니다. 스타일드 컴포넌트 내부에서도 MOON-REVOLUTION 과 MOON-ROTATION이라는 키프레임을 정의해 놓고 moon 컴포넌트가 사용하게끔 작성했는데, 키프레인 안에서도 공전 반경 프롭을 사용합니다. 이렇게요 (공전 에니메이션 관련 코드 외에는 생략되었습니다) :</p>
+<figure class="highlight javascript"><figcaption><span>Moon.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> StyledMoon = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  position: absolute;</span></span><br><span class="line"><span class="string">  z-index: 200;</span></span><br><span class="line"><span class="string">  width: 100%;</span></span><br><span class="line"><span class="string">  height: 100%;</span></span><br><span class="line"><span class="string">  transform-origin: 50% 50%;</span></span><br><span class="line"><span class="string">  animation-name: MOON-REVOLUTION;</span></span><br><span class="line"><span class="string">  animation-duration: <span class="subst">$&#123;(props) =&gt; props.orbPer + <span class="string">"s"</span> || <span class="string">"0s"</span>&#125;</span>;</span></span><br><span class="line"><span class="string">  animation-iteration-count: infinite;</span></span><br><span class="line"><span class="string">  animation-timing-function: linear;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  @keyframes MOON-REVOLUTION &#123;</span></span><br><span class="line"><span class="string">    0% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(0deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(0deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    100% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(-360deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(360deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Moon = <span class="function">(<span class="params">&#123; orbPer, orbRad &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;StyledMoon orbRad=&#123;orbRad&#125; orbPer=&#123;orbPer&#125;&gt;</span><br><span class="line">      &lt;div className=<span class="string">"moon__self"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__lockline"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__face"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__body"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div className="moon__shade" /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/StyledMoon&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Moon;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="하지-말라는-짓"><a href="#하지-말라는-짓" class="headerlink" title="하지 말라는 짓"></a>하지 말라는 짓</h2><p>이 에니메이션이 캐싱이 되고있는 것 같은 느낌을 받았고, 구글에 ‘styled components cache animation’ 라고 검색하니 스타일 컴포넌트 공식 홈 Basic 페이지가 최상위 검색 결과로 나왔고, 해당 Basics 페이지 에서 caching을 검색해보니 “Define Styled Components outside of the render method” 라는 해딩 아래로 주의문이 하나 있습니다.</p>
+<blockquote>
+<p>It is important to define your styled components outside of the render method, otherwise it will be recreated on every single render pass. Defining a styled component within the render method will thwart caching and drastically slow down rendering speed, and should be avoided.</p>
+<p>– <cite><a href="https://styled-components.com/docs/basics" target="_blank" rel="noopener">styled-components Basics</a></cite></p>
+</blockquote>
+<p>그러니까 스타일드 컴포넌트를 렌더 메서드 밖에서 정의하라, 그렇지 않으면 매 랜더에 다시 생성되어야하고 그러면 <strong>캐싱도 안 되고</strong> 성등이 아주 많이 떨어지기 때문에 그런 방법은 피해야 합니다… 라고 합니다. 예시 주석에도 “WARNING: THIS IS VERY VERY BAD AND SLOW, DO NOT DO THIS!!!” 겁나 느리고 나빠요, 이렇게 하지 마세요!! 라고 써있습니다.</p>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결?"></a>해결?</h1><p>음? 캐싱이 안 된다고요? 그래서… 겁나 느리고 나쁘지만 ㅠㅠ 하지말라는 성능저하를 해보았습니다. 물론 딱 저 에니메이션 사용하는 부분만 분리해서요.</p>
+<figure class="highlight javascript"><figcaption><span>moon.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> StyledMoon = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  /* 자전 에니메이션 제외 나머지 스타일 코드 아직도 여기에 킵하고 */</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Moon = <span class="function">(<span class="params">&#123; orbPer, orbRad &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> StyledRevolution = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">    position: absolute;</span></span><br><span class="line"><span class="string">    z-index: 200;</span></span><br><span class="line"><span class="string">    width: 100%;</span></span><br><span class="line"><span class="string">    height: 100%;</span></span><br><span class="line"><span class="string">    transform-origin: 50% 50%;</span></span><br><span class="line"><span class="string">    animation-duration: <span class="subst">$&#123;(props) =&gt; props.orbPer + <span class="string">"s"</span> || <span class="string">"0s"</span>&#125;</span>;</span></span><br><span class="line"><span class="string">    animation-iteration-count: infinite;</span></span><br><span class="line"><span class="string">    animation-timing-function: linear;</span></span><br><span class="line"><span class="string">    animation-name: MOON-REVOLUTION;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    @keyframes MOON-REVOLUTION &#123;</span></span><br><span class="line"><span class="string">      0% &#123;</span></span><br><span class="line"><span class="string">        transform: rotate(0deg) translate(</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">          )</span></span><br><span class="line"><span class="string">          rotate(0deg);</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">      100% &#123;</span></span><br><span class="line"><span class="string">        transform: rotate(-360deg) translate(</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">          )</span></span><br><span class="line"><span class="string">          rotate(360deg);</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;StyledRevolution orbRad=&#123;orbRad&#125; orbPer=&#123;orbPer&#125;&gt;</span><br><span class="line">      &lt;StyledMoon&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__self"</span>&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__lockline"</span> /&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__face"</span> /&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__body"</span> /&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div className="moon__shade" /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/StyledMoon&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>StyledRevolution&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Moon;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 했더니 글리치가 사라졌습니다. 딱히 엄청 버벅거린다거나 느리거나도 잘 못느끼겠고, 물론 스타일드 컴포넌트 전체를 저런식으로 랜더 부분에 정의하면 성능상 엄청 안 좋을 것 같긴 합니다. 일단 문제를 해결하긴 했는데, 뭔가 찝찝한 느낌…</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckpaxe4wv000cd2oqguyva6up" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/2020/06/08/garden-planner-i/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          새로운 프로젝트를 계획하면서
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/20/tidally-locked-two/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">조석 고정 시뮬레이터 II - 디자인</div>
+    </a>
+  
+</nav>
+
+    
+  </article>
+
+  
+
+</section>
+
+
+  
+    <nav id="article-toc">
+            <h2>조석 고정 시뮬레이터 III - 글리치</h2>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#문제"><span class="toc-text">문제</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#분석"><span class="toc-text">분석</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#하지-말라는-짓"><span class="toc-text">하지 말라는 짓</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#해결"><span class="toc-text">해결?</span></a></li></ol>
+            
+<script src="/js/tocscrollspy.js"></script>
+
+    </nav>
+
+
+        </div>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Yeji Lee
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

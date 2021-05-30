@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-156457593-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>TOC 목차 만들기 | Weiji ? 왜이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="혹시 블로그 index에서 보고계시면 해당 글 제목을 클릭해서글 고유 페이지로 들어오셔야 목차를 보실 수 있습니다.목차는 데스탑에서만 보입니다. 내가 원하는 목차블로그 글이 길어질 것을 감안하여 목차를 보여주고 싶었습니다.다른 헥소 테마에 글 목차 기능이 있는 걸 보았는데,제대로 작동하지 않고 코드가 잘 정리되어있지 않아서…기본 landscape 테마를 수">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TOC 목차 만들기">
+<meta property="og:url" content="https://weiji.io/2020/02/15/toc-styling/index.html">
+<meta property="og:site_name" content="Weiji">
+<meta property="og:description" content="혹시 블로그 index에서 보고계시면 해당 글 제목을 클릭해서글 고유 페이지로 들어오셔야 목차를 보실 수 있습니다.목차는 데스탑에서만 보입니다. 내가 원하는 목차블로그 글이 길어질 것을 감안하여 목차를 보여주고 싶었습니다.다른 헥소 테마에 글 목차 기능이 있는 걸 보았는데,제대로 작동하지 않고 코드가 잘 정리되어있지 않아서…기본 landscape 테마를 수">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://weiji.io/2020/02/15/toc-styling/screenshot1.png">
+<meta property="og:image" content="https://weiji.io/2020/02/15/toc-styling/screenshot4.png">
+<meta property="og:image" content="https://weiji.io/2020/02/15/toc-styling/screenshot5.png">
+<meta property="article:published_time" content="2020-02-15T06:35:57.000Z">
+<meta property="article:modified_time" content="2021-05-24T02:33:34.245Z">
+<meta property="article:author" content="Yeji Lee">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="TOC">
+<meta property="article:tag" content="목차">
+<meta property="article:tag" content="Intersection Observer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiji.io/2020/02/15/toc-styling/screenshot1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR|Roboto+Slab&display=swap&subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div id="sectionGrid">
+          <header id="header">
+  <div class="photo-box">
+    <img
+      id="profile-image"
+      src="/images/profile.jpg"
+      title="photo by Biel Morro on Unsplash"
+      alt="a hand holding a shell in water, photo by Biel Morro on Unsplash"
+    />
+  </div>
+  <a href="/" id="titleAnchor">
+    <h1 id="site-title">
+      <span class="txtEn">Weiji</span>
+      <span class="txtKr">왜이지</span>
+    </h1>
+  </a>
+  <p id="site-description">
+    안녕하세요, 프론트엔드 개발자 이예지입니다. 여기에 저의 공부를 기록합니다.
+  </p>
+  <nav id="mini-links">
+    <a
+      id="social-link-email"
+      class="social-link"
+      href="mailto:whyejilee@gmail.com"
+      title="email address"
+    ></a>
+    <a
+      id="social-link-git"
+      class="social-link"
+      href="https://github.com/ejilee"
+      title="github profile"
+    ></a>
+    <div class="flex-right">
+      
+      <a class="page-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+</header>
+
+          
+            <aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/05/24/react-native-codepush/"
+          >React Native 앱, 더 손쉽게 관리하기 - CodePush</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/02/13/react-native-deployment/"
+          >React Native 앱을 배포하기 전 간과한 것들</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/09/d3-and-react/"
+          >D3.js 와 React 를 접목시키는 법</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/08/garden-planner-i/"
+          >새로운 프로젝트를 계획하면서</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/26/tidally-locked-three/"
+          >조석 고정 시뮬레이터 III - 글리치</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/20/tidally-locked-two/"
+          >조석 고정 시뮬레이터 II - 디자인</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/13/short-break/"
+          >회상, 혼자서 공부하기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/23/tidally-locked/"
+          >조석 고정 시뮬레이터 I - 구동</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/15/toc-styling/"
+          >TOC 목차 만들기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/14/firstpost/"
+          >첫 포스트</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+    <div class="widget-wrap">
+  <h2 class="widget-title">Search</h2>
+  <div class="widget">
+    <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://weiji.io"></form>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget">
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3/">D3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Archive</h2>
+  <div class="widget">
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+  </div>
+</div>
+
+
+  
+
+</aside>
+          
+          <section id="main">
+  
+  <article id="post-toc-styling" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-02-15T06:35:57.000Z" itemprop="datePublished">2020-02-15</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      TOC 목차 만들기
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p><em>혹시 블로그 index에서 보고계시면 해당 글 제목을 클릭해서</em><br><em>글 고유 페이지로 들어오셔야 목차를 보실 수 있습니다.</em><br><em>목차는 데스탑에서만 보입니다.</em></p>
+<h1 id="내가-원하는-목차"><a href="#내가-원하는-목차" class="headerlink" title="내가 원하는 목차"></a>내가 원하는 목차</h1><p>블로그 글이 길어질 것을 감안하여 목차를 보여주고 싶었습니다.<br>다른 헥소 테마에 글 목차 기능이 있는 걸 보았는데,<br>제대로 작동하지 않고 코드가 잘 정리되어있지 않아서…<br>기본 landscape 테마를 수정한 후에 목차는 마지막에 별도로 추가하게 되었는데요.</p>
+<p>제가 만들어 볼 목차는 :</p>
+<ul>
+<li>글 왼쪽으로 sticky 하게 붙어있어야 한다.</li>
+<li>현재 보고 있는 헤딩이 목차 내에서 강조된다.</li>
+<li>목차 안에서 제목을 클릭하면 해당 내용으로 부드럽게 스크롤링.</li>
+</ul>
+<p>마침 최근에 관련된 글을 읽어서 응용해볼까 합니다.</p>
+<h2 id="참고-블로그-글"><a href="#참고-블로그-글" class="headerlink" title="참고 블로그 글"></a>참고 블로그 글</h2><p>Bramus님이 깔끔하게 정리해주신 글입니다 : (영문)<br><a href="https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation" target="_blank" rel="noopener">Smooth Scrolling Sticky ScrollSpy Navigation</a></p>
+<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><h2 id="Hexo-Helper-toc"><a href="#Hexo-Helper-toc" class="headerlink" title="Hexo Helper - toc()"></a>Hexo Helper - toc()</h2><p>Hexo의 Helper 중에 <a href="https://hexo.io/ko/docs/helpers#toc" target="_blank" rel="noopener"><code>toc()</code></a>이라는 아이가 있습니다. 파라미터로 사용되는 스트링(블로그 글 본문)에서 <code>h1~h6</code> 태그들을 찾아서 목록을 만들어주죠. 여기서부터 Bramus 형님의 접근에서 살짝 갈라집니다. 위에 링크된 글 예시에서는 html의 내용이 섹션(section)으로 나눠져있습니다. Hexo에서 사용하는 블로그 포스트는 markdown을 사용하고 별로도 섹션을 나눠서 작성하지 않습니다. <code>toc()</code>은 헤딩의 이름만 알려주지, 그 밑에 무슨 내용이 있는지, 어디까지가 해당 헤딩의 범주인지.. 이런 정보는 갖고있지 않습니다. 글을 작성할 때마다 섹션을 나눠서 쓸 수 있는지도 의문이고, 귀찮기도 하고요. 저는 그래서 일단은 헤딩만 감지하는 목차를 만들어볼까 합니다.</p>
+<p>테마 디렉토리 안에 있는 <code>layout&gt;_partial&gt;post</code> 에 <code>toc.ejs</code>를 만들고 <code>article.ejs</code> 레이아웃 파일 최하단에 다음처럼 붙여보았습니다.</p>
+<figure class="highlight javascript"><figcaption><span>article.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index &amp;&amp; !page)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'post/toc'</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>…이렇게 <code>article.ejs</code> 문서 맨 마지막에 붙여주었습니다. 조건문은 article 같은 레이아웃이 index에도 쓰이고 page에서도 쓰이기 때문에 목차를 index도 아니고 page도 아닌 경우에만 보여주기 위해서입니다. <code>toc.ejs</code> 파일은 다음처럼 작성했습니다.</p>
+<figure class="highlight javascript"><figcaption><span>article.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (toc(post.content) !== <span class="string">""</span>)&#123; %&gt;</span><br><span class="line">  &lt;nav id=<span class="string">"article-toc"</span>&gt;</span><br><span class="line">    &lt;h2&gt;&lt;%- post.title %&gt;&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%- toc(post.content, &#123;list_number: false, max_depth: 3&#125;) %&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%- js('js/</span>tocscrollspy<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">  &lt;/nav&gt;</span></span><br><span class="line"><span class="string">&lt;% &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>여기서의 조건문은 헤딩이 없는 짧은 글의 경우에, <code>toc()</code>이 아무것도 반환하지 않았을때 목차를 아예 사용하지 않기 위해서이고요. 나머지 경우에만 nav 안에 <code>toc()</code>에 옵션을 추가해서 보여줍니다. <a href="https://hexo.io/ko/docs/helpers#toc" target="_blank" rel="noopener">Hexo 공식문서</a> 에 따르면 옵션은 4가지, class, list_number, max_depth, min_depth 이고 디폴트는 각 ‘toc’, true, 6, 1 입니다. 저는 list_number 와 max_depth 값만 바꿔줬습니다. (숫자 표시 안 하고 h4~h6 소제목은 목차에 포함 안 하기로) 그 밖에 h2로 글 제목을 보여주고, 목차 밑에 스크립트 파일을 추가했습니다. 스크립트를 보기전에 잠시 스타일을 보겠습니다.</p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><img src="/2020/02/15/toc-styling/screenshot1.png" class="" title="스타일링 없는 목차 스크린샷">
+
+<p><em>스타일 관련 코드들은 순 css를 사용하지 않고 스타일러스 포맷을 사용합니다.</em><br><em>브라켓이랑 세비콜론등이 안 보여도 내용은 그냥 css와 다를게 없으니 참고하시기 바랍니다</em></p>
+<p>기존에 블로그 전반 레이아웃으로 사용하고있는 grid에 목차를 탑승시킵니다. (그리드 컨테이너 관련 내용은 생략하겠습니다) 별도의 <code>toc.styl</code> 파일을 만들지 않고 기존 <code>style.styl</code>와 <code>article.styl</code>을 수정했습니다. 우선 목차 클릭시 스크롤이 부드럽게 넘어가는 법은 초간단합니다.</p>
+<figure class="highlight styl"><figcaption><span>style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">  scroll-behavior: smooth</span><br></pre></td></tr></table></figure>
+
+<p>끝. 이제 목차 스타일링을 시작합니다.</p>
+<figure class="highlight styl"><figcaption><span>style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#article-toc</span><br><span class="line">  <span class="attribute">display</span>: none</span><br><span class="line"></span><br><span class="line">  @media screen and (<span class="attribute">min-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">display</span>: block</span><br><span class="line">    <span class="attribute">align-self</span>: start</span><br><span class="line">    grid-column: <span class="number">1</span> / <span class="selector-tag">span</span> <span class="number">1</span></span><br><span class="line">    grid-row: <span class="number">3</span> / <span class="selector-tag">span</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>우선 저는 모바일에서는 목차를 사용하지 않기로 했습니다. 그래서 일반적으로는 <code>display:none</code> … 미디어 쿼리를 사용해서 768px 이상의 스크린에서만 <code>#article-toc</code>을 보여주고, 기존에 있는 그리드 안에서의 위치를 잡아주었습니다. 이 과정에서 기억할 건 그리드 내 요소에 <code>align-self:start</code>를 사용하지 않으면 컨텐츠의 세로길이가 나머지 그리드의 길이만큼 길어져버려서 <code>position:sticky</code>가 제대로 작동하지 않을 수도 있다는 점입니다.</p>
+<p><code>style.styl</code> 에는 우선 그리드와 미디어 쿼리 관련 코드만 수정해주고… 나머지는 <code>article.styl</code> 에서 다음처럼 추가해주었습니다.</p>
+<figure class="highlight styl"><figcaption><span>article.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#article-toc</span><br><span class="line">  <span class="attribute">position</span>: sticky</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span></span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">24px</span></span><br><span class="line"></span><br><span class="line">  h2</span><br><span class="line">    @extend <span class="variable">$block</span>-caption</span><br><span class="line">    <span class="attribute">color</span>: color-accent</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">24px</span></span><br><span class="line"></span><br><span class="line">  li</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1px</span></span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">ol</span>.toc-child</span><br><span class="line">      <span class="attribute">margin-left</span> : <span class="number">16px</span></span><br><span class="line"></span><br><span class="line">    a</span><br><span class="line">      <span class="attribute">display</span>:block</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">0</span> <span class="number">8px</span> <span class="number">16px</span></span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#333</span></span><br><span class="line">      <span class="attribute">font-weight</span>: <span class="number">600</span></span><br><span class="line">      <span class="attribute">text-decoration</span>: none</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">0.8</span></span><br><span class="line">      <span class="attribute">transition</span>: opacity <span class="number">200ms</span></span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">a</span>:hover</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">li</span><span class="selector-class">.active</span> &gt; a</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span></span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid color-accent</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">4px</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<img src="/2020/02/15/toc-styling/screenshot4.png" class="" title="스타일링 추가된 목차 스크린샷">
+
+<p>이로소 li.active 에 관련된 스타일을 만들어 주었습니다. 이제 스크립트를 사용해서 화면에 보이는 헤딩 요소와 일치하는 목차 제목에 active 클라스를 부여해주면 될 것 같습니다.</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>테마 디렉토리에서 <code>source &gt; js</code> 에 <code>tocscrollspy.js</code> 라는 파일을 만들고 Bramus님의 예시를 참고해서 다음처럼 작성했습니다 :</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allTocLis = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line">        <span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">          .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">          .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">          .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">          .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">          .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">          .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">            el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">          &#125;);</span><br><span class="line">          articleToc</span><br><span class="line">            .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">            .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>‘DOMContentLoaded’ 이벤트 리스너 안의 내용을 크게 세 구간으로 나눠보자면…</p>
+<ul>
+<li>처음에는 앞으로 사용할 DOM 노드들을 선택해서 세개의 변수로 잡아주었습니다.</li>
+<li>중간 부분에서 제일 중요한 new IntersectionObserver로 observer를 만들어 주었습니다다.</li>
+<li>마지막에는 구역에 있는 코드는 블로그 본문(articleBody)에서 headerlink라는 클라스 갖고 있는 모든 요소를 선택해서 각 요소를 observer에게 ‘감시하라’ 라고 말하고 있습니다.</li>
+</ul>
+<p>여기서 headerlink는 Hexo 마크다운에서 h1~h6를 사용하면 각 헤더 바로 뒤에 자동을 붙는 a 태그의 클라스 이름입니다. 저희는 이 a.headerlink 들을 ‘감시’해서 특정 a.headerlink 요소가 화면에 등장 할 때마다 목차에 변화를 줄 것입니다. 우선 IntersectionObserver 가 뭐하는 녀석인지 짚고 넘어가야 해당 기능을 사용할 수 있을 것 같습니다.</p>
+<h2 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">모질라의 Intersection Observer API 문서</a> 에 따르면,</p>
+<blockquote>
+<p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
+</blockquote>
+<p>번역을 하면,</p>
+<blockquote>
+<p>‘Intersection Obeserver API’는 <strong>대상 요소</strong>와 <strong>조상 요소</strong> (혹은 최상단 뷰포트 요소)의 <strong>교차점의 변화</strong>를 비동기적으로 지켜보는 방법을 제공합니다.</p>
+</blockquote>
+<p>말이 좀 어려워서 그렇지 가장 많이 사용되는 예시로 뷰포트에 대상 요소가 나타나는 걸 감지할 때 쓰입니다. 예를 들어 스크롤을 해서 화면에 이미지가 나타날 때 레이지하게 이미지를 로딩하거나, 밑으로 스크롤을 내릴 수록 추가 요소를 계속 로딩하고 (무한 스크롤), 광고의 화면 가시성을 측정하고, 유저에게 보이느냐 안보이느냐에 따라 복잡한 에니메이션을 실행할지 중단할지 등을 정할 때 쓰일 수 있습니다.</p>
+<p>모질라 문서를 읽어본 후 몇 가지 요점을 정리해 봤습니다. (ie 호환 안 되니, 해당 문서에서 브라우저 호환성도 확인하세요)</p>
+<p>Intersection Observer API 사용시 기억할 부분들 :</p>
+<ul>
+<li>우선 Intersection Observer의 컨스트럭터를 불러서 새 intersection observer 를 생성합니다.</li>
+<li>파라미터는 2개, 콜백 함수와 옵션 객체</li>
+<li>콜백함수 / 대상 요소와 조상 요소의 교차점에 변화가 오면 부르는 함수</li>
+<li>옵션은 3가지 / root, rootMargin, threshold.</li>
+<li>root : 사용할 조상 요소. 따로 안 잡아주거나 null 이면 뷰포트.</li>
+<li>rootMargin : 조상 요소의 마진. 일반 css 마진처럼 잡아줄 수 있음. (예 - rootMargin : ‘12px 6px 12px 0’) 기본값 0.</li>
+<li>threshold : 0.0 ~ 1.0 의 숫자. 조상 요소와 교차하는 대상요소의 비율을 나타냄. 해당 비율을 지날 때 콜백함수가 불려짐. 배열로 한계점 여러개 잡을 수 있음. (예 - threshold : [0.2, 0.4, 0.6, 0.8, 1.0] ) 기본값 0 (대상 요소가 쬐끔이라도 보이면 콜백부름. 1.0으로 설정 시 대상요소가 100% 보이면 콜백 부른다는 의미.</li>
+<li>콜백 함수는 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry" target="_blank" rel="noopener">IntersectionObserverEntry</a> 객체 배열과 (위에서 말한 threshold 한계점 하나당 하나의 객체) observer를 전달받음</li>
+<li>각 IntersectionObserverEntry 객체는 대상 요소가 조상 요소와 교차하는 비율 (threshold), 교차하고 있는지 아닌지의 여부, 그리고 어떤 방향으로 변화가 일어나고있는지 (나타나고 있는지, 없어지고 있는지) 의 정보를 가지고 있음.</li>
+<li>교차점의 변화를 감지하는 것은 비동기 작업이지만, 콜백 자체는 비동기가 아닌 main thread 에서 실행됨. 너무 무거운 작업은 Window.requestIdleCallback() 사용 권장</li>
+</ul>
+<p>저는 일단 당장 사용할 때 주의해야할 기본 사항들을 정리해 보았고요, 모질라 문서에는 교차영역이 어떻게 계산되는지 같은 자세한 얘기과 예시도 두개나 들어있으니, 더 자세한 내용이 필요하시면 꼭 읽어보시길.</p>
+<p>그럼 글 초반에 링크 걸었던 <a href="https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/" target="_blank" rel="noopener">블로그 글</a>에는 어떻게 사용되고 있나 확인해보겠습니다.</p>
+<figure class="highlight javascript"><figcaption><span>링크된 글에 사용된 코드</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function">(<span class="params">entries</span>) =&gt;</span> &#123;</span><br><span class="line">    entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> id = entry.target.getAttribute(<span class="string">"id"</span>);</span><br><span class="line">      <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span></span><br><span class="line">          .querySelector(<span class="string">`nav li a[href="#<span class="subst">$&#123;id&#125;</span>"]`</span>)</span><br><span class="line">          .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">document</span></span><br><span class="line">          .querySelector(<span class="string">`nav li a[href="#<span class="subst">$&#123;id&#125;</span>"]`</span>)</span><br><span class="line">          .parentElement.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Track all sections that have an `id` applied</span></span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">"section[id]"</span>).forEach(<span class="function">(<span class="params">section</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(section);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>const observer = new IntersectionObserver(); 안에 있는 내용을 확인해야겠죠. 여기는 옵션은 사용하지 않았네요, 콜백 함수… entries =&gt; {} 의 내용만 보면 될 것 같습니다. 이 경우에는 threshold 옵션을 사용하지 않아서 콜백 함수에 전달되는 entry 는 하나겠죠..?<br>forEach 안에 내용을 보자면… intersectionObserverEntry의 속성 두 가지가 보입니다… entry.target, entry.intersectionRatio. target은 대상 요소, intersectionRatio 는 교차 비율입니다. 참고해서 읽으면</p>
+<ul>
+<li>id는 대상 요소의 id 값이다.</li>
+<li>대상 요소의 교차 비율이 0보다 크면…</li>
+<li>문서에서 href값으로 id를 사용하고 있는 nav 속 li 속 a 태그를 찾아서</li>
+<li>그 태그의 부모요소의 클라스 목록에 ‘active’를 더해라</li>
+<li>대상 요소의 교차 비울이 0보다 크지 않으면…</li>
+<li>문서에서 href값으로 id를 사용하고 있는 nav 속 li 속 a 태그를 찾아서</li>
+<li>그 태그의 부모요소의 클라스 목록에 ‘active’를 삭제해라<br>입니다.</li>
+</ul>
+<p>아까 Template 부분에서 말했듯이, 이 예시에서는 id값을 가진 section를 관찰하죠. 해당 section이 조금이라도 보이면 목차에 같은 id값을 가진 a 태그가 강조됩니다. 관련 내용을 다 읽고 해딩과 글 내용까지 포함한 section이 아예 보이지 않게 될 때 비로소 목차에서 강조 스타일이 없어지곘죠.</p>
+<p>제 경우에 이걸 바로 똑같이 쓰지 못하는 이유는… 저는 해딩 태그만 관찰하기 때문이죠. 만약에 콜백을 저렇게 썼다면… 해딩이 보이지 않는 즉시 목차에 강조 스타일이 사라질 겁니다. 헤딩 아래에 관련 내용은 아직도 길게 늘어져있는데 말이죠.</p>
+<p>일단 IntersectionObserver 옵션으로 root와 threshold는 저도 기본값인 뷰포트와 0으로 두고, rootMargin만 조금 깎았습니다.</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allHeadings = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 여기에 무슨 내용이...</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>일단 여기까지 쓰고 여기서 forEach 안에 어떤 내용을 집어넣어야 할까… 고민을 하다가.<br>콜백을 불렀을 시 우선 목차에 있는 모든 li에서 active 클라스를 없애고, 대상 요소의 title 과 일치하는 href 값을 가진 a의 부모 li에만 active 클라스를 추가했습니다. 이렇게 하면 페이지 위에서 아래로 읽을 때는 왠만하면 내용이 목차에 잘 반영됩니다. 특정 해딩을 먼저 읽고 &gt; 목차에서 해당 해딩을 강조해주고 &gt; 해딩 아래에 있는 관련 내용을 읽으면서 (아직도 해당 해딩이 강조되어있고) &gt; 다 읽고 다음 해딩이 나올 쯤에 &gt; 이전 해딩의 강조가 없어지고 다음 해딩이 강조되죠. 코드도 복잡하지 않죠 :</p>
+<figure class="highlight javascript"><figcaption><span>forEach 안에 들어갈 내용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  articleToc</span><br><span class="line">    .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitle&#125;</span>"]`</span>)</span><br><span class="line">    .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이제.. 문제는 아래에서 위로 읽었을 시에… 독자의 페이지 위치가 목차에 제때 반영되지 않는다는 점입니다. 또 콜백을 부를 때마다 모든 active 클라스를 없애기 때문에 여러 해딩이 다닥다닥 붙어있는 부분에서는 목차에서 여러개를 강조하지 못하고 그 중 한개만 강조한다는 점… 만약에 아래서부터 위로 읽는 버릇을 가진 독자는 어서 나쁜 버릇을 고치셔야…가 아니라 제가 블로그 글을 section으로 나눠서 작성하는 방안을 찾아보겠습니다. 다음 기회에.</p>
+<p>추가로 headerTitle을 가져왔을 때 바로 a href 값과 비교하면, toc()이 만들어주는 href 문자열 값이 변경되어 사용되기 때문에 일치하지 않을 수도 있습니다. 여기에 대해서는 일단 해딩 스트링에 사용할 법한 특수기호들을 없애주고 띄어쓰기를 ‘-‘로 바꿔주도록 replace 를 몇번 써서 headerTitleFixed 라는 값을 별도로 만들어서 썼습니다. 이렇게요 :</p>
+<figure class="highlight javascript"><figcaption><span>title 문자열 변환</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line"><span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">  .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">  .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">  .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">  .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">  .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">  .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  articleToc</span><br><span class="line">    .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">    .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다시 tocscrollspy.js 의 내용 전부 정리하자면 이렇습니다 :</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allTocLis = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line">        <span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">          .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">          .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">          .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">          .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">          .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">          .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">            el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">          &#125;);</span><br><span class="line">          articleToc</span><br><span class="line">            .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">            .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h1><img src="/2020/02/15/toc-styling/screenshot5.png" class="" title="스타일과 기능이 완성된 목차 스크린샷">
+
+<p>부족한 부분이 많지만, 당분간 사용하기엔 나쁘지 않은 것 같습니다.<br>앞으로 마크다운 글을 섹션으로 나눠서 작업하는 방법을 찾아서<br>내용까지 트레킹 할 수 있는 버전으로 업그레이드 할 수 있으면 좋을 것 같습니다.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckpaxe4x2000jd2oqfzjyg5pj" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/2020/02/23/tidally-locked/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          조석 고정 시뮬레이터 I - 구동
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/14/firstpost/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">첫 포스트</div>
+    </a>
+  
+</nav>
+
+    
+  </article>
+
+  
+
+</section>
+
+
+  
+    <nav id="article-toc">
+            <h2>TOC 목차 만들기</h2>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#내가-원하는-목차"><span class="toc-text">내가 원하는 목차</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#참고-블로그-글"><span class="toc-text">참고 블로그 글</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Template"><span class="toc-text">Template</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Helper-toc"><span class="toc-text">Hexo Helper - toc()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intersection-Observer-API"><span class="toc-text">Intersection Observer API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#결과"><span class="toc-text">결과</span></a></li></ol>
+            
+<script src="/js/tocscrollspy.js"></script>
+
+    </nav>
+
+
+        </div>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Yeji Lee
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

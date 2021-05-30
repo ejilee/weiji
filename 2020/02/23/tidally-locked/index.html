@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-156457593-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>조석 고정 시뮬레이터 I - 구동 | Weiji ? 왜이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="조석 고정? 조석 고정(潮汐固定, Tidal locking)은 어떤 천체가 자신보다 질량이 큰 천체를 공전 및 자전할 때 공전주기와 자전주기가 일치하는 경우를 의미한다. 이 경우 천체의 한쪽 반구는 영원히 자기보다 큰 천체를 그 반대방향은 영원히 상대 천체를 등지게 된다. – 위키피디아 ‘조석 고정’  지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하">
+<meta property="og:type" content="article">
+<meta property="og:title" content="조석 고정 시뮬레이터 I - 구동">
+<meta property="og:url" content="https://weiji.io/2020/02/23/tidally-locked/index.html">
+<meta property="og:site_name" content="Weiji">
+<meta property="og:description" content="조석 고정? 조석 고정(潮汐固定, Tidal locking)은 어떤 천체가 자신보다 질량이 큰 천체를 공전 및 자전할 때 공전주기와 자전주기가 일치하는 경우를 의미한다. 이 경우 천체의 한쪽 반구는 영원히 자기보다 큰 천체를 그 반대방향은 영원히 상대 천체를 등지게 된다. – 위키피디아 ‘조석 고정’  지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.jpg">
+<meta property="og:image" content="https://weiji.io/2020/02/23/tidally-locked/ss2.png">
+<meta property="article:published_time" content="2020-02-23T03:29:06.000Z">
+<meta property="article:modified_time" content="2021-05-24T02:33:34.242Z">
+<meta property="article:author" content="Yeji Lee">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="styled components">
+<meta property="article:tag" content="tidal locking">
+<meta property="article:tag" content="tidally locked">
+<meta property="article:tag" content="조석 고정">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiji.io/2020/02/23/tidally-locked/ss1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR|Roboto+Slab&display=swap&subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div id="sectionGrid">
+          <header id="header">
+  <div class="photo-box">
+    <img
+      id="profile-image"
+      src="/images/profile.jpg"
+      title="photo by Biel Morro on Unsplash"
+      alt="a hand holding a shell in water, photo by Biel Morro on Unsplash"
+    />
+  </div>
+  <a href="/" id="titleAnchor">
+    <h1 id="site-title">
+      <span class="txtEn">Weiji</span>
+      <span class="txtKr">왜이지</span>
+    </h1>
+  </a>
+  <p id="site-description">
+    안녕하세요, 프론트엔드 개발자 이예지입니다. 여기에 저의 공부를 기록합니다.
+  </p>
+  <nav id="mini-links">
+    <a
+      id="social-link-email"
+      class="social-link"
+      href="mailto:whyejilee@gmail.com"
+      title="email address"
+    ></a>
+    <a
+      id="social-link-git"
+      class="social-link"
+      href="https://github.com/ejilee"
+      title="github profile"
+    ></a>
+    <div class="flex-right">
+      
+      <a class="page-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+</header>
+
+          
+            <aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/05/24/react-native-codepush/"
+          >React Native 앱, 더 손쉽게 관리하기 - CodePush</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/02/13/react-native-deployment/"
+          >React Native 앱을 배포하기 전 간과한 것들</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/09/d3-and-react/"
+          >D3.js 와 React 를 접목시키는 법</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/08/garden-planner-i/"
+          >새로운 프로젝트를 계획하면서</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/26/tidally-locked-three/"
+          >조석 고정 시뮬레이터 III - 글리치</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/20/tidally-locked-two/"
+          >조석 고정 시뮬레이터 II - 디자인</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/13/short-break/"
+          >회상, 혼자서 공부하기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/23/tidally-locked/"
+          >조석 고정 시뮬레이터 I - 구동</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/15/toc-styling/"
+          >TOC 목차 만들기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/14/firstpost/"
+          >첫 포스트</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+    <div class="widget-wrap">
+  <h2 class="widget-title">Search</h2>
+  <div class="widget">
+    <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://weiji.io"></form>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget">
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3/">D3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Archive</h2>
+  <div class="widget">
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+  </div>
+</div>
+
+
+  
+
+</aside>
+          
+          <section id="main">
+  
+  <article id="post-tidally-locked" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-02-23T03:29:06.000Z" itemprop="datePublished">2020-02-23</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      조석 고정 시뮬레이터 I - 구동
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <h1 id="조석-고정"><a href="#조석-고정" class="headerlink" title="조석 고정?"></a>조석 고정?</h1><blockquote>
+<p>조석 고정(潮汐固定, Tidal locking)은 어떤 천체가 자신보다 질량이 큰 천체를 공전 및 자전할 때 공전주기와 자전주기가 일치하는 경우를 의미한다. 이 경우 천체의 한쪽 반구는 영원히 자기보다 큰 천체를 그 반대방향은 영원히 상대 천체를 등지게 된다.</p>
+<p>– <cite><a href="https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%84%9D_%EA%B3%A0%EC%A0%95" target="_blank" rel="noopener">위키피디아 ‘조석 고정’</a></cite></p>
+</blockquote>
+<p>지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하죠.</p>
+<p>예전에 천문학 수업 과제로 이 개념을 플레시 애니메이션으로 만들어서 제출했던 적이 있었습니다. 당시 굉장히 기본적인 기능만 있었고, 플레시(…) 였지만 개념을 익히는데는 도움이 돼었던 걸로 기억합니다. 그때의 플레시 작업 파일은 지금 열리지 않고… 리액트로 기능 추가! 스타일 추가! 해서 다시 만들어보았습니다. 누군가의 천문학 수업에 좋은 학습자료가 되었으면…?</p>
+<h2 id="10년-전-플레시-애니메이션"><a href="#10년-전-플레시-애니메이션" class="headerlink" title="10년 전 플레시 애니메이션"></a>10년 전 플레시 애니메이션</h2><p>10년전에 만들었던 플레시 애니메이션의 스샷 :</p>
+<img src="/2020/02/23/tidally-locked/ss1.jpg" class="" title="tidal locking visualizer flash animation">
+
+<p>당시 나름 액션 스크립트로 요리조리 삼각법 써서 했던 것 같은데… 삼각법이 뭐죠.. (다 까먹음)<br>리액트로 다시 구현해봤습니다.</p>
+<h2 id="10년-후-다시만든-리액트-앱"><a href="#10년-후-다시만든-리액트-앱" class="headerlink" title="10년 후 다시만든 리액트 앱"></a>10년 후 다시만든 리액트 앱</h2><img src="/2020/02/23/tidally-locked/ss2.png" class="" title="조석 고정 시뮬레이터 작업 전 모습">
+
+<p>기본적인 공전 주기와 자전 주기 조절기능은 잘 보여집니다.<br>Styled component를 사용해서 컴포넌트에 던진 프롭으로 바로 css transform 속성에 반영하니까 코드도 그렇게 많지 않더라구요.</p>
+<p><a href="https://tidallylocked.com/" target="_blank" rel="noopener">여기서 확인 - Tidally Locked</a> / <a href="https://github.com/ejilee/Tidally-Locked" target="_blank" rel="noopener">코드는 여기</a></p>
+<h2 id="추가로-구현하고픈"><a href="#추가로-구현하고픈" class="headerlink" title="추가로 구현하고픈"></a>추가로 구현하고픈</h2><p>가장 최근에 커밋한게 2주 전인걸 보면, 그 사이에 헥소 블로그 만드느냐고 아예 손을 안썼었습니다. 하지만 또 여러가질 고칠 점을 생각해 볼 수 있는 시간이었던 것 같습니다.</p>
+<ul>
+<li>리드미 파일 수정</li>
+<li>조석 고정이 아닌 상태에서 조석 고정 상태가 되었을 때 ‘짜잔’하는 에니메이션이나 이펙트가 있었으면</li>
+<li>조석 고정 상태를 유지하고 있을 때 점선 같은 시각적 표기가 있었으면</li>
+<li>Reset, Tidal Lock, Pause 같은 기능성 버튼이 있었으면</li>
+<li>버튼과 인풋 외관 수정. 중요한 것만 빼내고 나머지는 옵션으로 작게 혹은 숨기기</li>
+<li>공전 경로 동그라미가 상태 변경시 사라지는 문제 수정</li>
+<li>천체 (달과 지구)에 문양이나 모양/색 등을 선택할 수 있게 해서 달에 별도 마커가 없어도 자전이 보이도록. 혹은 마커 표시를 옵션으로 체크 할 수 있게.</li>
+<li>지구도 자전할까? 굳이?</li>
+<li>햇빛의 방향도 천천히 360도 회전하게 하면 좀 더 멋있으려냐? 성가실려나?</li>
+</ul>
+<p>이런 것들이 있습니다. 일단 이것들을 시도해보기 전에, 어떤 식으로 구현되는지 설명해보겠습니다. (사실 나도 복습해야함…)</p>
+<h1 id="Styled-Components"><a href="#Styled-Components" class="headerlink" title="Styled Components"></a>Styled Components</h1><p>실은 나도 얼마전까지만해도, ‘음… 스타일드 컴포넌트… 굳이??’ 라고 생각했었는데. 이번 프로젝트에 특히 유용했습니다. 물론 모든 경우에 사용할 필요는 없다고 생각하지만, 스타일이 딱딱딱 개별 컴포넌트로 잘 나눠지는 경우에, 특히 <strong>프롭 값을 스타일에 바로 반영해서</strong> 사용할 일이 있을 때! 정말 좋은 것 같습니다. 이전에 억지로 배워보겠다고 이미 사용하고 있던 sass 변수를 새로 만든 스타일드 컴포넌트에서 사용하려다가 스트레스 받은 적이 있었는데, 경우를 잘 봐서 써야할 것 같기도.</p>
+<p>이 프로젝트에서 유심히 볼 부분은 Moon 컴포넌트와 그 안에 있는 스타일드 컴포넌트들입니다. 그 밖에 앱 안에는 Interface.js 라는 컴포넌트에 왼쪽으로 보이는 인풋들이 위치해 있습니다. Planet.js, OrbitLine.js, Space.js 컴포들도 있지만, 여기에서는 별일이 일어나지 않으니… Moon 컴포넌트를 들여다봅시다.</p>
+<h2 id="Moon-js"><a href="#Moon-js" class="headerlink" title="Moon.js"></a>Moon.js</h2><p>위 스샷에 있는 노란색 동그라미가 Moon.js 컴포넌트인데, 실은 눈에 보이지 않는 100% x 100% 크기의 사각형 StyledMoon 스타일드 컴포넌트가(여기서 부터는 그냥 <strong>스컴포</strong> 라 부름) 하나 있고, 그 중앙에 동그라미 스컴포 두개가 겹쳐져있습니다. 하나는 달의 몸뚱이인 노란색 MoonBody, 하나는 그림자만 갖고있는 음영 동그라미 MoonLight. 달몸뚱이 스컴포 안에는 달의 ‘얼굴’ MoonFace, 그러니까 어느쪽을 바라보고 있는지 표시하는 마커가 튀어나와있는 부분, 을 갖고 있는 스컴포가 하나 더 있습니다.</p>
+<figure class="highlight html"><figcaption><span>Moon.js 의 구조</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>지금 Moon.js 컴포넌트에게 던져지는 프롭은 :</p>
+<ul>
+<li>rotPer (자전주기, rotational period)</li>
+<li>orbPer (공전주기, orbital period)</li>
+<li>orbRad (공전 반경, orbit radius)</li>
+<li>mooSiz (달 크기, moon size)</li>
+<li>sunDir (햇빛 방향, sun direction)</li>
+</ul>
+<p>이렇게 다섯개이고, 이런식으로 4개의 스컴포 사이에서 다음처럼 사용되고 있습니다 :</p>
+<figure class="highlight html"><figcaption><span>Moon.js 의 프롭 사용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span> <span class="attr">orbPer</span>=<span class="string">"&#123;orbPer&#125;"</span> <span class="attr">orbRad</span>=<span class="string">"&#123;orbRad&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span> <span class="attr">rotPer</span>=<span class="string">"&#123;rotPer&#125;"</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span> <span class="attr">sunDir</span>=<span class="string">"&#123;sunDir&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용합니다. MoonBody는 자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정입니다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절합니다.</p>
+<h1 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h1><p>처음에 쉽게 생각하다 에니메이션 부분에서 잠깐 함정에 빠졌었는데. 단순히 ‘컨테이너 사각형을 orbPer 값을 사용해서 회전시키고, 동그라미 컴포넌트를 rotPer 값을 사용해서 회전시키면 되는 거 아님??’ 이라고 생각했었는데, 결과가 이상했죠. 이건 예시로 봐야 더 명확할 듯.</p>
+<h2 id="그냥-회전"><a href="#그냥-회전" class="headerlink" title="그냥 회전"></a>그냥 회전</h2><p>애초에 간단하게 생각했던 것 처럼 우선 HTML/CSS를 사용하는 예시를 만들어서 컨테이너 사각형을 회전시켜보았습니다.</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="whyejilee" data-slug-hash="PoqbXxX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TidallyLockedDemo1">
+  <span>See the Pen <a href="https://codepen.io/whyejilee/pen/PoqbXxX" target="_blank" rel="noopener">
+  TidallyLockedDemo1</a> by Yeji Lee (<a href="https://codepen.io/whyejilee" target="_blank" rel="noopener">@whyejilee</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="그냥-회전의-문제점"><a href="#그냥-회전의-문제점" class="headerlink" title="그냥 회전의 문제점"></a>그냥 회전의 문제점</h2><p>그냥 봐서는 뭐가 틀린 것 같지는 않은데, 공전과 자전은 분리해서 관리하고 싶다면 문제가 생깁니다. 지금 하얀 외관선을 가진 StyledMoon 컨테이너가 공전 애니메이션을 10초 주기로 한번씩 실행하고 있습니다. (CSS 에서 ‘공전 애니메이션’이라고 주석 표시) 잘 돌아가는데… 컨테이너 안에 있는 ‘M’이라고 쓰인 MoonBody 요소는 그저 부모 요소가 돌아가니까 붙어서 잘 돌아가고 있는 것이죠. 하지만 이 부분이 문제. 추후에 MoonBody에 자전 애니메이션을 만들어서 자전을 별도로 관리하려고 한다면, 공전 때문에 생기는 회전 각도까지 감안해서 계산해야 할 것입니다. 으으.. 수학. 생각하고 싶지 않아요.</p>
+<p>이렇게 생각해보면 좋을 것 같습니다. StyledMoon 컨테이너는 본인이 이미 회전하고 있기 때문에 MoonBody 자식 요소를 봤을 때, MoonBody는 회전하고 있지 않습니다. 하지만 전체 화면, 그러니까 회색 배경의 div#space의 입장에서 봤을 때, MoonBody는 확실히 회전하고 있습니다. 우리가 보기에 글자 “M”이 중간중간 뒤집혀 보이는 것만 보면 알 수 있죠.</p>
+<p>우리가 원하는 것은 우선 공전 애니메이션이 실행 됐을 때 StyledMoon 컨테이너는 회전하고, 안에 있는 MoonBody 요소는 회전하지 않는 것입니다 (자전은 없음). 그러니까, 저 “M” 이 뒤집히면 안 된다는 것입니다.</p>
+<h2 id="해답-회전-gt-이동-gt-반회전"><a href="#해답-회전-gt-이동-gt-반회전" class="headerlink" title="해답 : 회전 &gt; 이동 &gt; 반회전"></a>해답 : 회전 &gt; 이동 &gt; 반회전</h2><p>아주 간단한 해답을 다음 글에서 찾았습니다 :</p>
+<p><a href="http://lea.verou.me/2012/02/moving-an-element-along-a-circle/" target="_blank" rel="noopener">Moving an Element Along a Circle</a></p>
+<p>공전 에니메이션에 적용되는 transform 속성에 추가로 translate와 rotate을 한 번씩 더 채인 시키는 것이죠.</p>
+<p>우선 지금 MoonBody 의 CSS 속성에서 <code>transform: translate(100px);</code> 을 없애주어야 합니다. StyledMoon 정중앙에 다시 위치하게 하고, StyledMoon 컨테이너 자체를 이동시켜줄 것입니다.</p>
+<p>그래서 아래 같았던 키프레임을</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>아래처럼 고쳐주었습니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>처음에 했던 것처럼 회전은 똑같이 0 에서 -360도 실행합니다. 하지만 각 프레임에서 조금 회전 할 때마다 100px우측으로 이동하고 또 이번에는 -360도가 아닌 360도 방향으로 다시 움직입니다. 그러니까 1도 회전 단위로 생각해보면, 우선 시계 반대 방향으로 1도 회전합니다. 그리고 회전된 상태에서 우측으로 100px 이동합니다. (그러면 중앙에 있던 MoonBody 요소도 우측으로 이동, 위에서 transform 값 없애준 이유) 그 후 다시 시계 방향으로 1도 회전합니다. 그러면 공전은 하지만, StyledMoon 요소가 earth 요소 주위를 공전하는 모양이 나오지만, 화면에 비해서는 회전하지 않는, 자전하지 않는 모습이 표현됩니다.</p>
+<p>다음처럼!</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="whyejilee" data-slug-hash="poJNGoy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TidallyLockedDemo2">
+  <span>See the Pen <a href="https://codepen.io/whyejilee/pen/poJNGoy" target="_blank" rel="noopener">
+  TidallyLockedDemo2</a> by Yeji Lee (<a href="https://codepen.io/whyejilee" target="_blank" rel="noopener">@whyejilee</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h1 id="여기까지"><a href="#여기까지" class="headerlink" title="여기까지"></a>여기까지</h1><p>가장 핵심적인 문제는 이렇게 해결했습니다. 그 후에 위 예시를 React Styled Component로 다시쓰고 인풋 요소를 만들어서 공전 주기, 자전 주기 등의 상태를 직접 조절할 수 있도록 만든 것입니다. 오늘은 <a href="#추가로-구현하고픈">추가로 구현하고픈</a> 에 써있는 걸 해결하는 작업을 하려고 했는데, 어쩌다 보니 이미 해논 걸 설명하는 것 밖에 하지 못했네요. 역시 블로그를 너무 만만하게 생각했습니다, 그래도 복습에 도움은 되는 듯. 그럼 조석 고정 시뮬레이터 관련 글은 다음에 이어서 작성해야겠네요. 그럼 이만 안녕히.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckpaxe4wz000gd2oqhz7qbnqn" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/2020/05/13/short-break/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          회상, 혼자서 공부하기
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/15/toc-styling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TOC 목차 만들기</div>
+    </a>
+  
+</nav>
+
+    
+  </article>
+
+  
+
+</section>
+
+
+  
+    <nav id="article-toc">
+            <h2>조석 고정 시뮬레이터 I - 구동</h2>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#조석-고정"><span class="toc-text">조석 고정?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10년-전-플레시-애니메이션"><span class="toc-text">10년 전 플레시 애니메이션</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10년-후-다시만든-리액트-앱"><span class="toc-text">10년 후 다시만든 리액트 앱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#추가로-구현하고픈"><span class="toc-text">추가로 구현하고픈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Styled-Components"><span class="toc-text">Styled Components</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Moon-js"><span class="toc-text">Moon.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Animation"><span class="toc-text">Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#그냥-회전"><span class="toc-text">그냥 회전</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#그냥-회전의-문제점"><span class="toc-text">그냥 회전의 문제점</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#해답-회전-gt-이동-gt-반회전"><span class="toc-text">해답 : 회전 &gt; 이동 &gt; 반회전</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#여기까지"><span class="toc-text">여기까지</span></a></li></ol>
+            
+<script src="/js/tocscrollspy.js"></script>
+
+    </nav>
+
+
+        </div>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Yeji Lee
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

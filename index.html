@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-156457593-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Weiji ? 왜이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This is where I record the things I study as a budding frontend web developer.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Weiji">
+<meta property="og:url" content="https://weiji.io/index.html">
+<meta property="og:site_name" content="Weiji">
+<meta property="og:description" content="This is where I record the things I study as a budding frontend web developer.">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="Yeji Lee">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Weiji" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Serif+KR|Roboto+Slab&display=swap&subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div id="sectionGrid">
+          <header id="header">
+  <div class="photo-box">
+    <img
+      id="profile-image"
+      src="/images/profile.jpg"
+      title="photo by Biel Morro on Unsplash"
+      alt="a hand holding a shell in water, photo by Biel Morro on Unsplash"
+    />
+  </div>
+  <a href="/" id="titleAnchor">
+    <h1 id="site-title">
+      <span class="txtEn">Weiji</span>
+      <span class="txtKr">왜이지</span>
+    </h1>
+  </a>
+  <p id="site-description">
+    안녕하세요, 프론트엔드 개발자 이예지입니다. 여기에 저의 공부를 기록합니다.
+  </p>
+  <nav id="mini-links">
+    <a
+      id="social-link-email"
+      class="social-link"
+      href="mailto:whyejilee@gmail.com"
+      title="email address"
+    ></a>
+    <a
+      id="social-link-git"
+      class="social-link"
+      href="https://github.com/ejilee"
+      title="github profile"
+    ></a>
+    <div class="flex-right">
+      
+      <a class="page-link" href="/about">About</a>
+      
+    </div>
+  </nav>
+</header>
+
+          
+            <aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Recent Posts</h2>
+  <div class="widget">
+    <ul class="recent-list">
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/05/24/react-native-codepush/"
+          >React Native 앱, 더 손쉽게 관리하기 - CodePush</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2021/02/13/react-native-deployment/"
+          >React Native 앱을 배포하기 전 간과한 것들</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/09/d3-and-react/"
+          >D3.js 와 React 를 접목시키는 법</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/06/08/garden-planner-i/"
+          >새로운 프로젝트를 계획하면서</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/26/tidally-locked-three/"
+          >조석 고정 시뮬레이터 III - 글리치</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/20/tidally-locked-two/"
+          >조석 고정 시뮬레이터 II - 디자인</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/05/13/short-break/"
+          >회상, 혼자서 공부하기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/23/tidally-locked/"
+          >조석 고정 시뮬레이터 I - 구동</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/15/toc-styling/"
+          >TOC 목차 만들기</a
+        >
+      </li>
+      
+      <li class="recent-list-item">
+        <a class="recent-list-link" href="/2020/02/14/firstpost/"
+          >첫 포스트</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+    <div class="widget-wrap">
+  <h2 class="widget-title">Search</h2>
+  <div class="widget">
+    <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://weiji.io"></form>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget">
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3/">D3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget">
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+  </div>
+</div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h2 class="widget-title">Archive</h2>
+  <div class="widget">
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+  </div>
+</div>
+
+
+  
+
+</aside>
+          
+          <section id="main">
+
+  
+    
+      <section id="main">
+  
+  <article id="post-react-native-codepush" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2021-05-24T02:37:46.000Z" itemprop="datePublished">2021-05-24</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/24/react-native-codepush/">React Native 앱, 더 손쉽게 관리하기 - CodePush</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>앱을 배포하는 과정은 번거롭다. 얼마전에 이미 배포된 앱을 재배포하지 않고 수정할 수 있느냐의 질문이 들어왔었는데… (이미 앱을 설치한 사용자의 화면에 뭔가 새로운 것을 보여주는 일) 불가하다고 대답할 수 밖에 없었다. 당장 수정해야 되는 정보는 백엔드에서 고치기로 하고, 차후 비슷한 상황을 대비해 CodePush를 도입하기로 했다.</p>
+<p>(<em>잠깐, 만약 당신의 앱이 Expo와 Over the Air 업데이트를 사용하고 있다면, CodePush가 필요없다. Expo가 CodePush 와 유사한 기능을 제공한다.</em>)</p>
+<h2 id="CodePush-란"><a href="#CodePush-란" class="headerlink" title="CodePush 란?"></a>CodePush 란?</h2><p>CodePush는 마이크로소프트의 AppCenter 서비스의 일부로 Cordova와 React Native 앱의 업데이트를 App Store나 Play Store를 거치지 않고 바로 사용자 기계에 설치된 앱에 푸시할 수 있도록 도와준다. 업데이트할 수 있는 부분은 JS, HTML, CSS, 이미지 에셋 정도이다. 그러니까 왠만한 인터페이스 수정은 가능하나 <strong>SDK를 업데이트하거나 Native 코드를 다루는 패키지를 추가하거나 하게된다면 기존의 방법으로 다시 빌드해서 재배포해야한다.</strong></p>
+<p>공홈 문서를 읽어보자 : <a href="https://docs.microsoft.com/ko-kr/appcenter/distribution/codepush/" target="_blank" rel="noopener">CodePush 소개</a> 그렇다면 이제부터 CodePush 를 도입하는 방법을 단계별로 소개한다.</p>
+<h2 id="AppCenter-CLI-설정"><a href="#AppCenter-CLI-설정" class="headerlink" title="AppCenter CLI 설정"></a>AppCenter CLI 설정</h2><p>AppCenter를 사용하기 위해서 일단 터미널을 켜고 CLI를 설치하고 앱을 등록해보자.</p>
+<ol>
+<li><p>CLI 설치<br><code>npm i -g appcenter-cli</code></p>
+</li>
+<li><p>로그인<br><code>appcenter login</code><br>(브라우저가 열리고 이메일 입력, 돌려주는 토큰을 다시 터미널에 입력하는 과정을 밟으면 로그인이 된다)</p>
+</li>
+<li><p>로그인 된 사용자를 확인하려면 다음 명령을 사용한다.<br><code>appcenter profile list</code></p>
+</li>
+<li><p>앱센터에 나의 앱 등록<br><code>appcenter apps create -d myapp-aos -o android -p react-native</code><br><code>appcenter apps create -d myapp-ios -o ios -p react-native</code><br>-d 옵션에 앱의 이름을 입력한다. 등록하는 앱의 이름은 자유나, 이렇게 ios, android 두 개를 구분해서 등록하도록 한다. (이름은 나중에 수정 가능) -o (os) 옵션에는 해당 os의 이름을, 그리고 -p (platform) 옵션에는 react-native을 사용한다.</p>
+</li>
+<li><p>이제 다음 명령으로 등록 된 앱을 조회할 수 있다.<br><code>appcenter apps list</code></p>
+</li>
+<li><p>등록 된 앱에 각 Staging 과 Production 배포 단계 추가<br><code>appcenter codepush deployment add -a username/myapp-aos Staging</code><br><code>appcenter codepush deployment add -a username/myapp-aos Production</code><br><code>appcenter codepush deployment add -a username/myapp-ios Staging</code><br><code>appcenter codepush deployment add -a username/myapp-ios Production</code><br>Staging 과 Production 배포 단계도 원하는 이름으로 작명하고 더 추가할 수 있다. 그래도 이 두개는 기본적으로 사용하니 일단 이렇게 사용해보기를 추천.</p>
+</li>
+<li><p>이제 다음 명령으로 배포 상태를 확인할 수 있다.<br><code>appcenter codepush deployment list -a username/myapp-aos</code><br><code>appcenter codepush deployment list -a username/myapp-ios</code><br>아직은 아무것도 없지만 이제 배포를 할 준비가 다 완료되었다.</p>
+</li>
+<li><p>마지막으로 각 앱의 배포 키를 확인하자.<br><code>appcenter codepush deployment list -a username/myapp-aos - k</code><br><code>appcenter codepush deployment list -a username/myapp-ios - k</code><br>여기서 -k 플래그를 사용해서 각 앱의 Staging 과 Production 키를 확인할 수 있다. 이 키는 이제부터 클라이언트 SDK 를 설정할 때 필요하니 잘 저장해두거나 해당 명령을 기억해두자.</p>
+</li>
+<li><p>추가 팁 - App Center CLI 의 <code>set-current</code> 명령을 사용하면 매번 <code>-a</code> 플래그를 사용하는 수고를 덜 수 있다.<br><code>appcenter apps set-current username/myapp-aos</code><br>위 명령을 실행하면 이전에 <code>deployment list</code> 명령을 쓸 때 <code>-a</code> 플래그를 생략하고 실행할 수 있다. 하나의 앱에 여러가지 작업을 하려고 할 때 유용하다. 물론 ios 앱으로 바꿔서 조회하려면 다시<br><code>appcenter apps set-current username/myapp-ios</code><br>를 써서 지금 관리하고자 하는 앱을 바꿔주면 된다.</p>
+</li>
+</ol>
+<p>이 밖에 추가 CLI 사용법을 원한다면 <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli" target="_blank" rel="noopener">공식 문서</a>를 확인해보자.</p>
+<h2 id="React-Native-클라이언트-SDK-설정"><a href="#React-Native-클라이언트-SDK-설정" class="headerlink" title="React Native 클라이언트 SDK 설정"></a>React Native 클라이언트 SDK 설정</h2><p>이제 App Center는 준비되었고, 앱을 설정할 차례다.</p>
+<ol>
+<li><p>우선 프로젝트 폴더에서 패키지 설치한다.<br><code>npm install --save react-native-code-push</code></p>
+</li>
+<li><p>앱의 루트 컴포넌트를 감싼다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> codePush <span class="keyword">from</span> <span class="string">'react-native-code-push'</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> codePush(App)</span><br></pre></td></tr></table></figure>
+
+<p>위 방법은 가장 React Native 코드베이스에 CodePush를 도입하는 방법 중 가장 간단한 방법으로 이 밖에도 다양한 방법이 있으며 업데이트 확인 주기, 설치 방법 (즉시, 팝업, 이벤트 등) 등의 옵션을 설정할 수 있다.</p>
+</li>
+</ol>
+<p>조금 더 정교한 컨트롤을 원한다면 <a href="https://github.com/microsoft/react-native-code-push#getting-started" target="_blank" rel="noopener">패키지 문서</a> 를 확인해보자. 이제부터 iOS 와 Android 설정을 완료하면 배포할 수 있다!</p>
+<p>(<em>혹시 사용하는 React Native 의 버전이 0.60 이하라면 밑에 설명은 무시하고 공홈의 버전별 설명을 참고하기를 바란다. <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/rn-get-started" target="_blank" rel="noopener">SDK 설정 문서</a></em>)</p>
+<h3 id="iOS-설정"><a href="#iOS-설정" class="headerlink" title="iOS 설정"></a>iOS 설정</h3><ol>
+<li><p>프로젝트 폴더에서 CocoaPods dependency 설치를 위해 다음 명령을 :<br><code>cd ios &amp;&amp; pod install &amp;&amp; cd ..</code></p>
+</li>
+<li><p>IDE 를 열어서… ios/myapp/Info.plist 파일에 다음 값을 추가해준다 :</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>CodePushDeploymentKey<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>$&#123;CODEPUSH_KEY&#125;<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ios/myapp/AppDelegate.m 파일에 import 문을 하나 추가하고 <code>return [[NSBundle mainBundle]...</code> 부분을 <code>return [CodePush bundleURL];</code> 로 바꿔준다 :</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">#<span class="keyword">import</span> &lt;CodePush/CodePush.h&gt;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> [<span class="type">CodePush</span> bundleURL];</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Xcode 를 열어서… Project &gt; Info &gt; Configurations 에서 + 를 클릭하여 ‘Duplicate Release Configuration’을 선택하고 새로 복사된 배포 설정의 이름을 ‘Staging’이라고 수정한다.</p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_1.png" class="" title="xcode에서 새로운 배포 설정을 만들어주는 모습">
+</li>
+<li><p>Project &gt; Build Settings 에서 + 를 클릭하여 ‘Add User-Defined Setting’을 선택하고 ‘MULTI_DEPLOYMENT_CONFIG’ 라는 이름을 준다. Release 와 Staging 에 각 다음 값을 준다 :<br>Release : <code>$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</code><br>Staging : <code>$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)</code></p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_2.png" class="" title="xcode에서 새로운 사용자 설정 값을 추가해주는 모습">
+
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_3.png" class="" title="xcode에서 새로운 사용자 설정 값을 수정하는 모습">
+</li>
+<li><p>다시 Project &gt; Build Settings 에서 + 를 클릭하여 ‘Add User-Defined Settings’을 선택하고 ‘CODEPUSH_KEY’ 라는 이름을 준다. Release 와 Staging 값에 각 <code>appcenter codepush deployment list -a username/myapp-ios - k</code> 명령어로 확인했던 배포 키를 입력한다.</p>
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_2.png" class="" title="xcode에서 새로운 사용자 설정 값을 추가해주는 모습">
+
+<img src="/2021/05/24/react-native-codepush/rn_codepush_ios_4.png" class="" title="xcode에서 새로운 사용자 설정 값을 수정하는 모습">
+</li>
+<li><p>기존 빌드를 지워주고 (Xcode 에서 Cmd+shft+K) Debug, Staging, Release 모두 다시 잘 빌드되는지 확인한다.</p>
+</li>
+</ol>
+<h3 id="Android-설정"><a href="#Android-설정" class="headerlink" title="Android 설정"></a>Android 설정</h3><ol>
+<li><p>IDE 를 열어서… android/gradle.properties 파일에 다음 값을 추가해준다. <code>???</code> 가 있는 부분엔 각 <code>appcenter codepush deployment list -a username/myapp-aos - k</code> 로 확인했던 빌드 별 배포키를 입력한다. :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_DEBUG=</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_STAGING=???</span><br><span class="line">CODEPUSH_DEPLOYMENT_KEY_PRODUCTION=???</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/settings.gradle 파일에 다음 두 줄을 추가한다 :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">include</span> <span class="string">':app'</span>, <span class="string">':react-native-code-push'</span></span><br><span class="line"><span class="keyword">project</span>(<span class="string">':react-native-code-push'</span>).projectDir = <span class="keyword">new</span> <span class="keyword">File</span>(rootProject.projectDir, <span class="string">'../node_modules/react-native-code-push/android/app'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/app/src/main/java/com/myapp/MainApplication.java 파일에 import 문을 하나 추가하고, <code>new ReactNativeHost(this) { ... }</code> 블럭 안에 다음 코드를 추가한다 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> com.microsoft.codepush.react.CodePush;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">new</span> ReactNativeHost(<span class="keyword">this</span>) &#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">protected</span> String <span class="title">getJSBundleFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> CodePush.getJSBundleFile();</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">import</span> com.microsoft.codepush.react.CodePush;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>android/app/build.gradle 파일에 다음 줄을 추가하고 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">apply from: <span class="string">"../../node_modules/react-native/react.gradle"</span></span><br><span class="line">apply from: <span class="string">"../../node_modules/react-native-code-push/android/codepush.gradle"</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>(android/app/build.gradle) <code>buildTypes { ... }</code> 블럭 안에 각 빌드 마다 <code>resValue</code> 라는 값을 추가한다. (releaseStaging은 아래처럼 새로 추가해준다) :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">   debug &#123;</span><br><span class="line">      ...</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_DEBUG</span><br><span class="line">   &#125;</span><br><span class="line">   release &#123;</span><br><span class="line">      ...</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_PRODUCTION</span><br><span class="line">   &#125;</span><br><span class="line">   releaseStaging &#123;</span><br><span class="line">      initWith release</span><br><span class="line">      resValue <span class="string">"string"</span>, <span class="string">"CodePushDeploymentKey"</span>, CODEPUSH_DEPLOYMENT_KEY_STAGING</span><br><span class="line">      matchingFallbacks = [<span class="string">'release'</span>]</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(android/app/build.gradle) 에 <code>if(enableHermes) { ... }</code> 블락이 있다면 아래도 내용도 추가해줘야 한다 :</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (enableHermes) &#123;</span><br><span class="line"> ...</span><br><span class="line"> releaseStagingImplementation files(hermesPath + <span class="string">"hermes-release.aar"</span>)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>휴! 안드로이드 역시 기존 빌드를 지워주고 (<code>cd android &amp;&amp; ./gradlew clean</code>) debug, releaseStaging, release 모드 잘 빌드되는지 확인하자. (<code>./gradlew bundleReleaseStaging</code>…)</p>
+</li>
+</ol>
+<h2 id="배포"><a href="#배포" class="headerlink" title="배포"></a>배포</h2><p>모두 잘 빌드되고 애뮬레이터든 기기에서든 돌려보고 확인했다면 앞으로 코드푸시를 활용할 일만 남았다. 혹시 위 내용을 따라했는데 빌드 에러가 난다거나 뭐가 안 된다면 다시한번 공홈을 뒤져보거나 구글 검색을 해보자. 나도 공홈 내용만 고대로 따라했다가 안드로이드에서 staging apk가 실행되지 않는 오류를 겪었는데, 디버깅을 하며 검색한 후 다음 <a href="https://stackoverflow.com/questions/56734877/getting-library-libjsc-so-not-found-after-upgrading-react-native-to-0-60-rc2/60341009#60341009" target="_blank" rel="noopener">스택오버플로우</a> 글을 통해 위에 Android 설정 마지막 단계에 맨션된 Hermes 관련 코드를 추가해야 된다는 걸 배웠다.</p>
+<p>처음에 AppCenter에 앱을 등록하고 배포를 설정 할 때 Staging 과 Production, 두 개의 빌드 단계를 추가했었다. 이는 다음 같은 CodePush 배포 플로우를 활용하기 위함이다. :</p>
+<ol>
+<li>Debug 모드에서 개발, 변경 사항 수정</li>
+<li>Staging 빌드로 우선 배포</li>
+<li>Staging 빌드가 설치된 기기에서 내부 테스팅</li>
+<li>Staging 테스팅 완료 후 Staging 배포 내용을 Production (release) 로 promote (승급) 시킴</li>
+<li>배포 완료 (Production 빌드가 설치된 기기에서 또 테스팅)</li>
+</ol>
+<p>CodePush 로 업데이트 할 수 있는 영역이 제한되어있기 때문에 이렇게 실 사용자에게 푸시하기 전에 버그를 캐치할 수 있는 배포 과정은 필수적으로 도입해야 할 것 같다. 일단 코드가 잘 푸시되는지 확인하기 위해서… (ios로 테스트 해보겠음) Xcode ‘Edit Scheme…’ 설정에서 Build Configuration 을 새로 만든 ‘Staging’으로 변경한 후 기존에 디버깅하던 기기에 있는 앱을 지우고 다시 설치하거나 새로운 기기/애뮬레이터에 Staging 빌드를 설치한다. 해당 빌드가 잘 작동하는지 확인한다.</p>
+<ol>
+<li><p>그럼 테스트를 해보기 위해 이전에 설치한 Staging 빌드에 없는 수정을 코드에 반영해본다. (첫 화면 글씨를 수정한다던가 등등..) AppCenter CLI 를 통해서 배포해보자.</p>
+</li>
+<li><p>ios Staging 빌드를 테스팅한다고 하면 다음 명령을 통해 배포할 수 있다.<br><code>appcenter codepush release-react -a username/myapp-ios -d Staging</code><br><code>release-react</code> 말고도 <code>release</code> 라는 명령을 사용할 수 있는데, 조금 더 플렉시블 하지만 <code>release-react</code> 명령어는 번들링도 같이 해주기 때문에 더 편하다.</p>
+</li>
+<li><p>그렇다면 1번 단계 전에 Staging 빌드를 설치했던 기기에서 앱을 켜본다. 이 상태에서 다음 CLI 를 사용하면 :<br><code>appcenter codepush deployment list -a username/myapp-ios</code><br>처음 CLI 설치 단계에서 없던 새로운 배포 내용이 Staging 빌드 옆에 보이고 설치 내역에 1개의 Pending 이 보인다. 방금 앱을 연 기기에서 업데이트를 받는 중이라는 뜻. 앱을 껐다 다시 켜보자. 변경 사항이 잘 반영되었다면 코드 푸시 성공! 다시 list CLI 를 사용해서 조회해보면 이제 installed 개수가 1로 변경되었을 것이다.</p>
+</li>
+<li><p>이런 식으로 Staging 빌드로 변경 내용들을 검토하고 실제 앱스토어를 통해서 배포된 앱에 변경 내용을 반영할 지, 아니면 수정을 더 하거나 배포하지 않을지를 정하면 된다. 실제 배포 버전에 반영할 준비가 되었다면 마지막으로 Staging 빌드에 푸시를 한 번 하고 다음 명령어를 사용한다 :<br><code>appcenter codepush promote -a username/myapp-ios -s Staging -d Production</code><br>-s (source) 파라미터에 지정해준 빌드를 -d (destination) 파라미터로 지정해준 빌드로 승급시킨다.</p>
+</li>
+<li><p>실전에선 이미 앱스토어를 통해서 배포된 앱을 설치한 사용자의 기기로 테스트를 해보면 되겠지만 일단은 Staging 빌드를 테스트했던 것과 마찬가지로 기기에 기존에 깔려있던 앱의 빌드를 지우고 Release 빌드 Configuration 을 설치한 기기에서 마지막으로 테스트를 해보고 변경 내용이 잘 나오는지 확인한다. 다시한번 list CLI 를 사용하면 이제는 Production 배포 내역에도 새로운 설치가 추가된 것이 보일 것이다.</p>
+</li>
+</ol>
+<p>…이렇게 설명을 위해서 최대한 간소화한 예시를 설명했는데, <a href="https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#app-management" target="_blank" rel="noopener">공식 문서</a>를 참고하면 배포할 때 퍼센티지 rollout, target binary version 등을 설정할 수도 있고, 배포 내역을 rollback 하거나 배포 기록을 지우는 등 더 다양한 명령어가 자세하게 설명되어있다.</p>
+<p>CodePush 에 대한 설명은 이쯤 마무리한다. 글을 쓰는 도중 Firebase Remote Config라는 것도 도입하게 되었는데, CodePush 보다는 조금더 간단한 key,value pair를 클라우드에 저장해두고 앱의 배포없이 업데이트 할 수 있게끔 해주는 도구이다. 해당 프로젝트에 Firebase를 이미 사용하고 있어서 손쉽게 설정 할 수 있었다. CodePush에 비하면 훨씬 더 간단하니 (특히 이미 @react-native-firebase/app을 쓰고있다면…) 단순한 솔루션이 필요하다면 고려해보자.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2021/05/24/react-native-codepush/" data-id="ckpaxe4wt0008d2oq76fu9bco" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodePush/" rel="tag">CodePush</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-react-native-deployment" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2021-02-13T01:02:19.000Z" itemprop="datePublished">2021-02-13</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/13/react-native-deployment/">React Native 앱을 배포하기 전 간과한 것들</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>지난 반년 동안 개인 공부를 잠시 멈추고 회사에서 리액트 네이티브 앱을 개발하고 있었다. 처음 만들어보는 앱이라 시행착오가 꽤 있었다. 그중 가장 힘들었던 부분은 웹 프로젝트보다 개발 환경 설정이 까다롭다는 점이었다. 우선 시뮬레이터를 돌리는 것부터, 기기 테스팅을 하기까지, ios 와 android를 별도로 확인해야 한다는 점, xcode 와 android studio 등등, 코딩 외에 신경 써야 하는 부분이 꽤 많았다. 여차저차 고개들을 건너 어느덧 배포할 시간이 되었는데…</p>
+<p>코딩하는 부분에서는 찾아볼 수 있는 리소스가 많다, 공홈 독스도 친절한 편이고. 하지만 배포 과정에 대해서 잘 정리되어있는 리소스가 별로 없었다. 온라인은 찾으면 이것저것 나오고, 리소스 양이 많아서 좋긴 한데, 한편으론 여러 목소리가 섞여 읽혀서 혼란스러울 때도 있다. 가끔은 한 명의 저자가 찬찬히 설명해 주는 게 읽고 싶을 때가 있다. <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=216744127" target="_blank" rel="noopener">스무디 한 잔 마시며 끝내는 React Native</a> 라는 책 맨 마지막 두 챕터가 각 ios 배포와 안드로이드 배포를 step by step으로 딱 필요한 부분만 짚어서 설명해준다. 그것도 나름 간략하게.</p>
+<p>잘 따라 하면 애플 스토어와 구글 플레이 스토어에 일차적으로 앱을 제출하는 단계까지 갈 수 있다. 하지만 앱이 정상적으로 심사를 통과하고 등록되려면 그사이에도 검토할 것들이 좀 있어 보인다. 다음은 내가 앱스토어에 앱을 제출하고 거절을 당하며 재검토하게 된 부분들이다. 어떤 건 바보 같은 실수고, 어떤 건 그냥 몰랐고, 어떤 건 정책적인 부분이다. 누군가 첫 앱 배포를 준비하고 있다면, 참고가 되면 좋겠다.</p>
+<h1 id="—-안드로이드-android-—"><a href="#—-안드로이드-android-—" class="headerlink" title="— 안드로이드 android —"></a>— 안드로이드 android —</h1><p>구글 플레이 스토어의 검토 과정은 사실… 검토라는 걸 하나? 싶었다. 대부분의 경우 그냥 통과시켜주는 것 같다. 3일 걸렸다는 사람도 있는데, 내 경우에는 등록 후 승인까지 딱 7일 걸렸다. 검토의 어부가 의심되는 이유는 첫 승인이 나고 스토어에서 다운받아서 설치한 앱이 실행조차 되지 않는 불량한 apk이었던 것이다. 물론 apk 생성 후 제대로 테스트하지 못한 나의 탓이지만… 내가 뭔가 잘못하면 스토어에서 걸려주겠지…라는 생각은 하지 않는 게 좋을 것 같다.</p>
+<h2 id="build-gradle-설정"><a href="#build-gradle-설정" class="headerlink" title="build.gradle 설정"></a>build.gradle 설정</h2><p>방금 말한 apk 파일이 실행되지 않는 첫 문제는 제출 직전에 수정한 build.gradle 파일에서의 설정이 문제였다. 위에서 말한 스무디 책에서는 release 버전을 위해서 build.gradle 파일에 hermes 사용 여부, apk 파일 여러 버전으로 쪼깰 여부, 그리고 proguard 사용 여부를 수정한 후 release 용 apk를 생성한다. 이후에 갑자기 설치파일의 크기가 급격하게 주는 기쁨을 느낄 수 있었으나… 기존에 하나의 apk 파일로 디버깅하다가 갑자기 1개에서 4개로 늘어난 apk 파일에 ‘아 이건 스토어 용 설치 파일이구나’ 하고 직접 테스트를 해봐야 한다는 사실도 모른 체 제출을 했었다. (그냥 제출 직전에 하는 하나의 의식? 같은 거라고 생각) 하지만 실제로 스토어에 등록된 후 앱이 실행되지 않아 등록하기 직전에 변경했던 것들을 재검토하고, 저 중에서 proguard 사용 여부를 끄니 release 용 apk도 정상적으로 테스트 할 수 있었다. Proguard는 리엑트 네이티브의 Java bytecode를 일부 제거해서 apk 파일의 사이즈를 줄여주는 역할을 하는데, 공홈에서도 <strong>Proguard 설정을 변경한 후 앱을 꼭 테스트해 보라는 말이 있다.</strong> 나의 경우에는 proguard 는 파일 크기에 큰 영향을 주지 않았기 때문에 그냥 사용하지 않기로 했다. <strong>build 설정을 조금이라도 수정했다면 꼭 테스트를 다시 해보자.</strong></p>
+<h2 id="앱-아이콘"><a href="#앱-아이콘" class="headerlink" title="앱 아이콘"></a>앱 아이콘</h2><p>내가 사실 출시까지 정말 정신이 없긴 했는데, 이건 그냥 좀 이상하게 까먹어버린 부분이었다. 구글 스토어에서는 앱의 아이콘이 잘 노출되는데, 설치된 앱을 핸드폰 바탕화면에서 보면 안드로이드 기본 아이콘을 사용하고 있다. 이건 뭐 좀 당연한 건데, 빌드 과정에서 내가 아이콘을 포함하지 않았기 때문이다. (…) 스토어에 등록할 때 스토어 콘솔에서만 아이콘 이미지를 등록하고 실제 앱 설치파일에서는 빼먹은 것이다. ios 도 xcode에 아이콘 파일 올려서 빌드할 때 asset에 분명히 포함시켰는데, 주로 테스팅으로 아이폰을 써서 그런가, 안드로이드에서 전혀 앱의 로고가 안 보인다는 사실을 이상하게 여기지 않았었다. 사실 거기까지 챙길 정신이 없었던 것 같다… <strong>출시는 맨정신에 하자.</strong></p>
+<p>참고 스텍오버플로우 : <a href="https://stackoverflow.com/questions/34329715/how-to-add-icons-to-react-native-app" target="_blank" rel="noopener">How to add icons to React Native app</a></p>
+<h2 id="파이어베이스-지문"><a href="#파이어베이스-지문" class="headerlink" title="파이어베이스 지문"></a>파이어베이스 지문</h2><p>이번에 만든 앱은 Firebase Auth를 사용하는데, 처음에 앱에 파이어베이스 프로젝트를 연결할 때 Firebase 프로젝트 설정에 들어가서 SHA 인증서 지문을 등록하는 과정이 있다. 이 지문은 android studio 나 터미널에서 조회할 수 있는데, 앱에서 사용하는 keystore마다 지문이 다르다. 그러니까 <strong>debug용 키스토어랑 release용 키스토어가 있으면, 지문도 바뀐다</strong>는 점이다. 그래서 release 파일을 만들어서 쓴다면, release 용 지문 또한 프로젝트 설정에서 추가해줘야 한다. 이 문제는 안드로이드 release 용 apk에서 sns 로그인에 문제가 생겨서 찾아보다가 다행히 출시 전에 해결했다.</p>
+<p>휴… 그런데 그래도 출시하면 또 sns 로그인이 안 된다. ㅎㅎ <strong>아직 프로젝트 설정에 추가해야 하는 지문이 하나 더 남았다.</strong> 구글 스토어에 등록된 앱을 받아서 설치하면 또 지문이 달라진다. 이 지문은 구글 플레이 스토어 콘솔에서 확인할 수 있으며, 똑같이 Firebase 프로젝트 설정에서 추가해줘야 한다.</p>
+<p>참고 스텍오버플로우 : <a href="https://stackoverflow.com/questions/58242386/react-native-firebase-social-auth-doesnt-work-on-release" target="_blank" rel="noopener">React Native Firebase Social Auth doesn’t work on release</a></p>
+<h1 id="—-애플-ios-—"><a href="#—-애플-ios-—" class="headerlink" title="— 애플 ios —"></a>— 애플 ios —</h1><p>애플… 애플… 난 이번 경험을 통해서 애플이라는 기업을 더 리스펙하게 되었다. 사실 직접 앱 검토를 해보기 전에는 ‘오래 걸린다, 까다롭다, 골치 아프다’라는 의견을 들었다. 하지만 사실상 이번 경험을 토대로 하면 앱 ‘검토’ 자체가 오래 걸리는 것 같지는 않고, 검토가 까다롭기 때문에 제출, 검토를 여러 번 하다 보니 오래 걸리게 되는 것 같다. 이제 두 번째 거절을 받은 상태인데, 두 경우 다 제출 후 하루 이틀 만에 ‘이러이러한 부분을 고쳐야 합니라’라는 세부적인 답변이 왔었다. 아직 세 번째 제출은 하지 않은 상태이지만 여태껏 애플 스토어에서 지적해 준 부분들을 공유해본다.</p>
+<h2 id="Info-plist-사용자-동의-string"><a href="#Info-plist-사용자-동의-string" class="headerlink" title="Info.plist 사용자 동의 string"></a>Info.plist 사용자 동의 string</h2><p>리액트 네이티브 앱에서 기기의 여러 기능을 사용하다 보면 ios의 경우는 Info.plist를 수정하고 android의 경우는 AndroidManifest.xml을 수정할 일이 종종 있다. 앱에서 카메라를 사용해야 해서 개발 초기에 두 파일을 이미 수정했었는데, 여기서 <strong>사용자에게 카메라 사용 동의를 요청하는 글귀를 너무 대충 썼었다.</strong> 물론 android에서는 그런 글을 쓸 필요가 없지만 ios에서는 상세하게 설명해야 한다. 초반에는 영문으로 ‘무슨 무슨 기능 때문에 카메라를 사용해야 해’ 정도로 작성했었고, 그대로 제출했는데 첫 번째 앱 검토에서 해당 이유를 더 설명하라는 답변을 받았다. 2~3문장으로 나눠서 조금 더 상세하게 썼고, 언어도 영어와 국문으로 나눠서 localize 해서 다시 제출했다.</p>
+<p>Info.plist에 있는 값들을 localize 하는 방법은 다음 글을 참고했다 : <a href="https://hackernoon.com/localize-an-application-name-in-react-native-c36c4b2be7c3" target="_blank" rel="noopener">Localize an Application Name in React Native</a></p>
+<h2 id="Apple로-로그인하기"><a href="#Apple로-로그인하기" class="headerlink" title="Apple로 로그인하기"></a>Apple로 로그인하기</h2><p>이건 애플 스토어의 정책이다. <strong>당신의 앱이 sns 로그인을 사용한다면 ‘Apple로 로그인’을 로그인 옵션으로 반드시 포함해야 한다.</strong> 그리고 Apple로 로그인을 붙이는 법을 찾다 보면 다시 한번 애플이 엄청 치밀한 회사라는 걸 느낄 수 있다. 로그인 버튼을 정확히 어떻게 구현해야 하는지의 가이드가 따로 있고, 최대한 애플에서 제공하는 버튼을 사용하라고 알려준다. 나의 경우에 약간 사이즈를 바꿔서 사용할 필요가 있었고… 가이드라인을 최대한 따랐다 : <a href="https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/" target="_blank" rel="noopener">Human Interface Guidelines - Sign in with Apple Buttons</a>. 가이드라인에서는 애플로고는 반드시 Apple Design Resources에서 다운받은 파일만을 사용할 것을 중요시한다. 필요한 패딩이니 뭐니 이미 다 포함되어있다고… 오케이. <a href="https://developer.apple.com/design/resources/" target="_blank" rel="noopener">Apple Design Resources</a>가서 애플로고를 찾아봤다. 아무리 찾아도 없다. 진심 한 시간 정도 찾았다. 그러다가 그냥 구글 검색해서 사용할까 하다가… 또 검토에서 퇴짜맞을까 봐 열심히 뒤졌다. 결론은 애플로 로그인에서 쓰는 애플 로고는 애플 로고로 별도로 다운받는 것이 아니고 Sign in with Apple 리소스 페키지 파일 안에 애플 로그인 용도로 만들어진 로고 파일로 포함되어있다… 라는 것이다. 그러니까… <a href="https://developer.apple.com/design/resources/" target="_blank" rel="noopener">Apple Design Resources</a> 여기 웹사이트 메인 화면에 도착하자마자 밑으로 내려서 Sign in with Apple 옆에 있는 Download 버튼을 눌러서 받을 수 있다. 하… 아무도 나처럼 로고 찾아 헤매지 않길 바란다.</p>
+<h2 id="사용자-개인-정보-수집"><a href="#사용자-개인-정보-수집" class="headerlink" title="사용자 개인 정보 수집"></a>사용자 개인 정보 수집</h2><p>이 부분에서 애플 스토어의 검수에서 수정요청이 들어왔다는 것은 검토하시는 분이 일단 앱의 회원가입과 sns 로그인을 자세히 들여봤다는 뜻이다. 그리고 대략 다음처럼 얘기해줬다 : <strong>‘가입 시 앱의 핵심 기능과는 무관한 정보를 입력해야 합니다. 이는 불필요하니 없애거나 선택사항으로 해주세요.’</strong> 이 부분은 아직 다른 부서랑 회의를 좀 해봐야 해서 아직 수정하진 못했지만, 아이폰 사용자의 개인 정보는 조심히 다뤄지고 있구나… 라는 느낌을 받았고, 앞으로도 계속 아이폰을 쓰고 싶어졌다. 어제만 해도 안드로이드를 쓰는 친구랑 저녁을 먹다가 요즘 계속 감시당하고 있는 느낌이라는 얘기를 들었는데, 확실히 이런 부분에 있어서 애플은 철저했다.</p>
+<p>늘어놓고 보니 미리 예방할 수 있는 문제도 있었지만, 이 외에도 챙길 게 많으니 출시 직전에 확인해야 하는 사안들은 체크리스트로 만들어서 매번 확인하고 출시하면 좋을 것 같다.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2021/02/13/react-native-deployment/" data-id="ckpaxe4wu000bd2oq9t7ph8pf" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deployment/" rel="tag">Deployment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-d3-and-react" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-06-09T02:15:47.000Z" itemprop="datePublished">2020-06-09</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/D3/">D3</a><a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/09/d3-and-react/">D3.js 와 React 를 접목시키는 법</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>어제의 블로그 포스트 이후로 고민을 좀 했습니다. 이 참에 D3를 배워볼까? D3.js - 오랫동안 배우고 싶었는데, 늘 적당한 사유가 없어서 미루던 라이브러리. 결국 자기전에 잠깐 깨작깨작 해보고… ‘음, 역시나 좀 더 배우고싶은데?’ 라는 생각이 들어서 어제 포스트 끝자락에 잠깐 맨션 했던 글을 여기에 다시한번 정리해 봅니다.</p>
+<h1 id="문제-DOM-조작은-누가-하나"><a href="#문제-DOM-조작은-누가-하나" class="headerlink" title="문제 : DOM 조작은 누가 하나?"></a>문제 : DOM 조작은 누가 하나?</h1><p>저도 D3+React 프로젝트들을 보며 궁금했던게…. React를 사용할 때, 특정 DOM 요소가 생성되냐 마냐는 내가 정해주는 상태 값 등을 기반으로 React가 버추얼 DOM 이랑 비교해가면서 자체적으로 DOM을 조작 하는 것이라, 오히려 그 과정에서 내가 직접 DOM을 조작하면 React 로직과 충돌하기 때문에 직접적인 DOM 조작은 ‘하지 말아야 할 일’ 이라고 알고 있었단 말입니다. React의 ‘선언형’ 성격과 맞지 않기도 하고.</p>
+<p>그런데 D3 코드를 슬쩍 보면 마치 jQuery 처럼 DOM 요소를 선택하고 attr 속성을 조작하고 이런 게 보이죠. 그럼, 내가 본 저 간지나는 D3+React 프로젝트들은 React 안에 어떤 방식으로 D3를 담고있는걸까? 라는 의문이 듭니다. D3가 DOM 조작을 하는 것에 대해서 React는 가만히 있는 걸까? React 내 DOM 조작에 대해서 ref라는 걸 배운 거 같은데 이걸 쓰면 되나?</p>
+<p><a href="https://www.smashingmagazine.com/2018/02/react-D3-ecosystem/" target="_blank" rel="noopener">Bringing Together React, D3, And Their Ecosystem</a></p>
+<p>위 글을 3분의 1정도 내리면 ‘React And D3.Js’ 라는 해딩 밑으로 React - D3 접목 방법 4 가지가 정리되어 있습니다. 각 방법의 쟁점은 DOM 조작 권한이 D3에게 치우치느냐, React에게 치우치느냐입니다. 저는 각 방법의 예시는 제공하지 않고 장/단점 요약만 해보겠습니다.</p>
+<h2 id="방법-1-React-안에-D3-js-그대로-담기"><a href="#방법-1-React-안에-D3-js-그대로-담기" class="headerlink" title="방법 1 - React 안에 D3.js 그대로 담기"></a>방법 1 - React 안에 D3.js 그대로 담기</h2><p>D3에게 최대한 많은 DOM 조작 권한을 주는 방법입니다. 랜더 매서드 안에 ref가 달린 텅 빈 svg 요소를 넣어놓고, componentDidUpdate 라이프사이클 매서드에서 D3 코드를 바닐라 자바스크립트에서 마냥 마음껏 쓰는 방법입니다. shouldComponentUpdate 라이프사이클 매서드에서 무조건 return false를 써 놓아서 React에 인해서 컴포넌트가 업데이트되는 것을 방지합니다.</p>
+<h3 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h3><ul>
+<li>대부분의 경우 작동함</li>
+<li>단순한 방법</li>
+<li>D3로 이미 만든 코드를 React로 옮길 때 크게 수정하지 않고 옮길 수 있음</li>
+</ul>
+<h3 id="단점"><a href="#단점" class="headerlink" title="단점"></a>단점</h3><ul>
+<li>깨끗하지 않고, 코드가 무거워진다</li>
+<li>React의 선언형 근본과 반대된다</li>
+</ul>
+<h2 id="방법-2-가짜-DOM-React-Faux-DOM"><a href="#방법-2-가짜-DOM-React-Faux-DOM" class="headerlink" title="방법 2 - 가짜 DOM (React Faux DOM)"></a>방법 2 - 가짜 DOM (React Faux DOM)</h2><p>D3의 DOM 조작 방법을 사용하되, React 관리하에 있는 DOM 과 다른 가짜 DOM을 넘겨줘서 D3가 마치 진짜 DOM을 조작하고 있는 것 처럼 생각하게 만드는 방법입니다. 우선 react-faux-dom 패키지를 불러와서 prop을 가짜 DOM 과 연결시킨 후 D3 선택지를 랜더에 있는 요소가 아닌 가짜 DOM 과 연결된 변수로 선택해주고, 랜더 매서드 안에서는 해당 프롭을 보여주는 식입니다.</p>
+<h3 id="장점-1"><a href="#장점-1" class="headerlink" title="장점"></a>장점</h3><ul>
+<li>React가 사용하는 DOM 을 그대로 보존할 수 있다</li>
+<li>D3.js API 의 대부분 사용 가능</li>
+<li>이미 만들어진 D3 코드 변환하기 쉬움</li>
+<li>SSR 가능</li>
+</ul>
+<h3 id="단점-1"><a href="#단점-1" class="headerlink" title="단점"></a>단점</h3><ul>
+<li>성능 떨어짐 (이미 버추얼 DOM을 갖추고 있는 React에 비추얼 DOM을 하나 더 추가하는 무거운 일)</li>
+</ul>
+<h2 id="방법-3-컴포넌트-라이프라이클로-D3-매서드-감싸기"><a href="#방법-3-컴포넌트-라이프라이클로-D3-매서드-감싸기" class="headerlink" title="방법 3 - 컴포넌트 라이프라이클로 D3 매서드 감싸기"></a>방법 3 - 컴포넌트 라이프라이클로 D3 매서드 감싸기</h2><p>React 컴포넌트의 라이프사이클 매서드들을 사용해서 D3의 create / update / remove 를 감싸는 방법입니다.</p>
+<h3 id="장점-2"><a href="#장점-2" class="headerlink" title="장점"></a>장점</h3><ul>
+<li>React 컴포넌트를 더 가볍게 짤 수 있다</li>
+<li>관심사분리 (separation of concerns)</li>
+<li>차트 자체의 코드를 따로 숨기고 단순한 인터페이스 제공, 깔끔</li>
+</ul>
+<h3 id="단점-2"><a href="#단점-2" class="headerlink" title="단점"></a>단점</h3><ul>
+<li>SSR 불가능</li>
+</ul>
+<h2 id="방법-4-DOM은-React에게-계산은-D3에게"><a href="#방법-4-DOM은-React에게-계산은-D3에게" class="headerlink" title="방법 4 - DOM은 React에게, 계산은 D3에게"></a>방법 4 - DOM은 React에게, 계산은 D3에게</h2><p>D3 사용을 최소화하는 방법입니다. SVG path 계산, scale, layouts, transformations 등의 선/도형등의 모양을 계산하는 것만 D3가 하게하고 나머지는 React에게 맡깁니다. 이게 가능한 이유는 D3가 많은 서브 모듀들로 이루어져있고, 이 중 DOM 조작과 상관없는 모듈도 상당수이기 때문입니다.</p>
+<h3 id="장점-3"><a href="#장점-3" class="headerlink" title="장점"></a>장점</h3><ul>
+<li>가장 React-지향적</li>
+<li>이미 있는 다른 React 코드와도 가장 잘 어울림 (React 개발자들이 제일 좋아하는 방법)</li>
+<li>SSR 가능, React Native 혹은 React VR로 넘길 수 도 있음</li>
+</ul>
+<h3 id="단점-3"><a href="#단점-3" class="headerlink" title="단점"></a>단점</h3><ul>
+<li>D3 에 대해 조금 더 자세하게 알아야함 (서브모듈들을 분리해서 사용해야 하기 때문에)</li>
+<li>D3 기본 요소들을 직접 작성해야함 (축, 도형은 쉬운편 / 브러쉬, 줌, 드래깅은 더 어려운 편) -&gt; 초반부터 해야하는 일이 다른 방법보다 많을 거임</li>
+<li>애니메이션도 다 React 단에서 해결해야함</li>
+</ul>
+<h1 id="결정"><a href="#결정" class="headerlink" title="결정"></a>결정</h1><p>저는 다음 요점들을 고려해서 :</p>
+<ul>
+<li>나는 기존에 있는 D3 코드를 사용하는게 아니다</li>
+<li>애니메이션, 마우스 이펙트 등을 헤비하게 사용할 생각이 없다</li>
+<li>무거운게 싫다</li>
+<li>svg 요소들 직접 쓰는 건 좋다</li>
+</ul>
+<p><strong>‘방법 4 - DOM은 React에게, 계산은 D3에게’</strong> 를 선택했습니다.</p>
+<p>제가 D3를 배우고싶다고 제일 처음 생각했던 건 예전에 Shirley Wu라는 분이 만든 데이터 시각화 작품들을 본 후였습니다. 자바스크립트로 그런 것들을 만들수 있다는게 놀라웠고, 그 이후로 나도 배우고 싶다는 생각은 늘 해왔는데… 마침 제가 자주보는 FunFunFunction이라는 채널에 게스트로 나와서 4분이서 d3, p3 등에 관해서 얘기하는 영상이 있더라고요. (아래 링크)</p>
+<p><a href="https://www.youtube.com/watch?v=Awnz8x8kcE8" target="_blank" rel="noopener">Data visualisation chat about D3.js, P5.js, JavaScript, Python with kosamari, sxywu and shiffman</a></p>
+<p>위 영상에서 35~36분 10초 사이에 셜리씨가 D3 진입 장벽에 대해서 얘기하는 부분이 있습니다. 정리하자면…</p>
+<ul>
+<li>D3 진입 장벽이 높은 이유는 초반에 enter/update/exit 패턴에 대해서 배우는 것 때문</li>
+<li>React 를 사용하면 enter/update/exit 안 쓰고 D3로 계산하는 법만 알면 됨, 이 같은 DOM 조작 기능이 React에 이미 내장되어있기 때문에</li>
+<li>떄문에 React 를 알면 D3 진입이 오히려 쉬울 수도 있음</li>
+</ul>
+<p>그냥 배우는 것만을 목적으로 하면 또 튜토리얼 헬에 빠질 수도 있을 것 같아서. 실질적인 목적을 하나 세우고 공부를 시작하려고 합니다. 목적은 이번 주말까지 텃밭도우미에 있는 CropYear 컴포넌트를 svg와 D3 계산으로 다시 만드는 것.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/06/09/d3-and-react/" data-id="ckpaxe4wd0000d2oq0vr41oen" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-garden-planner-i" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-06-08T09:16:28.000Z" itemprop="datePublished">2020-06-08</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/08/garden-planner-i/">새로운 프로젝트를 계획하면서</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <h1 id="목적"><a href="#목적" class="headerlink" title="목적"></a>목적</h1><p>조석 고정 시뮬레이터가 일단락 사용 가능한 상태가 되어 다음 프로젝트를 시작합니다. 저는 매년 봄이면 소수의 작물을 씨앗으로 파종해서 텃밭에 정식하고 수확까지 지켜보며 타이밍의 중요함을 느낍니다. 그리고 매년 조금씩 지식이 쌓여서 ‘아 올해는 이거는 좀 더 일찍 파종해야지, 요 작물은 정식하는 기간을 좀 길게 잡고 바깥에 적응시켜야지’ 등의 감이 생기는데, 이건 키우는 지역마다 적당한 파종/정식 기간도 다르고 또 같은 지역에서도 매년 최상 온도와 최저 온도도 다르고, 또 키우는 작물/종자 마다 조금씩 달라서 오로지 씨앗 봉투 뒷면에 있는 설명을 온전히 따르는 것보다 일단 나에게 갖춰진 환경에서 한 해 키워보는 것이 가장 큰 가이드가 됩니다. 그래서 매년 키우는 작물의 기록을 바탕으로 나만의 텃밭 데이터베이스를 만들수 있으면 좋겠다고 생각했고, 이 데이터를 토대로 한 작물의 일년 주기의 라이프사이클을 시각적으로 한 번에 보여줄 수 있는 텃밭 달력을 만들고자 합니다.</p>
+<h1 id="스텍"><a href="#스텍" class="headerlink" title="스텍"></a>스텍</h1><p>일단 프론트 단은 리액트, 당분간 데이터는 로컬로 쓰다가 나중에 가서 mongoDB로 옮길까도 싶습니다. (리액트 교재 뒷부분에 몽고기반 튜토리얼이 나오기에) 또 저번에 배워놓고 제대로 써먹지 못한 Material UI 위주로 인터페이스 요소들을 만들려고 합니다. 핵심 컴포넌트인 각 작물의 일년단위 타임라인은 styled-component 만들어 놓은 차트인데…</p>
+<h1 id="초안"><a href="#초안" class="headerlink" title="초안"></a>초안</h1><p>사실 저번달에 일단락 틀만 만들어 놓았던게 있습니다.</p>
+<img src="/2020/06/08/garden-planner-i/gp_ss_1.png" class="" title="텃밭 달력 초안 화면 1">
+
+<p>좌측 메뉴, 상측 앱바 등은 거의 Material UI 기반이고</p>
+<img src="/2020/06/08/garden-planner-i/gp_ss_2.png" class="" title="텃밭 달력 초안 화면 2">
+
+<p>여기있는 가로로 긴 차트가 일년 단위 타임라인입니다.</p>
+<h1 id="데이터"><a href="#데이터" class="headerlink" title="데이터"></a>데이터</h1><p>차트 한 칸 한 칸이 일 주일이고, 한 달은 평균 4주로 보여지며, 각 작물의 데이터는</p>
+<ul>
+<li>파종부터 수확까지 총 키우는 기간</li>
+<li>권장 파종 기간</li>
+<li>실제 정식 날짜</li>
+<li>권장 정식 기간</li>
+<li>실제 정식 날짜</li>
+<li>권장 수확 기간</li>
+<li>실제 수확 날짜</li>
+<li>그 밖에 일년생/다년생 여부, 노지월동 가능 여부, 성장 형태, 양지/음지, 키우는 팁…<br>…등의 정보를 담고 있습니다.</li>
+</ul>
+<h1 id="고민"><a href="#고민" class="headerlink" title="고민"></a>고민</h1><p>Crop 컴포넌트 내부에 있는 CropYear라는 컴포넌트가 각 작물의 데이터에서 날짜 배열/날짜를 받아와서 4주 x 12달 반복문 안에서 해당 div를 어떤 색으로 칠하고 실제 파종/정식/수확 날짜 기록이 있으면 동그란 스티커 형태로 마커를 랜더할 지를 정하는데…</p>
+<p>…이렇게 하면 안될 것 같다는 생각이 자꾸 들어서 지금 고민중입니다. 예를 들어… 권장 파종기간이랑 권장 정식 기간이 겹치면…? 겹치는 부분이 따로 보이지 않고 뒤에 계산된 것만 보이게 되고… 또 일년에 두번 이상 파종해서 키울수있는 단기간 작물같은 건… 수확을 한 번에 안 하고 여러 날짜로 나누어서 하면… 등의 다양한 경우수가 자꾸 생각나서… 48주 반복문으로 각 div 의 스타일을 정해주는 것 보다 아예 canvas나 svg를 도입해볼까 하는 고민이 됩니다.</p>
+<p>아니면 이 참에 d3 배워볼까… 근데 d3로 DOM 조종 하려면 리액트에서 어떻게 해야하지.. 음.. ref 써야하나보네, 이거 또 튜토리얼 지옥에 빠지는 거 아닌까 몰라…</p>
+<p><a href="https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/" target="_blank" rel="noopener">이 글에</a> 리액트와 d3 접목시키는 법 4가지가 요약되어있습니다. 그런데 이걸 다 읽으니 자꾸 예전에 어디서 본 조언이 생각나고… 사이드 프로젝트에 새 기술 3개 이상 쓰지 말기. .. 였나? 여하튼 너무 욕심을 부리면 진도 나가기가 힘들다는 말. 완전. 나한테 하는 말. d3는 다음 프로젝트로 미뤄야하나 싶기도 하고. 총총.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/06/08/garden-planner-i/" data-id="ckpaxe4ws0007d2oqb0qv6i6e" class="article-share-link">Share</a>
+          
+          
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="posts-tidally-locked-three" class="article article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-05-26T03:58:47.000Z" itemprop="datePublished">2020-05-26</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/26/tidally-locked-three/">조석 고정 시뮬레이터 III - 글리치</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>방금 작업하면서 좀 얍삽한(?) 해결책을 쓰게되어 글로 남겨봅니다.</p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>계획대로 지난 주말까지 UI 구현은 다했는데, 작업 중 하나의 글리치가 발생했었습니다. UI 패널에 숫자 잇풋 박스 버튼 이것저것, 그리고 레인지 인풋 네개가 추가되었는데… 만들어논 레인지 (슬라이더) 인풋을 테스트 해보았을때, 첫 몇번은 바로바로 인풋 값이 에니메이션으로 반영이 되다가 꼭 몇번 이상 인풋을 사용하다보면 버벅거리며 에니메이션이 변형이 안 되었다가 또 다시 되었다가 하면서 렌더된 모습이 이상하게 바뀌는 문제가 발생했습니다. 스샷으로 보시죠…</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_1.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 1">
+
+<p>처음에는 잘 되다가…</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_2.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 2">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_3.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 3">
+
+<p>샥</p>
+<img src="/2020/05/26/tidally-locked-three/ss_glitch_4.png" class="" title="조석 고정 시뮬레이터 UI 글리치 화면 4">
+
+<p>앗</p>
+<p>…이렇게 말이죠. 예측 가능한 숫자에서 그러는 것도 아니고 그냥 몇번 인풋을 만지다 보면 이렇게 되는데, 저 모습은 마치 moon 컴포넌트가 사용하는 MOON-REVOLUTION 키프레임에 바뀐 공전 반경 프롭이 제대로 안 먹힌 모습입니다. 또 직접적으로 개발자 도구에서 공전 반경 상태값을 바꾸면 제대로 반영이 됩니다.</p>
+<h1 id="분석"><a href="#분석" class="headerlink" title="분석"></a>분석</h1><p>초반에 작업해 놓은 moon 컴포넌트는 첫번쨰 관련 블로그 글에 설명했듯이 ‘자전 주기’, ‘공전 주기’, ‘공전 반경’ 등의 상태를 프롭으로 받아와서 스타일드 컴포넌트에게 넘겨줍니다. 스타일드 컴포넌트 내부에서도 MOON-REVOLUTION 과 MOON-ROTATION이라는 키프레임을 정의해 놓고 moon 컴포넌트가 사용하게끔 작성했는데, 키프레인 안에서도 공전 반경 프롭을 사용합니다. 이렇게요 (공전 에니메이션 관련 코드 외에는 생략되었습니다) :</p>
+<figure class="highlight javascript"><figcaption><span>Moon.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> StyledMoon = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  position: absolute;</span></span><br><span class="line"><span class="string">  z-index: 200;</span></span><br><span class="line"><span class="string">  width: 100%;</span></span><br><span class="line"><span class="string">  height: 100%;</span></span><br><span class="line"><span class="string">  transform-origin: 50% 50%;</span></span><br><span class="line"><span class="string">  animation-name: MOON-REVOLUTION;</span></span><br><span class="line"><span class="string">  animation-duration: <span class="subst">$&#123;(props) =&gt; props.orbPer + <span class="string">"s"</span> || <span class="string">"0s"</span>&#125;</span>;</span></span><br><span class="line"><span class="string">  animation-iteration-count: infinite;</span></span><br><span class="line"><span class="string">  animation-timing-function: linear;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  @keyframes MOON-REVOLUTION &#123;</span></span><br><span class="line"><span class="string">    0% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(0deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(0deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    100% &#123;</span></span><br><span class="line"><span class="string">      transform: rotate(-360deg) translate(</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">        rotate(360deg);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Moon = <span class="function">(<span class="params">&#123; orbPer, orbRad &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;StyledMoon orbRad=&#123;orbRad&#125; orbPer=&#123;orbPer&#125;&gt;</span><br><span class="line">      &lt;div className=<span class="string">"moon__self"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__lockline"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__face"</span> /&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__body"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div className="moon__shade" /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/StyledMoon&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Moon;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="하지-말라는-짓"><a href="#하지-말라는-짓" class="headerlink" title="하지 말라는 짓"></a>하지 말라는 짓</h2><p>이 에니메이션이 캐싱이 되고있는 것 같은 느낌을 받았고, 구글에 ‘styled components cache animation’ 라고 검색하니 스타일 컴포넌트 공식 홈 Basic 페이지가 최상위 검색 결과로 나왔고, 해당 Basics 페이지 에서 caching을 검색해보니 “Define Styled Components outside of the render method” 라는 해딩 아래로 주의문이 하나 있습니다.</p>
+<blockquote>
+<p>It is important to define your styled components outside of the render method, otherwise it will be recreated on every single render pass. Defining a styled component within the render method will thwart caching and drastically slow down rendering speed, and should be avoided.</p>
+<p>– <cite><a href="https://styled-components.com/docs/basics" target="_blank" rel="noopener">styled-components Basics</a></cite></p>
+</blockquote>
+<p>그러니까 스타일드 컴포넌트를 렌더 메서드 밖에서 정의하라, 그렇지 않으면 매 랜더에 다시 생성되어야하고 그러면 <strong>캐싱도 안 되고</strong> 성등이 아주 많이 떨어지기 때문에 그런 방법은 피해야 합니다… 라고 합니다. 예시 주석에도 “WARNING: THIS IS VERY VERY BAD AND SLOW, DO NOT DO THIS!!!” 겁나 느리고 나빠요, 이렇게 하지 마세요!! 라고 써있습니다.</p>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결?"></a>해결?</h1><p>음? 캐싱이 안 된다고요? 그래서… 겁나 느리고 나쁘지만 ㅠㅠ 하지말라는 성능저하를 해보았습니다. 물론 딱 저 에니메이션 사용하는 부분만 분리해서요.</p>
+<figure class="highlight javascript"><figcaption><span>moon.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> StyledMoon = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  /* 자전 에니메이션 제외 나머지 스타일 코드 아직도 여기에 킵하고 */</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Moon = <span class="function">(<span class="params">&#123; orbPer, orbRad &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> StyledRevolution = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">    position: absolute;</span></span><br><span class="line"><span class="string">    z-index: 200;</span></span><br><span class="line"><span class="string">    width: 100%;</span></span><br><span class="line"><span class="string">    height: 100%;</span></span><br><span class="line"><span class="string">    transform-origin: 50% 50%;</span></span><br><span class="line"><span class="string">    animation-duration: <span class="subst">$&#123;(props) =&gt; props.orbPer + <span class="string">"s"</span> || <span class="string">"0s"</span>&#125;</span>;</span></span><br><span class="line"><span class="string">    animation-iteration-count: infinite;</span></span><br><span class="line"><span class="string">    animation-timing-function: linear;</span></span><br><span class="line"><span class="string">    animation-name: MOON-REVOLUTION;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    @keyframes MOON-REVOLUTION &#123;</span></span><br><span class="line"><span class="string">      0% &#123;</span></span><br><span class="line"><span class="string">        transform: rotate(0deg) translate(</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">          )</span></span><br><span class="line"><span class="string">          rotate(0deg);</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">      100% &#123;</span></span><br><span class="line"><span class="string">        transform: rotate(-360deg) translate(</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;(props) =&gt; props.orbRad + <span class="string">"px"</span> || <span class="string">"150px"</span>&#125;</span></span></span><br><span class="line"><span class="string">          )</span></span><br><span class="line"><span class="string">          rotate(360deg);</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;StyledRevolution orbRad=&#123;orbRad&#125; orbPer=&#123;orbPer&#125;&gt;</span><br><span class="line">      &lt;StyledMoon&gt;</span><br><span class="line">        &lt;div className=<span class="string">"moon__self"</span>&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__lockline"</span> /&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__face"</span> /&gt;</span><br><span class="line">          &lt;div className=<span class="string">"moon__body"</span> /&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div className="moon__shade" /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/StyledMoon&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>StyledRevolution&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Moon;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 했더니 글리치가 사라졌습니다. 딱히 엄청 버벅거린다거나 느리거나도 잘 못느끼겠고, 물론 스타일드 컴포넌트 전체를 저런식으로 랜더 부분에 정의하면 성능상 엄청 안 좋을 것 같긴 합니다. 일단 문제를 해결하긴 했는데, 뭔가 찝찝한 느낌…</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/05/26/tidally-locked-three/" data-id="ckpaxe4wv000cd2oqguyva6up" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-tidally-locked-two" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-05-20T02:50:21.000Z" itemprop="datePublished">2020-05-20</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Design/">Design</a><a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/tidally-locked-two/">조석 고정 시뮬레이터 II - 디자인</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>이번주 안에 조석 고정 시뮬레이터를 완성하고 싶어서 요렇게 목표 기록 포스팅을 합니다.</p>
+<h1 id="해결할-사안들"><a href="#해결할-사안들" class="headerlink" title="해결할 사안들"></a>해결할 사안들</h1><ul>
+<li>조석 고정이 아닌 상태에서 조석 고정 상태가 되었을 때 시각적으로 무언가 표시</li>
+<li>Reset, Tidal Lock, Pause 같은 기능성 버튼</li>
+<li>버튼과 인풋 외관 수정. 중요한 것만 빼내고 나머지는 작게/숨기기/자동계산</li>
+<li>공전 경로 동그라미가 상태 변경시 사라지는 문제 수정</li>
+</ul>
+<h1 id="다자인-다시"><a href="#다자인-다시" class="headerlink" title="다자인 다시"></a>다자인 다시</h1><p>일단 앱의 현 상태를 확인해봅니다. 이전 포스팅 할 때는 이랬던 게 :</p>
+<img src="/2020/05/20/tidally-locked-two/tdlk_2.png" class="" title="조석 고정 시뮬레이터 UI 드레프트">
+
+<p>Material UI를 배우고 나서 이렇게 되었는데요. ㅎㅎㅎ</p>
+<img src="/2020/05/20/tidally-locked-two/tdlk_3.png" class="" title="조석 고정 시뮬레이터 단순 UI 버전">
+
+<p>사실 좀 안 어울리는 것 같습니다. 커스터마이징하고싶은 부분이 많아서… Material UI는 뺴고 아예 레이아웃 디자인부터 좀 정하고 진행하기로 했습니다. 간만에 Figma를 키고…레이아웃은 세 규격으로 짰습니다.</p>
+<img src="/2020/05/20/tidally-locked-two/tdlk_figmadraft.png" class="" title="조석 고정 시뮬레이터 디자인 시안">
+
+<p>이번주 안에 완성할 수 있기를… 다른 거 좀 할래!</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/05/20/tidally-locked-two/" data-id="ckpaxe4wx000fd2oqf0ebglm6" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Figma/" rel="tag">Figma</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-short-break" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-05-13T11:03:04.000Z" itemprop="datePublished">2020-05-13</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a><a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/short-break/">회상, 혼자서 공부하기</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>이전 포스트가 거의 3개월 전이었네요, 그동안 세상에 많은 일이 있었습니다. 저는 3월부터 퍼블리셔 직을 그만두고 집에만 있었는데… 왜 블로그는 안 썼을까요. (반성) 혼자서 정신없이 이것저것 공부한다고 한 것들이 있는데… 전부 영상 튜토리얼 위주로 하다보니 결과라고 보여줄만한 뭔가가 없네요. 회사다닐때는 그래도 주말에 스터디 카페 등록해놓고 돈 안 아까우려고 꾸준히 다녀서 주말마다 커밋들이 있었는데. 바이러스 때문에 카페도 못가고 혼자 집에 방치되니 흔히 말하는 <strong>tutorial hell</strong> 이라는 것에 빠졌던 것 같습니다.</p>
+<p>지난 3개월 동안 튜토리얼 헬 속에서 배운 것들 :</p>
+<ul>
+<li>Material UI</li>
+<li>server side rendering : why &amp; how</li>
+<li>webpack &amp; babel</li>
+<li>starting a react project from scratch (without CRA)</li>
+<li>SSR with React Router</li>
+<li>bundle size optimazation</li>
+</ul>
+<p>…이런 커리큘럼을 밟은 가장 큰 이유는 Code Realm님의 Material UI 튜토리얼 덕분입니다. 초반에는 조석 고정 시뮬레이터 인터페이스 만드는데 <strong>시간을 아끼고 싶어서</strong> Material UI를 배우러 들어갔다가…(야무진 꿈) 후- 영상이 너무 배움으로 꽉꽉 차있는 바람에, 플레이리스트 전부 돌려보고 특히 40분짜리 SSR관련 영상은 일주일동안 여러차례 돌려봤는데요. 덕분에 제가 모르는 부분이 많다는 걸 배우고 최대한 매꾸려다보니… 앗 벌써 시간이 이렇게 흘러버렸습니다.</p>
+<p>이전까지는 리액트를 Create React App을 기본으로 깔고 배우다보니까 기본적인 bundler 와 compiler (webpack &amp; babel) 에 대한 지식이 너무 없었던 것 같습니다. 서버에 대한 지식도 없어서 SSR 구현 부분에서 좀 괴로웠고… 그래도 따라하다보니 이제 cra 없이 기본적인 프로젝트 설정하는 법은 이해가 되는 것 같습니다. 앞으로도 서버 관련된 부분은 차차 배워나가야 하겠지만 Next.js 가 몹시 배우고 싶어졌습니다. (또 또 야무진 꿈)</p>
+<p>그래서 결과적으로 조석 고정 시뮬 인터페이스는 아직도 안 고쳤다는 놀라운 사실. 튜토리얼 헬을 빠져나와서 사이드 프로젝트들을 좀 더 완성시키는 시간을 가져야 할 것 같습니다.</p>
+<h1 id="튜토리얼-헬-플레이리스트"><a href="#튜토리얼-헬-플레이리스트" class="headerlink" title="튜토리얼 헬 플레이리스트"></a>튜토리얼 헬 플레이리스트</h1><p>아래 도움이 됐던 튜토리얼 몇가지 링크해봅니다, 당신도 빠져보아요 튯 늪 :</p>
+<h2 id="Starting-a-Project-with-Webpack-amp-Babel"><a href="#Starting-a-Project-with-Webpack-amp-Babel" class="headerlink" title="Starting a Project with Webpack &amp; Babel"></a>Starting a Project with Webpack &amp; Babel</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=TzdEpgONurw" target="_blank" rel="noopener">Design Course, Webpack 4 Tutorial - Getting Started for Beginners</a></li>
+<li><a href="https://www.youtube.com/watch?v=Zb2mQyQRwqc" target="_blank" rel="noopener">Tyler McGinnis, React (without Create React App) with Babel 7, Webpack 4, and React 16</a></li>
+<li><a href="https://www.youtube.com/watch?v=A4swyDR45SY" target="_blank" rel="noopener">Code Realm, Deconstructing Create-React-App with Webpack 4 &amp; Babel</a></li>
+</ul>
+<h2 id="Optimizing-Bundle-Size"><a href="#Optimizing-Bundle-Size" class="headerlink" title="Optimizing Bundle Size"></a>Optimizing Bundle Size</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=CGgEPHwzCUU" target="_blank" rel="noopener">Code Realm, Learn React &amp; Material UI - #16 Optimizing Bundle Size</a> - 이 시리즈는 영상 19개로 나눠져있습니다. Material UI 배우러 들어갔다가 SSR 배우고 나오게 되는 바로 그 마법의 경로.</li>
+</ul>
+<h2 id="Server-Side-Rendering"><a href="#Server-Side-Rendering" class="headerlink" title="Server Side Rendering"></a>Server Side Rendering</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=gpGoxdVspx4" target="_blank" rel="noopener">Code Realm, Learn React &amp; Material UI - #17 Server-Side Rendering</a> - 일주일간 돌려보기한 문제의 그 영상</li>
+<li><a href="https://www.youtube.com/watch?v=mZEv4mHsU5E" target="_blank" rel="noopener">Tyler McGinnis, Server Rendering with React and React Router v4</a> - React Router를 SSR이랑 병행해서 사용하는 예시가 단계별로 잘 설명되어 있습니다</li>
+</ul>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/05/13/short-break/" data-id="ckpaxe4x3000md2oqbw4d1gcd" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Babel/" rel="tag">Babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-tidally-locked" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-02-23T03:29:06.000Z" itemprop="datePublished">2020-02-23</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/tidally-locked/">조석 고정 시뮬레이터 I - 구동</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <h1 id="조석-고정"><a href="#조석-고정" class="headerlink" title="조석 고정?"></a>조석 고정?</h1><blockquote>
+<p>조석 고정(潮汐固定, Tidal locking)은 어떤 천체가 자신보다 질량이 큰 천체를 공전 및 자전할 때 공전주기와 자전주기가 일치하는 경우를 의미한다. 이 경우 천체의 한쪽 반구는 영원히 자기보다 큰 천체를 그 반대방향은 영원히 상대 천체를 등지게 된다.</p>
+<p>– <cite><a href="https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%84%9D_%EA%B3%A0%EC%A0%95" target="_blank" rel="noopener">위키피디아 ‘조석 고정’</a></cite></p>
+</blockquote>
+<p>지구에서 달의 한쪽 면 밖에 볼 수 없는 이유이기도 하죠.</p>
+<p>예전에 천문학 수업 과제로 이 개념을 플레시 애니메이션으로 만들어서 제출했던 적이 있었습니다. 당시 굉장히 기본적인 기능만 있었고, 플레시(…) 였지만 개념을 익히는데는 도움이 돼었던 걸로 기억합니다. 그때의 플레시 작업 파일은 지금 열리지 않고… 리액트로 기능 추가! 스타일 추가! 해서 다시 만들어보았습니다. 누군가의 천문학 수업에 좋은 학습자료가 되었으면…?</p>
+<h2 id="10년-전-플레시-애니메이션"><a href="#10년-전-플레시-애니메이션" class="headerlink" title="10년 전 플레시 애니메이션"></a>10년 전 플레시 애니메이션</h2><p>10년전에 만들었던 플레시 애니메이션의 스샷 :</p>
+<img src="/2020/02/23/tidally-locked/ss1.jpg" class="" title="tidal locking visualizer flash animation">
+
+<p>당시 나름 액션 스크립트로 요리조리 삼각법 써서 했던 것 같은데… 삼각법이 뭐죠.. (다 까먹음)<br>리액트로 다시 구현해봤습니다.</p>
+<h2 id="10년-후-다시만든-리액트-앱"><a href="#10년-후-다시만든-리액트-앱" class="headerlink" title="10년 후 다시만든 리액트 앱"></a>10년 후 다시만든 리액트 앱</h2><img src="/2020/02/23/tidally-locked/ss2.png" class="" title="조석 고정 시뮬레이터 작업 전 모습">
+
+<p>기본적인 공전 주기와 자전 주기 조절기능은 잘 보여집니다.<br>Styled component를 사용해서 컴포넌트에 던진 프롭으로 바로 css transform 속성에 반영하니까 코드도 그렇게 많지 않더라구요.</p>
+<p><a href="https://tidallylocked.com/" target="_blank" rel="noopener">여기서 확인 - Tidally Locked</a> / <a href="https://github.com/ejilee/Tidally-Locked" target="_blank" rel="noopener">코드는 여기</a></p>
+<h2 id="추가로-구현하고픈"><a href="#추가로-구현하고픈" class="headerlink" title="추가로 구현하고픈"></a>추가로 구현하고픈</h2><p>가장 최근에 커밋한게 2주 전인걸 보면, 그 사이에 헥소 블로그 만드느냐고 아예 손을 안썼었습니다. 하지만 또 여러가질 고칠 점을 생각해 볼 수 있는 시간이었던 것 같습니다.</p>
+<ul>
+<li>리드미 파일 수정</li>
+<li>조석 고정이 아닌 상태에서 조석 고정 상태가 되었을 때 ‘짜잔’하는 에니메이션이나 이펙트가 있었으면</li>
+<li>조석 고정 상태를 유지하고 있을 때 점선 같은 시각적 표기가 있었으면</li>
+<li>Reset, Tidal Lock, Pause 같은 기능성 버튼이 있었으면</li>
+<li>버튼과 인풋 외관 수정. 중요한 것만 빼내고 나머지는 옵션으로 작게 혹은 숨기기</li>
+<li>공전 경로 동그라미가 상태 변경시 사라지는 문제 수정</li>
+<li>천체 (달과 지구)에 문양이나 모양/색 등을 선택할 수 있게 해서 달에 별도 마커가 없어도 자전이 보이도록. 혹은 마커 표시를 옵션으로 체크 할 수 있게.</li>
+<li>지구도 자전할까? 굳이?</li>
+<li>햇빛의 방향도 천천히 360도 회전하게 하면 좀 더 멋있으려냐? 성가실려나?</li>
+</ul>
+<p>이런 것들이 있습니다. 일단 이것들을 시도해보기 전에, 어떤 식으로 구현되는지 설명해보겠습니다. (사실 나도 복습해야함…)</p>
+<h1 id="Styled-Components"><a href="#Styled-Components" class="headerlink" title="Styled Components"></a>Styled Components</h1><p>실은 나도 얼마전까지만해도, ‘음… 스타일드 컴포넌트… 굳이??’ 라고 생각했었는데. 이번 프로젝트에 특히 유용했습니다. 물론 모든 경우에 사용할 필요는 없다고 생각하지만, 스타일이 딱딱딱 개별 컴포넌트로 잘 나눠지는 경우에, 특히 <strong>프롭 값을 스타일에 바로 반영해서</strong> 사용할 일이 있을 때! 정말 좋은 것 같습니다. 이전에 억지로 배워보겠다고 이미 사용하고 있던 sass 변수를 새로 만든 스타일드 컴포넌트에서 사용하려다가 스트레스 받은 적이 있었는데, 경우를 잘 봐서 써야할 것 같기도.</p>
+<p>이 프로젝트에서 유심히 볼 부분은 Moon 컴포넌트와 그 안에 있는 스타일드 컴포넌트들입니다. 그 밖에 앱 안에는 Interface.js 라는 컴포넌트에 왼쪽으로 보이는 인풋들이 위치해 있습니다. Planet.js, OrbitLine.js, Space.js 컴포들도 있지만, 여기에서는 별일이 일어나지 않으니… Moon 컴포넌트를 들여다봅시다.</p>
+<h2 id="Moon-js"><a href="#Moon-js" class="headerlink" title="Moon.js"></a>Moon.js</h2><p>위 스샷에 있는 노란색 동그라미가 Moon.js 컴포넌트인데, 실은 눈에 보이지 않는 100% x 100% 크기의 사각형 StyledMoon 스타일드 컴포넌트가(여기서 부터는 그냥 <strong>스컴포</strong> 라 부름) 하나 있고, 그 중앙에 동그라미 스컴포 두개가 겹쳐져있습니다. 하나는 달의 몸뚱이인 노란색 MoonBody, 하나는 그림자만 갖고있는 음영 동그라미 MoonLight. 달몸뚱이 스컴포 안에는 달의 ‘얼굴’ MoonFace, 그러니까 어느쪽을 바라보고 있는지 표시하는 마커가 튀어나와있는 부분, 을 갖고 있는 스컴포가 하나 더 있습니다.</p>
+<figure class="highlight html"><figcaption><span>Moon.js 의 구조</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>지금 Moon.js 컴포넌트에게 던져지는 프롭은 :</p>
+<ul>
+<li>rotPer (자전주기, rotational period)</li>
+<li>orbPer (공전주기, orbital period)</li>
+<li>orbRad (공전 반경, orbit radius)</li>
+<li>mooSiz (달 크기, moon size)</li>
+<li>sunDir (햇빛 방향, sun direction)</li>
+</ul>
+<p>이렇게 다섯개이고, 이런식으로 4개의 스컴포 사이에서 다음처럼 사용되고 있습니다 :</p>
+<figure class="highlight html"><figcaption><span>Moon.js 의 프롭 사용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StyledMoon</span> <span class="attr">orbPer</span>=<span class="string">"&#123;orbPer&#125;"</span> <span class="attr">orbRad</span>=<span class="string">"&#123;orbRad&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonBody</span> <span class="attr">rotPer</span>=<span class="string">"&#123;rotPer&#125;"</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MoonFace</span>&gt;</span><span class="tag">&lt;/<span class="name">MoonFace</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">MoonBody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MoonLight</span> <span class="attr">mooSiz</span>=<span class="string">"&#123;mooSiz&#125;"</span> <span class="attr">sunDir</span>=<span class="string">"&#123;sunDir&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StyledMoon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>정리하자면, StyledMoon 스컴포 (컨테이너 사각형)은 공전 관련된 프롭만 사용합니다. MoonBody는 자전주기와 달 크기를 사용하고, MoonFace는 그냥 고정입니다. MoonLight도 MoonBody와 같은 달 크기 프롭을 사용하지만, 회전은 하지 않음으로 자전주기를 사용하지 않고 대신에 햇빛 방향이라는 프롭을 사용해서 음영의 방향을 조절합니다.</p>
+<h1 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h1><p>처음에 쉽게 생각하다 에니메이션 부분에서 잠깐 함정에 빠졌었는데. 단순히 ‘컨테이너 사각형을 orbPer 값을 사용해서 회전시키고, 동그라미 컴포넌트를 rotPer 값을 사용해서 회전시키면 되는 거 아님??’ 이라고 생각했었는데, 결과가 이상했죠. 이건 예시로 봐야 더 명확할 듯.</p>
+<h2 id="그냥-회전"><a href="#그냥-회전" class="headerlink" title="그냥 회전"></a>그냥 회전</h2><p>애초에 간단하게 생각했던 것 처럼 우선 HTML/CSS를 사용하는 예시를 만들어서 컨테이너 사각형을 회전시켜보았습니다.</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="whyejilee" data-slug-hash="PoqbXxX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TidallyLockedDemo1">
+  <span>See the Pen <a href="https://codepen.io/whyejilee/pen/PoqbXxX" target="_blank" rel="noopener">
+  TidallyLockedDemo1</a> by Yeji Lee (<a href="https://codepen.io/whyejilee" target="_blank" rel="noopener">@whyejilee</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="그냥-회전의-문제점"><a href="#그냥-회전의-문제점" class="headerlink" title="그냥 회전의 문제점"></a>그냥 회전의 문제점</h2><p>그냥 봐서는 뭐가 틀린 것 같지는 않은데, 공전과 자전은 분리해서 관리하고 싶다면 문제가 생깁니다. 지금 하얀 외관선을 가진 StyledMoon 컨테이너가 공전 애니메이션을 10초 주기로 한번씩 실행하고 있습니다. (CSS 에서 ‘공전 애니메이션’이라고 주석 표시) 잘 돌아가는데… 컨테이너 안에 있는 ‘M’이라고 쓰인 MoonBody 요소는 그저 부모 요소가 돌아가니까 붙어서 잘 돌아가고 있는 것이죠. 하지만 이 부분이 문제. 추후에 MoonBody에 자전 애니메이션을 만들어서 자전을 별도로 관리하려고 한다면, 공전 때문에 생기는 회전 각도까지 감안해서 계산해야 할 것입니다. 으으.. 수학. 생각하고 싶지 않아요.</p>
+<p>이렇게 생각해보면 좋을 것 같습니다. StyledMoon 컨테이너는 본인이 이미 회전하고 있기 때문에 MoonBody 자식 요소를 봤을 때, MoonBody는 회전하고 있지 않습니다. 하지만 전체 화면, 그러니까 회색 배경의 div#space의 입장에서 봤을 때, MoonBody는 확실히 회전하고 있습니다. 우리가 보기에 글자 “M”이 중간중간 뒤집혀 보이는 것만 보면 알 수 있죠.</p>
+<p>우리가 원하는 것은 우선 공전 애니메이션이 실행 됐을 때 StyledMoon 컨테이너는 회전하고, 안에 있는 MoonBody 요소는 회전하지 않는 것입니다 (자전은 없음). 그러니까, 저 “M” 이 뒤집히면 안 된다는 것입니다.</p>
+<h2 id="해답-회전-gt-이동-gt-반회전"><a href="#해답-회전-gt-이동-gt-반회전" class="headerlink" title="해답 : 회전 &gt; 이동 &gt; 반회전"></a>해답 : 회전 &gt; 이동 &gt; 반회전</h2><p>아주 간단한 해답을 다음 글에서 찾았습니다 :</p>
+<p><a href="http://lea.verou.me/2012/02/moving-an-element-along-a-circle/" target="_blank" rel="noopener">Moving an Element Along a Circle</a></p>
+<p>공전 에니메이션에 적용되는 transform 속성에 추가로 translate와 rotate을 한 번씩 더 채인 시키는 것이죠.</p>
+<p>우선 지금 MoonBody 의 CSS 속성에서 <code>transform: translate(100px);</code> 을 없애주어야 합니다. StyledMoon 정중앙에 다시 위치하게 하고, StyledMoon 컨테이너 자체를 이동시켜줄 것입니다.</p>
+<p>그래서 아래 같았던 키프레임을</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>아래처럼 고쳐주었습니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> MOON-REVOLUTION &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-<span class="number">360deg</span>) <span class="built_in">translate</span>(<span class="number">100px</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>처음에 했던 것처럼 회전은 똑같이 0 에서 -360도 실행합니다. 하지만 각 프레임에서 조금 회전 할 때마다 100px우측으로 이동하고 또 이번에는 -360도가 아닌 360도 방향으로 다시 움직입니다. 그러니까 1도 회전 단위로 생각해보면, 우선 시계 반대 방향으로 1도 회전합니다. 그리고 회전된 상태에서 우측으로 100px 이동합니다. (그러면 중앙에 있던 MoonBody 요소도 우측으로 이동, 위에서 transform 값 없애준 이유) 그 후 다시 시계 방향으로 1도 회전합니다. 그러면 공전은 하지만, StyledMoon 요소가 earth 요소 주위를 공전하는 모양이 나오지만, 화면에 비해서는 회전하지 않는, 자전하지 않는 모습이 표현됩니다.</p>
+<p>다음처럼!</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="whyejilee" data-slug-hash="poJNGoy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TidallyLockedDemo2">
+  <span>See the Pen <a href="https://codepen.io/whyejilee/pen/poJNGoy" target="_blank" rel="noopener">
+  TidallyLockedDemo2</a> by Yeji Lee (<a href="https://codepen.io/whyejilee" target="_blank" rel="noopener">@whyejilee</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h1 id="여기까지"><a href="#여기까지" class="headerlink" title="여기까지"></a>여기까지</h1><p>가장 핵심적인 문제는 이렇게 해결했습니다. 그 후에 위 예시를 React Styled Component로 다시쓰고 인풋 요소를 만들어서 공전 주기, 자전 주기 등의 상태를 직접 조절할 수 있도록 만든 것입니다. 오늘은 <a href="#추가로-구현하고픈">추가로 구현하고픈</a> 에 써있는 걸 해결하는 작업을 하려고 했는데, 어쩌다 보니 이미 해논 걸 설명하는 것 밖에 하지 못했네요. 역시 블로그를 너무 만만하게 생각했습니다, 그래도 복습에 도움은 되는 듯. 그럼 조석 고정 시뮬레이터 관련 글은 다음에 이어서 작성해야겠네요. 그럼 이만 안녕히.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/02/23/tidally-locked/" data-id="ckpaxe4wz000gd2oqhz7qbnqn" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/styled-components/" rel="tag">styled components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidal-locking/" rel="tag">tidal locking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tidally-locked/" rel="tag">tidally locked</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EC%A1%B0%EC%84%9D-%EA%B3%A0%EC%A0%95/" rel="tag">조석 고정</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-toc-styling" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-02-15T06:35:57.000Z" itemprop="datePublished">2020-02-15</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/15/toc-styling/">TOC 목차 만들기</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p><em>혹시 블로그 index에서 보고계시면 해당 글 제목을 클릭해서</em><br><em>글 고유 페이지로 들어오셔야 목차를 보실 수 있습니다.</em><br><em>목차는 데스탑에서만 보입니다.</em></p>
+<h1 id="내가-원하는-목차"><a href="#내가-원하는-목차" class="headerlink" title="내가 원하는 목차"></a>내가 원하는 목차</h1><p>블로그 글이 길어질 것을 감안하여 목차를 보여주고 싶었습니다.<br>다른 헥소 테마에 글 목차 기능이 있는 걸 보았는데,<br>제대로 작동하지 않고 코드가 잘 정리되어있지 않아서…<br>기본 landscape 테마를 수정한 후에 목차는 마지막에 별도로 추가하게 되었는데요.</p>
+<p>제가 만들어 볼 목차는 :</p>
+<ul>
+<li>글 왼쪽으로 sticky 하게 붙어있어야 한다.</li>
+<li>현재 보고 있는 헤딩이 목차 내에서 강조된다.</li>
+<li>목차 안에서 제목을 클릭하면 해당 내용으로 부드럽게 스크롤링.</li>
+</ul>
+<p>마침 최근에 관련된 글을 읽어서 응용해볼까 합니다.</p>
+<h2 id="참고-블로그-글"><a href="#참고-블로그-글" class="headerlink" title="참고 블로그 글"></a>참고 블로그 글</h2><p>Bramus님이 깔끔하게 정리해주신 글입니다 : (영문)<br><a href="https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation" target="_blank" rel="noopener">Smooth Scrolling Sticky ScrollSpy Navigation</a></p>
+<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><h2 id="Hexo-Helper-toc"><a href="#Hexo-Helper-toc" class="headerlink" title="Hexo Helper - toc()"></a>Hexo Helper - toc()</h2><p>Hexo의 Helper 중에 <a href="https://hexo.io/ko/docs/helpers#toc" target="_blank" rel="noopener"><code>toc()</code></a>이라는 아이가 있습니다. 파라미터로 사용되는 스트링(블로그 글 본문)에서 <code>h1~h6</code> 태그들을 찾아서 목록을 만들어주죠. 여기서부터 Bramus 형님의 접근에서 살짝 갈라집니다. 위에 링크된 글 예시에서는 html의 내용이 섹션(section)으로 나눠져있습니다. Hexo에서 사용하는 블로그 포스트는 markdown을 사용하고 별로도 섹션을 나눠서 작성하지 않습니다. <code>toc()</code>은 헤딩의 이름만 알려주지, 그 밑에 무슨 내용이 있는지, 어디까지가 해당 헤딩의 범주인지.. 이런 정보는 갖고있지 않습니다. 글을 작성할 때마다 섹션을 나눠서 쓸 수 있는지도 의문이고, 귀찮기도 하고요. 저는 그래서 일단은 헤딩만 감지하는 목차를 만들어볼까 합니다.</p>
+<p>테마 디렉토리 안에 있는 <code>layout&gt;_partial&gt;post</code> 에 <code>toc.ejs</code>를 만들고 <code>article.ejs</code> 레이아웃 파일 최하단에 다음처럼 붙여보았습니다.</p>
+<figure class="highlight javascript"><figcaption><span>article.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index &amp;&amp; !page)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'post/toc'</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>…이렇게 <code>article.ejs</code> 문서 맨 마지막에 붙여주었습니다. 조건문은 article 같은 레이아웃이 index에도 쓰이고 page에서도 쓰이기 때문에 목차를 index도 아니고 page도 아닌 경우에만 보여주기 위해서입니다. <code>toc.ejs</code> 파일은 다음처럼 작성했습니다.</p>
+<figure class="highlight javascript"><figcaption><span>article.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (toc(post.content) !== <span class="string">""</span>)&#123; %&gt;</span><br><span class="line">  &lt;nav id=<span class="string">"article-toc"</span>&gt;</span><br><span class="line">    &lt;h2&gt;&lt;%- post.title %&gt;&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%- toc(post.content, &#123;list_number: false, max_depth: 3&#125;) %&gt;</span></span><br><span class="line"><span class="regexp">    &lt;%- js('js/</span>tocscrollspy<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">  &lt;/nav&gt;</span></span><br><span class="line"><span class="string">&lt;% &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>여기서의 조건문은 헤딩이 없는 짧은 글의 경우에, <code>toc()</code>이 아무것도 반환하지 않았을때 목차를 아예 사용하지 않기 위해서이고요. 나머지 경우에만 nav 안에 <code>toc()</code>에 옵션을 추가해서 보여줍니다. <a href="https://hexo.io/ko/docs/helpers#toc" target="_blank" rel="noopener">Hexo 공식문서</a> 에 따르면 옵션은 4가지, class, list_number, max_depth, min_depth 이고 디폴트는 각 ‘toc’, true, 6, 1 입니다. 저는 list_number 와 max_depth 값만 바꿔줬습니다. (숫자 표시 안 하고 h4~h6 소제목은 목차에 포함 안 하기로) 그 밖에 h2로 글 제목을 보여주고, 목차 밑에 스크립트 파일을 추가했습니다. 스크립트를 보기전에 잠시 스타일을 보겠습니다.</p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><img src="/2020/02/15/toc-styling/screenshot1.png" class="" title="스타일링 없는 목차 스크린샷">
+
+<p><em>스타일 관련 코드들은 순 css를 사용하지 않고 스타일러스 포맷을 사용합니다.</em><br><em>브라켓이랑 세비콜론등이 안 보여도 내용은 그냥 css와 다를게 없으니 참고하시기 바랍니다</em></p>
+<p>기존에 블로그 전반 레이아웃으로 사용하고있는 grid에 목차를 탑승시킵니다. (그리드 컨테이너 관련 내용은 생략하겠습니다) 별도의 <code>toc.styl</code> 파일을 만들지 않고 기존 <code>style.styl</code>와 <code>article.styl</code>을 수정했습니다. 우선 목차 클릭시 스크롤이 부드럽게 넘어가는 법은 초간단합니다.</p>
+<figure class="highlight styl"><figcaption><span>style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">  scroll-behavior: smooth</span><br></pre></td></tr></table></figure>
+
+<p>끝. 이제 목차 스타일링을 시작합니다.</p>
+<figure class="highlight styl"><figcaption><span>style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#article-toc</span><br><span class="line">  <span class="attribute">display</span>: none</span><br><span class="line"></span><br><span class="line">  @media screen and (<span class="attribute">min-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">display</span>: block</span><br><span class="line">    <span class="attribute">align-self</span>: start</span><br><span class="line">    grid-column: <span class="number">1</span> / <span class="selector-tag">span</span> <span class="number">1</span></span><br><span class="line">    grid-row: <span class="number">3</span> / <span class="selector-tag">span</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>우선 저는 모바일에서는 목차를 사용하지 않기로 했습니다. 그래서 일반적으로는 <code>display:none</code> … 미디어 쿼리를 사용해서 768px 이상의 스크린에서만 <code>#article-toc</code>을 보여주고, 기존에 있는 그리드 안에서의 위치를 잡아주었습니다. 이 과정에서 기억할 건 그리드 내 요소에 <code>align-self:start</code>를 사용하지 않으면 컨텐츠의 세로길이가 나머지 그리드의 길이만큼 길어져버려서 <code>position:sticky</code>가 제대로 작동하지 않을 수도 있다는 점입니다.</p>
+<p><code>style.styl</code> 에는 우선 그리드와 미디어 쿼리 관련 코드만 수정해주고… 나머지는 <code>article.styl</code> 에서 다음처럼 추가해주었습니다.</p>
+<figure class="highlight styl"><figcaption><span>article.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#article-toc</span><br><span class="line">  <span class="attribute">position</span>: sticky</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span></span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">24px</span></span><br><span class="line"></span><br><span class="line">  h2</span><br><span class="line">    @extend <span class="variable">$block</span>-caption</span><br><span class="line">    <span class="attribute">color</span>: color-accent</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">24px</span></span><br><span class="line"></span><br><span class="line">  li</span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1px</span></span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">ol</span>.toc-child</span><br><span class="line">      <span class="attribute">margin-left</span> : <span class="number">16px</span></span><br><span class="line"></span><br><span class="line">    a</span><br><span class="line">      <span class="attribute">display</span>:block</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">0</span> <span class="number">8px</span> <span class="number">16px</span></span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#333</span></span><br><span class="line">      <span class="attribute">font-weight</span>: <span class="number">600</span></span><br><span class="line">      <span class="attribute">text-decoration</span>: none</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">0.8</span></span><br><span class="line">      <span class="attribute">transition</span>: opacity <span class="number">200ms</span></span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">a</span>:hover</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">li</span><span class="selector-class">.active</span> &gt; a</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span></span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid color-accent</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">4px</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<img src="/2020/02/15/toc-styling/screenshot4.png" class="" title="스타일링 추가된 목차 스크린샷">
+
+<p>이로소 li.active 에 관련된 스타일을 만들어 주었습니다. 이제 스크립트를 사용해서 화면에 보이는 헤딩 요소와 일치하는 목차 제목에 active 클라스를 부여해주면 될 것 같습니다.</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>테마 디렉토리에서 <code>source &gt; js</code> 에 <code>tocscrollspy.js</code> 라는 파일을 만들고 Bramus님의 예시를 참고해서 다음처럼 작성했습니다 :</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allTocLis = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line">        <span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">          .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">          .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">          .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">          .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">          .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">          .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">            el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">          &#125;);</span><br><span class="line">          articleToc</span><br><span class="line">            .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">            .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>‘DOMContentLoaded’ 이벤트 리스너 안의 내용을 크게 세 구간으로 나눠보자면…</p>
+<ul>
+<li>처음에는 앞으로 사용할 DOM 노드들을 선택해서 세개의 변수로 잡아주었습니다.</li>
+<li>중간 부분에서 제일 중요한 new IntersectionObserver로 observer를 만들어 주었습니다다.</li>
+<li>마지막에는 구역에 있는 코드는 블로그 본문(articleBody)에서 headerlink라는 클라스 갖고 있는 모든 요소를 선택해서 각 요소를 observer에게 ‘감시하라’ 라고 말하고 있습니다.</li>
+</ul>
+<p>여기서 headerlink는 Hexo 마크다운에서 h1~h6를 사용하면 각 헤더 바로 뒤에 자동을 붙는 a 태그의 클라스 이름입니다. 저희는 이 a.headerlink 들을 ‘감시’해서 특정 a.headerlink 요소가 화면에 등장 할 때마다 목차에 변화를 줄 것입니다. 우선 IntersectionObserver 가 뭐하는 녀석인지 짚고 넘어가야 해당 기능을 사용할 수 있을 것 같습니다.</p>
+<h2 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">모질라의 Intersection Observer API 문서</a> 에 따르면,</p>
+<blockquote>
+<p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
+</blockquote>
+<p>번역을 하면,</p>
+<blockquote>
+<p>‘Intersection Obeserver API’는 <strong>대상 요소</strong>와 <strong>조상 요소</strong> (혹은 최상단 뷰포트 요소)의 <strong>교차점의 변화</strong>를 비동기적으로 지켜보는 방법을 제공합니다.</p>
+</blockquote>
+<p>말이 좀 어려워서 그렇지 가장 많이 사용되는 예시로 뷰포트에 대상 요소가 나타나는 걸 감지할 때 쓰입니다. 예를 들어 스크롤을 해서 화면에 이미지가 나타날 때 레이지하게 이미지를 로딩하거나, 밑으로 스크롤을 내릴 수록 추가 요소를 계속 로딩하고 (무한 스크롤), 광고의 화면 가시성을 측정하고, 유저에게 보이느냐 안보이느냐에 따라 복잡한 에니메이션을 실행할지 중단할지 등을 정할 때 쓰일 수 있습니다.</p>
+<p>모질라 문서를 읽어본 후 몇 가지 요점을 정리해 봤습니다. (ie 호환 안 되니, 해당 문서에서 브라우저 호환성도 확인하세요)</p>
+<p>Intersection Observer API 사용시 기억할 부분들 :</p>
+<ul>
+<li>우선 Intersection Observer의 컨스트럭터를 불러서 새 intersection observer 를 생성합니다.</li>
+<li>파라미터는 2개, 콜백 함수와 옵션 객체</li>
+<li>콜백함수 / 대상 요소와 조상 요소의 교차점에 변화가 오면 부르는 함수</li>
+<li>옵션은 3가지 / root, rootMargin, threshold.</li>
+<li>root : 사용할 조상 요소. 따로 안 잡아주거나 null 이면 뷰포트.</li>
+<li>rootMargin : 조상 요소의 마진. 일반 css 마진처럼 잡아줄 수 있음. (예 - rootMargin : ‘12px 6px 12px 0’) 기본값 0.</li>
+<li>threshold : 0.0 ~ 1.0 의 숫자. 조상 요소와 교차하는 대상요소의 비율을 나타냄. 해당 비율을 지날 때 콜백함수가 불려짐. 배열로 한계점 여러개 잡을 수 있음. (예 - threshold : [0.2, 0.4, 0.6, 0.8, 1.0] ) 기본값 0 (대상 요소가 쬐끔이라도 보이면 콜백부름. 1.0으로 설정 시 대상요소가 100% 보이면 콜백 부른다는 의미.</li>
+<li>콜백 함수는 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry" target="_blank" rel="noopener">IntersectionObserverEntry</a> 객체 배열과 (위에서 말한 threshold 한계점 하나당 하나의 객체) observer를 전달받음</li>
+<li>각 IntersectionObserverEntry 객체는 대상 요소가 조상 요소와 교차하는 비율 (threshold), 교차하고 있는지 아닌지의 여부, 그리고 어떤 방향으로 변화가 일어나고있는지 (나타나고 있는지, 없어지고 있는지) 의 정보를 가지고 있음.</li>
+<li>교차점의 변화를 감지하는 것은 비동기 작업이지만, 콜백 자체는 비동기가 아닌 main thread 에서 실행됨. 너무 무거운 작업은 Window.requestIdleCallback() 사용 권장</li>
+</ul>
+<p>저는 일단 당장 사용할 때 주의해야할 기본 사항들을 정리해 보았고요, 모질라 문서에는 교차영역이 어떻게 계산되는지 같은 자세한 얘기과 예시도 두개나 들어있으니, 더 자세한 내용이 필요하시면 꼭 읽어보시길.</p>
+<p>그럼 글 초반에 링크 걸었던 <a href="https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/" target="_blank" rel="noopener">블로그 글</a>에는 어떻게 사용되고 있나 확인해보겠습니다.</p>
+<figure class="highlight javascript"><figcaption><span>링크된 글에 사용된 코드</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function">(<span class="params">entries</span>) =&gt;</span> &#123;</span><br><span class="line">    entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> id = entry.target.getAttribute(<span class="string">"id"</span>);</span><br><span class="line">      <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span></span><br><span class="line">          .querySelector(<span class="string">`nav li a[href="#<span class="subst">$&#123;id&#125;</span>"]`</span>)</span><br><span class="line">          .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">document</span></span><br><span class="line">          .querySelector(<span class="string">`nav li a[href="#<span class="subst">$&#123;id&#125;</span>"]`</span>)</span><br><span class="line">          .parentElement.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Track all sections that have an `id` applied</span></span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">"section[id]"</span>).forEach(<span class="function">(<span class="params">section</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(section);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>const observer = new IntersectionObserver(); 안에 있는 내용을 확인해야겠죠. 여기는 옵션은 사용하지 않았네요, 콜백 함수… entries =&gt; {} 의 내용만 보면 될 것 같습니다. 이 경우에는 threshold 옵션을 사용하지 않아서 콜백 함수에 전달되는 entry 는 하나겠죠..?<br>forEach 안에 내용을 보자면… intersectionObserverEntry의 속성 두 가지가 보입니다… entry.target, entry.intersectionRatio. target은 대상 요소, intersectionRatio 는 교차 비율입니다. 참고해서 읽으면</p>
+<ul>
+<li>id는 대상 요소의 id 값이다.</li>
+<li>대상 요소의 교차 비율이 0보다 크면…</li>
+<li>문서에서 href값으로 id를 사용하고 있는 nav 속 li 속 a 태그를 찾아서</li>
+<li>그 태그의 부모요소의 클라스 목록에 ‘active’를 더해라</li>
+<li>대상 요소의 교차 비울이 0보다 크지 않으면…</li>
+<li>문서에서 href값으로 id를 사용하고 있는 nav 속 li 속 a 태그를 찾아서</li>
+<li>그 태그의 부모요소의 클라스 목록에 ‘active’를 삭제해라<br>입니다.</li>
+</ul>
+<p>아까 Template 부분에서 말했듯이, 이 예시에서는 id값을 가진 section를 관찰하죠. 해당 section이 조금이라도 보이면 목차에 같은 id값을 가진 a 태그가 강조됩니다. 관련 내용을 다 읽고 해딩과 글 내용까지 포함한 section이 아예 보이지 않게 될 때 비로소 목차에서 강조 스타일이 없어지곘죠.</p>
+<p>제 경우에 이걸 바로 똑같이 쓰지 못하는 이유는… 저는 해딩 태그만 관찰하기 때문이죠. 만약에 콜백을 저렇게 썼다면… 해딩이 보이지 않는 즉시 목차에 강조 스타일이 사라질 겁니다. 헤딩 아래에 관련 내용은 아직도 길게 늘어져있는데 말이죠.</p>
+<p>일단 IntersectionObserver 옵션으로 root와 threshold는 저도 기본값인 뷰포트와 0으로 두고, rootMargin만 조금 깎았습니다.</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allHeadings = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 여기에 무슨 내용이...</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>일단 여기까지 쓰고 여기서 forEach 안에 어떤 내용을 집어넣어야 할까… 고민을 하다가.<br>콜백을 불렀을 시 우선 목차에 있는 모든 li에서 active 클라스를 없애고, 대상 요소의 title 과 일치하는 href 값을 가진 a의 부모 li에만 active 클라스를 추가했습니다. 이렇게 하면 페이지 위에서 아래로 읽을 때는 왠만하면 내용이 목차에 잘 반영됩니다. 특정 해딩을 먼저 읽고 &gt; 목차에서 해당 해딩을 강조해주고 &gt; 해딩 아래에 있는 관련 내용을 읽으면서 (아직도 해당 해딩이 강조되어있고) &gt; 다 읽고 다음 해딩이 나올 쯤에 &gt; 이전 해딩의 강조가 없어지고 다음 해딩이 강조되죠. 코드도 복잡하지 않죠 :</p>
+<figure class="highlight javascript"><figcaption><span>forEach 안에 들어갈 내용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  articleToc</span><br><span class="line">    .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitle&#125;</span>"]`</span>)</span><br><span class="line">    .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이제.. 문제는 아래에서 위로 읽었을 시에… 독자의 페이지 위치가 목차에 제때 반영되지 않는다는 점입니다. 또 콜백을 부를 때마다 모든 active 클라스를 없애기 때문에 여러 해딩이 다닥다닥 붙어있는 부분에서는 목차에서 여러개를 강조하지 못하고 그 중 한개만 강조한다는 점… 만약에 아래서부터 위로 읽는 버릇을 가진 독자는 어서 나쁜 버릇을 고치셔야…가 아니라 제가 블로그 글을 section으로 나눠서 작성하는 방안을 찾아보겠습니다. 다음 기회에.</p>
+<p>추가로 headerTitle을 가져왔을 때 바로 a href 값과 비교하면, toc()이 만들어주는 href 문자열 값이 변경되어 사용되기 때문에 일치하지 않을 수도 있습니다. 여기에 대해서는 일단 해딩 스트링에 사용할 법한 특수기호들을 없애주고 띄어쓰기를 ‘-‘로 바꿔주도록 replace 를 몇번 써서 headerTitleFixed 라는 값을 별도로 만들어서 썼습니다. 이렇게요 :</p>
+<figure class="highlight javascript"><figcaption><span>title 문자열 변환</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line"><span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">  .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">  .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">  .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">  .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">  .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">  .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  articleToc</span><br><span class="line">    .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">    .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다시 tocscrollspy.js 의 내용 전부 정리하자면 이렇습니다 :</p>
+<figure class="highlight javascript"><figcaption><span>tocscrollspy.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> articleBody = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"article-entry"</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> articleToc = <span class="built_in">document</span>.getElementById(<span class="string">"article-toc"</span>);</span><br><span class="line">  <span class="keyword">const</span> allTocLis = articleToc.querySelectorAll(<span class="string">"li.toc-item"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(</span><br><span class="line">    (entries) =&gt; &#123;</span><br><span class="line">      entries.forEach(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> headerTitle = entry.target.getAttribute(<span class="string">"title"</span>);</span><br><span class="line">        <span class="keyword">const</span> headerTitleFixed = headerTitle</span><br><span class="line">          .replace(<span class="regexp">/[`~!@#$%^*()_|+\=?;:,.\&#123;\&#125;\[\]\\\/]/gi</span>, <span class="string">""</span>)</span><br><span class="line">          .replace(<span class="string">"&amp;"</span>, <span class="string">"amp"</span>)</span><br><span class="line">          .replace(<span class="string">"&lt;"</span>, <span class="string">"-lt"</span>)</span><br><span class="line">          .replace(<span class="string">"&gt;"</span>, <span class="string">"-gt"</span>)</span><br><span class="line">          .replace(<span class="regexp">/\s+/g</span>, <span class="string">"-"</span>)</span><br><span class="line">          .replace(<span class="string">"---"</span>, <span class="string">"-"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (entry.intersectionRatio &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          allTocLis.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">            el.classList.remove(<span class="string">"active"</span>);</span><br><span class="line">          &#125;);</span><br><span class="line">          articleToc</span><br><span class="line">            .querySelector(<span class="string">`li a[href="#<span class="subst">$&#123;headerTitleFixed&#125;</span>"]`</span>)</span><br><span class="line">            .parentElement.classList.add(<span class="string">"active"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">rootMargin</span>: <span class="string">"-60px"</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  articleBody.querySelectorAll(<span class="string">".headerlink"</span>).forEach(<span class="function">(<span class="params">headerlink</span>) =&gt;</span> &#123;</span><br><span class="line">    observer.observe(headerlink);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h1><img src="/2020/02/15/toc-styling/screenshot5.png" class="" title="스타일과 기능이 완성된 목차 스크린샷">
+
+<p>부족한 부분이 많지만, 당분간 사용하기엔 나쁘지 않은 것 같습니다.<br>앞으로 마크다운 글을 섹션으로 나눠서 작업하는 방법을 찾아서<br>내용까지 트레킹 할 수 있는 버전으로 업그레이드 할 수 있으면 좋을 것 같습니다.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/02/15/toc-styling/" data-id="ckpaxe4x2000jd2oqfzjyg5pj" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Intersection-Observer/" rel="tag">Intersection Observer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOC/" rel="tag">TOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%EB%AA%A9%EC%B0%A8/" rel="tag">목차</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+      <section id="main">
+  
+  <article id="post-firstpost" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      
+        <div class="article-meta">
+          <time datetime="2020-02-14T05:56:32.000Z" itemprop="datePublished">2020-02-14</time>
+
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+        </div>
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/14/firstpost/">첫 포스트</a>
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>안녕하세요, Hexo 기반의 블로그를 만들어보았습니다.<br>지금 보이는 사이트는 Hexo의 기본 Lanscape 태마를 제 필요대로 수정한 모습입니다.<br>필요하신 분은 <a href="https://github.com/ejilee/weiji" target="_blank" rel="noopener">깃헙</a>에서 자유롭게 둘러보세요.</p>
+<p>아직 고칠 부분이 많지만,<br>전부 고치다보면 원래 하려던 공부를 영영 미뤄버릴 것 같아요.<br>(벌써 일주일째 블로그 스타일만 고치고 있다죠)<br>Table of Contents 만 좀 고치고 리액트 공부 다시 들어가야겠슴다.</p>
+
+        
+      </div>
+      
+        <footer class="article-footer">
+          <a data-url="https://weiji.io/2020/02/14/firstpost/" data-id="ckpaxe4wq0005d2oqfgog600l" class="article-share-link">Share</a>
+          
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+        </footer>
+      
+    </div>
+    
+  </article>
+
+  
+
+</section>
+
+
+    
+  
+  
+
+</section>
+        </div>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Yeji Lee
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
